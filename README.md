@@ -1,5 +1,5 @@
 # 15HCB2-HTTTHD
-## Đề tài: Card Processing
+## Đồ án: Card Processing
 ## Nhóm ZET
 ### Thành viên
 + 1542207	Ngô Hoàng Ngọc Bảo
