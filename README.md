@@ -1,4 +1,5 @@
 # 15HCB2-HTTTHD
+<<<<<<< HEAD
 ## Đồ án: Card Processing
 ## Nhóm ZET
 ### Thành viên
@@ -8,3 +9,6 @@
 + 1542247	Trần Vĩnh Nam
 + 1542277	Nguyễn Trung Tín
 
+=======
+# Update Yêu cầu 1 [Deadline 20-03-2017, 23h55]
+>>>>>>> refs/remotes/origin/master
