@@ -1,0 +1,439 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CardProcessingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'card_processing.dbo.Agent' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Agent">
+          <Key>
+            <PropertyRef Name="AgentId" />
+            <PropertyRef Name="AgentName" />
+            <PropertyRef Name="ProvinceId" />
+            <PropertyRef Name="DistrictId" />
+            <PropertyRef Name="IsActive" />
+          </Key>
+          <Property Name="AgentId" Type="int" Nullable="false" />
+          <Property Name="AgentName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ProvinceId" Type="int" Nullable="false" />
+          <Property Name="DistrictId" Type="int" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="255" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="OwnerId" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'card_processing.dbo.CardType' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CardType">
+          <Property Name="CardTypeCode" Type="int" />
+          <Property Name="CardTypeName" Type="varchar" MaxLength="50" />
+        </EntityType>-->
+        <EntityType Name="Merchant">
+          <Key>
+            <PropertyRef Name="MerchantId" />
+          </Key>
+          <Property Name="MerchantId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="255" />
+          <Property Name="MerchantType" Type="int" Nullable="false" />
+          <Property Name="ProvinceId" Type="int" Nullable="false" />
+          <Property Name="DistrictId" Type="int" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="20" />
+          <Property Name="Fax" Type="varchar" MaxLength="20" />
+          <Property Name="AgentId" Type="int" />
+          <Property Name="OwnerId" Type="int" />
+          <Property Name="FirstActiveDate" Type="datetime" />
+          <Property Name="LastActiveDate" Type="datetime" />
+          <Property Name="MerchantName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Status" Type="nchar" MaxLength="10" />
+          <Property Name="Owner" Type="varchar" MaxLength="50" />
+          <Property Name="Address1" Type="nvarchar" MaxLength="255" />
+          <Property Name="Address2" Type="nvarchar" MaxLength="255" />
+          <Property Name="Address3" Type="nvarchar" MaxLength="255" />
+          <Property Name="Zip" Type="varchar" MaxLength="20" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="ApprovalDate" Type="datetime" />
+          <Property Name="CloseDate" Type="datetime" />
+          <Property Name="BankCardDBA" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'card_processing.dbo.MerchantManager' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="MerchantManager">
+          <Key>
+            <PropertyRef Name="MasterId" />
+            <PropertyRef Name="MerchantId" />
+          </Key>
+          <Property Name="MasterId" Type="int" Nullable="false" />
+          <Property Name="MerchantId" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'card_processing.dbo.MerchantType' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="MerchantType">
+          <Key>
+            <PropertyRef Name="TypeId" />
+            <PropertyRef Name="TypeName" />
+          </Key>
+          <Property Name="TypeId" Type="int" Nullable="false" />
+          <Property Name="TypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'card_processing.dbo.TransactionDetail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TransactionDetail">
+          <Key>
+            <PropertyRef Name="TransactionCode" />
+            <PropertyRef Name="MerchantNumber" />
+            <PropertyRef Name="TransactionDate" />
+            <PropertyRef Name="TransationTime" />
+            <PropertyRef Name="CardTypeId" />
+            <PropertyRef Name="AuthorizationNumber" />
+          </Key>
+          <Property Name="TransactionCode" Type="int" Nullable="false" />
+          <Property Name="MerchantNumber" Type="int" Nullable="false" />
+          <Property Name="TransactionAmount" Type="money" />
+          <Property Name="TransactionDate" Type="date" Nullable="false" />
+          <Property Name="TransationTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="Description" Type="nchar" MaxLength="10" />
+          <Property Name="CardTypeId" Type="int" Nullable="false" />
+          <Property Name="KeyedEntry" Type="nchar" MaxLength="10" />
+          <Property Name="AuthorizationNumber" Type="int" Nullable="false" />
+          <Property Name="AccountNumber" Type="nchar" MaxLength="10" />
+          <Property Name="FirstTwelveAccountNumber" Type="nchar" MaxLength="10" />
+          <Property Name="CountryCode" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'card_processing.dbo.User' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="Password" />
+            <PropertyRef Name="FullName" />
+            <PropertyRef Name="RoleId" />
+            <PropertyRef Name="IsActive" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="20" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'card_processing.dbo.UserRole' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="RoleId" />
+            <PropertyRef Name="RoleName" />
+          </Key>
+          <Property Name="RoleId" Type="int" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="CardProcessingModelStoreContainer">
+          <EntitySet Name="Merchant" EntityType="Self.Merchant" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Agent" EntityType="Self.Agent" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Agent].[AgentId] AS [AgentId], 
+    [Agent].[AgentName] AS [AgentName], 
+    [Agent].[ProvinceId] AS [ProvinceId], 
+    [Agent].[DistrictId] AS [DistrictId], 
+    [Agent].[Address] AS [Address], 
+    [Agent].[IsActive] AS [IsActive], 
+    [Agent].[OwnerId] AS [OwnerId]
+    FROM [dbo].[Agent] AS [Agent]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="MerchantManager" EntityType="Self.MerchantManager" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [MerchantManager].[MasterId] AS [MasterId], 
+    [MerchantManager].[MerchantId] AS [MerchantId]
+    FROM [dbo].[MerchantManager] AS [MerchantManager]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="MerchantType" EntityType="Self.MerchantType" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [MerchantType].[TypeId] AS [TypeId], 
+    [MerchantType].[TypeName] AS [TypeName]
+    FROM [dbo].[MerchantType] AS [MerchantType]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TransactionDetail" EntityType="Self.TransactionDetail" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TransactionDetail].[TransactionCode] AS [TransactionCode], 
+    [TransactionDetail].[MerchantNumber] AS [MerchantNumber], 
+    [TransactionDetail].[TransactionAmount] AS [TransactionAmount], 
+    [TransactionDetail].[TransactionDate] AS [TransactionDate], 
+    [TransactionDetail].[TransationTime] AS [TransationTime], 
+    [TransactionDetail].[Description] AS [Description], 
+    [TransactionDetail].[CardTypeId] AS [CardTypeId], 
+    [TransactionDetail].[KeyedEntry] AS [KeyedEntry], 
+    [TransactionDetail].[AuthorizationNumber] AS [AuthorizationNumber], 
+    [TransactionDetail].[AccountNumber] AS [AccountNumber], 
+    [TransactionDetail].[FirstTwelveAccountNumber] AS [FirstTwelveAccountNumber], 
+    [TransactionDetail].[CountryCode] AS [CountryCode]
+    FROM [dbo].[TransactionDetail] AS [TransactionDetail]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="User" EntityType="Self.User" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [User].[UserId] AS [UserId], 
+    [User].[UserName] AS [UserName], 
+    [User].[Password] AS [Password], 
+    [User].[FullName] AS [FullName], 
+    [User].[Phone] AS [Phone], 
+    [User].[RoleId] AS [RoleId], 
+    [User].[IsActive] AS [IsActive]
+    FROM [dbo].[User] AS [User]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="UserRole" EntityType="Self.UserRole" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [UserRole].[RoleId] AS [RoleId], 
+    [UserRole].[RoleName] AS [RoleName]
+    FROM [dbo].[UserRole] AS [UserRole]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CardProcessingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Merchant">
+          <Key>
+            <PropertyRef Name="MerchantId" />
+          </Key>
+          <Property Name="MerchantId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="MerchantType" Type="Int32" Nullable="false" />
+          <Property Name="ProvinceId" Type="Int32" Nullable="false" />
+          <Property Name="DistrictId" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Fax" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="AgentId" Type="Int32" />
+          <Property Name="OwnerId" Type="Int32" />
+          <Property Name="FirstActiveDate" Type="DateTime" Precision="3" />
+          <Property Name="LastActiveDate" Type="DateTime" Precision="3" />
+          <Property Name="MerchantName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Owner" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Address2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Address3" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Zip" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ApprovalDate" Type="DateTime" Precision="3" />
+          <Property Name="CloseDate" Type="DateTime" Precision="3" />
+          <Property Name="BankCardDBA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Agent">
+          <Key>
+            <PropertyRef Name="AgentId" />
+            <PropertyRef Name="AgentName" />
+            <PropertyRef Name="ProvinceId" />
+            <PropertyRef Name="DistrictId" />
+            <PropertyRef Name="IsActive" />
+          </Key>
+          <Property Name="AgentId" Type="Int32" Nullable="false" />
+          <Property Name="AgentName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProvinceId" Type="Int32" Nullable="false" />
+          <Property Name="DistrictId" Type="Int32" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="OwnerId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="MerchantManager">
+          <Key>
+            <PropertyRef Name="MasterId" />
+            <PropertyRef Name="MerchantId" />
+          </Key>
+          <Property Name="MasterId" Type="Int32" Nullable="false" />
+          <Property Name="MerchantId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MerchantType">
+          <Key>
+            <PropertyRef Name="TypeId" />
+            <PropertyRef Name="TypeName" />
+          </Key>
+          <Property Name="TypeId" Type="Int32" Nullable="false" />
+          <Property Name="TypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TransactionDetail">
+          <Key>
+            <PropertyRef Name="TransactionCode" />
+            <PropertyRef Name="MerchantNumber" />
+            <PropertyRef Name="TransactionDate" />
+            <PropertyRef Name="TransationTime" />
+            <PropertyRef Name="CardTypeId" />
+            <PropertyRef Name="AuthorizationNumber" />
+          </Key>
+          <Property Name="TransactionCode" Type="Int32" Nullable="false" />
+          <Property Name="MerchantNumber" Type="Int32" Nullable="false" />
+          <Property Name="TransactionAmount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="TransactionDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="TransationTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="Description" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="CardTypeId" Type="Int32" Nullable="false" />
+          <Property Name="KeyedEntry" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="AuthorizationNumber" Type="Int32" Nullable="false" />
+          <Property Name="AccountNumber" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="FirstTwelveAccountNumber" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="CountryCode" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="Password" />
+            <PropertyRef Name="FullName" />
+            <PropertyRef Name="RoleId" />
+            <PropertyRef Name="IsActive" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="RoleId" />
+            <PropertyRef Name="RoleName" />
+          </Key>
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="CardProcessingEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Merchants" EntityType="Self.Merchant" />
+          <EntitySet Name="Agents" EntityType="Self.Agent" />
+          <EntitySet Name="MerchantManagers" EntityType="Self.MerchantManager" />
+          <EntitySet Name="MerchantTypes" EntityType="Self.MerchantType" />
+          <EntitySet Name="TransactionDetails" EntityType="Self.TransactionDetail" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="UserRoles" EntityType="Self.UserRole" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CardProcessingModelStoreContainer" CdmEntityContainer="CardProcessingEntities">
+          <EntitySetMapping Name="Merchants">
+            <EntityTypeMapping TypeName="CardProcessingModel.Merchant">
+              <MappingFragment StoreEntitySet="Merchant">
+                <ScalarProperty Name="MerchantId" ColumnName="MerchantId" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="MerchantType" ColumnName="MerchantType" />
+                <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
+                <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="AgentId" ColumnName="AgentId" />
+                <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
+                <ScalarProperty Name="FirstActiveDate" ColumnName="FirstActiveDate" />
+                <ScalarProperty Name="LastActiveDate" ColumnName="LastActiveDate" />
+                <ScalarProperty Name="MerchantName" ColumnName="MerchantName" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Address3" ColumnName="Address3" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ApprovalDate" ColumnName="ApprovalDate" />
+                <ScalarProperty Name="CloseDate" ColumnName="CloseDate" />
+                <ScalarProperty Name="BankCardDBA" ColumnName="BankCardDBA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Agents">
+            <EntityTypeMapping TypeName="CardProcessingModel.Agent">
+              <MappingFragment StoreEntitySet="Agent">
+                <ScalarProperty Name="AgentId" ColumnName="AgentId" />
+                <ScalarProperty Name="AgentName" ColumnName="AgentName" />
+                <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
+                <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MerchantManagers">
+            <EntityTypeMapping TypeName="CardProcessingModel.MerchantManager">
+              <MappingFragment StoreEntitySet="MerchantManager">
+                <ScalarProperty Name="MasterId" ColumnName="MasterId" />
+                <ScalarProperty Name="MerchantId" ColumnName="MerchantId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MerchantTypes">
+            <EntityTypeMapping TypeName="CardProcessingModel.MerchantType">
+              <MappingFragment StoreEntitySet="MerchantType">
+                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TransactionDetails">
+            <EntityTypeMapping TypeName="CardProcessingModel.TransactionDetail">
+              <MappingFragment StoreEntitySet="TransactionDetail">
+                <ScalarProperty Name="TransactionCode" ColumnName="TransactionCode" />
+                <ScalarProperty Name="MerchantNumber" ColumnName="MerchantNumber" />
+                <ScalarProperty Name="TransactionAmount" ColumnName="TransactionAmount" />
+                <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+                <ScalarProperty Name="TransationTime" ColumnName="TransationTime" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CardTypeId" ColumnName="CardTypeId" />
+                <ScalarProperty Name="KeyedEntry" ColumnName="KeyedEntry" />
+                <ScalarProperty Name="AuthorizationNumber" ColumnName="AuthorizationNumber" />
+                <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+                <ScalarProperty Name="FirstTwelveAccountNumber" ColumnName="FirstTwelveAccountNumber" />
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="CardProcessingModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRoles">
+            <EntityTypeMapping TypeName="CardProcessingModel.UserRole">
+              <MappingFragment StoreEntitySet="UserRole">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

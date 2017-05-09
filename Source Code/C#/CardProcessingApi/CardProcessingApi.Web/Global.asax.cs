@@ -27,6 +27,11 @@ namespace CardProcessingApi.Web
             var config = GlobalConfiguration.Configuration;
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
             builder.RegisterType<ValueService>().As<IValueService>().InstancePerLifetimeScope();
+
+            builder.RegisterType<ApplicationDbContext>();
+
+
+
             var container = builder.Build();
             config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
         }
