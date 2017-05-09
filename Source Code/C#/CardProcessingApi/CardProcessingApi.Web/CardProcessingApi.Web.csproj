@@ -15,7 +15,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CardProcessingApi.Web</RootNamespace>
     <AssemblyName>CardProcessingApi.Web</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -67,13 +68,13 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
@@ -127,6 +128,7 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
@@ -224,6 +226,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Framework\DependencyRegister.cs" />
     <Compile Include="Framework\IdentityModels.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -306,6 +309,14 @@
     <ProjectReference Include="..\CardProcessing.Business\CardProcessing.Business.csproj">
       <Project>{7431eda9-728f-4492-8635-3eb5fdc87bd8}</Project>
       <Name>CardProcessing.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CardProcessingApi.DataAccess\CardProcessingApi.DataAccess.csproj">
+      <Project>{cd566ec3-19dd-4694-8e6f-2cb8ca462f06}</Project>
+      <Name>CardProcessingApi.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CardProcessingApi.Data\CardProcessingApi.Data.csproj">
+      <Project>{a3bf36b2-d393-4f8b-a791-b16f959d0197}</Project>
+      <Name>CardProcessingApi.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

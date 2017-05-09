@@ -12,7 +12,7 @@ namespace CardProcessingApi.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class RegionMapping
+    public partial class RegionMapping : BaseEntity
     {
         public int RegionId { get; set; }
         public int ProvinceId { get; set; }

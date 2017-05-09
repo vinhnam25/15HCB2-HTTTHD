@@ -12,7 +12,7 @@ namespace CardProcessingApi.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class MerchantInvitation
+    public partial class MerchantInvitation : BaseEntity
     {
         public int FromMerchantId { get; set; }
         public string NewMerchantName { get; set; }

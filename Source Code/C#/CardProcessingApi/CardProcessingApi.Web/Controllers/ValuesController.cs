@@ -6,15 +6,21 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using CardProcessing.Business.Services;
+using CardProcessing.Business.Services.Account;
+using CardProcessing.Business.Services.Location;
 
 namespace CardProcessingApi.Web.Controllers
 {
     public class ValuesController : ApiController
     {
         private readonly IValueService _valueService;
-        public ValuesController(IValueService valueService)
+        private readonly ILocationService _locationService;
+        private readonly IAccountService _accountService;
+        public ValuesController(IValueService valueService, ILocationService locationService, IAccountService accountService)
         {
             _valueService = valueService;
+            _locationService = locationService;
+            _accountService = accountService;
         }
 
         // GET api/values
@@ -26,7 +32,10 @@ namespace CardProcessingApi.Web.Controllers
         // GET api/values/5
         public string Get(int id)
         {
-            return _valueService.Get();
+            var location = _locationService.GetDistrictById(1).ToString();
+            var user = _accountService.GetUserName().ToString();
+
+            return string.Empty;
         }
 
         // POST api/values

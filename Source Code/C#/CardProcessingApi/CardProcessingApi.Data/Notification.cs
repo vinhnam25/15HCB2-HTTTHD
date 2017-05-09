@@ -12,7 +12,7 @@ namespace CardProcessingApi.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Notification
+    public partial class Notification : BaseEntity
     {
         public int NotificationId { get; set; }
         public System.DateTime NotificationTime { get; set; }

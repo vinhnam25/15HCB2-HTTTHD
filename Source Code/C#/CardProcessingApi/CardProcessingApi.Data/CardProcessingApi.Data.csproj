@@ -54,6 +54,7 @@
     <Compile Include="Agent.cs">
       <DependentUpon>CardProcessing.tt</DependentUpon>
     </Compile>
+    <Compile Include="BaseEntity.cs" />
     <Compile Include="CardProcessing.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

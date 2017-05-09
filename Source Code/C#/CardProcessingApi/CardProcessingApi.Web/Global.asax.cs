@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Reflection;
 using System.Web;
@@ -10,6 +11,8 @@ using System.Web.Routing;
 using Autofac;
 using Autofac.Integration.WebApi;
 using CardProcessing.Business.Services;
+using CardProcessingApi.Data;
+using CardProcessingApi.Web.Framework;
 using CardProcessingApi.Web.Models;
 
 namespace CardProcessingApi.Web
@@ -26,13 +29,9 @@ namespace CardProcessingApi.Web
 
             var builder = new ContainerBuilder();
             var config = GlobalConfiguration.Configuration;
-            builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
-            builder.RegisterType<ValueService>().As<IValueService>().InstancePerLifetimeScope();
 
-            builder.RegisterType<ApplicationDbContext>();
-            ApplicationDbContext context = new ApplicationDbContext();
-
-
+            // Register dependencies
+            DependencyRegister.Register(builder);
 
             var container = builder.Build();
             config.DependencyResolver = new AutofacWebApiDependencyResolver(container);

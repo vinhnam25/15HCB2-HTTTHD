@@ -12,7 +12,7 @@ namespace CardProcessingApi.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Configuration
+    public partial class Configuration : BaseEntity
     {
         public string ConfigurationName { get; set; }
         public string ConfigurationValue { get; set; }
