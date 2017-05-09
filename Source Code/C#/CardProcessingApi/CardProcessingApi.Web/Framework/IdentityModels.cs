@@ -15,6 +15,4 @@ namespace CardProcessingApi.Web.Framework
         public string Id { get; }
         public string UserName { get; set; }
     }
-
-    public 
 }

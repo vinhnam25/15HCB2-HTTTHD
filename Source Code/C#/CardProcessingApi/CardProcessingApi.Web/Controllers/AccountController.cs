@@ -26,8 +26,9 @@ namespace CardProcessingApi.Web.Controllers
         private const string LocalLoginProvider = "Local";
         private ApplicationUserManager _userManager;
 
-        public AccountController()
+        public AccountController(ApplicationUserManager userManager)
         {
+            _userManager = userManager;
         }
 
         public AccountController(ApplicationUserManager userManager,
