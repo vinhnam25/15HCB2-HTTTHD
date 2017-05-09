@@ -12,9 +12,14 @@ namespace CardProcessingApi.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class MerchantManager
+    public partial class RegionMapping
     {
-        public int MasterId { get; set; }
-        public int MerchantId { get; set; }
+        public int RegionId { get; set; }
+        public int ProvinceId { get; set; }
+        public int DistrictId { get; set; }
+        public string Description { get; set; }
+    
+        public virtual District District { get; set; }
+        public virtual Province Province { get; set; }
     }
 }

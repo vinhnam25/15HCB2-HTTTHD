@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardProcessingApi.Web.Tests
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardProcessing.Business", "CardProcessing.Business\CardProcessing.Business.csproj", "{7431EDA9-728F-4492-8635-3EB5FDC87BD8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardProcessingApi.Data", "CardProcessingApi.Data\CardProcessingApi.Data.csproj", "{A3BF36B2-D393-4F8B-A791-B16F959D0197}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{7431EDA9-728F-4492-8635-3EB5FDC87BD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7431EDA9-728F-4492-8635-3EB5FDC87BD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7431EDA9-728F-4492-8635-3EB5FDC87BD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3BF36B2-D393-4F8B-A791-B16F959D0197}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3BF36B2-D393-4F8B-A791-B16F959D0197}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3BF36B2-D393-4F8B-A791-B16F959D0197}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3BF36B2-D393-4F8B-A791-B16F959D0197}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

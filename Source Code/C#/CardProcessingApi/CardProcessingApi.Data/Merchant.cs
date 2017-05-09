@@ -14,8 +14,14 @@ namespace CardProcessingApi.Data
     
     public partial class Merchant
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Merchant()
+        {
+            this.MerchantInvitations = new HashSet<MerchantInvitation>();
+            this.TransactionDetails = new HashSet<TransactionDetail>();
+        }
+    
         public int MerchantId { get; set; }
-        public string Address { get; set; }
         public int MerchantType { get; set; }
         public int ProvinceId { get; set; }
         public Nullable<int> DistrictId { get; set; }
@@ -37,5 +43,16 @@ namespace CardProcessingApi.Data
         public Nullable<System.DateTime> ApprovalDate { get; set; }
         public Nullable<System.DateTime> CloseDate { get; set; }
         public string BankCardDBA { get; set; }
+        public string BackendProcessor { get; set; }
+    
+        public virtual Agent Agent { get; set; }
+        public virtual District District { get; set; }
+        public virtual MerchantType MerchantType1 { get; set; }
+        public virtual Province Province { get; set; }
+        public virtual User User { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MerchantInvitation> MerchantInvitations { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TransactionDetail> TransactionDetails { get; set; }
     }
 }

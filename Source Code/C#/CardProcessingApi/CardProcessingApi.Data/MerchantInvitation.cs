@@ -12,18 +12,14 @@ namespace CardProcessingApi.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class UserRole
+    public partial class MerchantInvitation
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public UserRole()
-        {
-            this.Users = new HashSet<User>();
-        }
+        public int FromMerchantId { get; set; }
+        public string NewMerchantName { get; set; }
+        public string InvitationDescription { get; set; }
+        public System.DateTime InvitationDate { get; set; }
+        public bool IsResolved { get; set; }
     
-        public int RoleId { get; set; }
-        public string RoleName { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> Users { get; set; }
+        public virtual Merchant Merchant { get; set; }
     }
 }

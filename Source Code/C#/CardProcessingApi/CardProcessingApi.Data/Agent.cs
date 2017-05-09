@@ -14,6 +14,12 @@ namespace CardProcessingApi.Data
     
     public partial class Agent
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Agent()
+        {
+            this.Merchants = new HashSet<Merchant>();
+        }
+    
         public int AgentId { get; set; }
         public string AgentName { get; set; }
         public int ProvinceId { get; set; }
@@ -21,5 +27,15 @@ namespace CardProcessingApi.Data
         public string Address { get; set; }
         public bool IsActive { get; set; }
         public Nullable<int> OwnerId { get; set; }
+        public string Phone { get; set; }
+        public string Fax { get; set; }
+        public string Zip { get; set; }
+        public string Email { get; set; }
+    
+        public virtual District District { get; set; }
+        public virtual Province Province { get; set; }
+        public virtual User User { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Merchant> Merchants { get; set; }
     }
 }

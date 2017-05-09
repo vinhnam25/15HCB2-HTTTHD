@@ -10,6 +10,7 @@ using System.Web.Routing;
 using Autofac;
 using Autofac.Integration.WebApi;
 using CardProcessing.Business.Services;
+using CardProcessingApi.Web.Models;
 
 namespace CardProcessingApi.Web
 {
@@ -29,6 +30,7 @@ namespace CardProcessingApi.Web
             builder.RegisterType<ValueService>().As<IValueService>().InstancePerLifetimeScope();
 
             builder.RegisterType<ApplicationDbContext>();
+            ApplicationDbContext context = new ApplicationDbContext();
 
 
 

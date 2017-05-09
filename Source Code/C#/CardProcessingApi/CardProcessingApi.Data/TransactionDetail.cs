@@ -14,17 +14,26 @@ namespace CardProcessingApi.Data
     
     public partial class TransactionDetail
     {
-        public int TransactionCode { get; set; }
-        public int MerchantNumber { get; set; }
-        public Nullable<decimal> TransactionAmount { get; set; }
+        public int TransactionId { get; set; }
+        public int MerchantId { get; set; }
+        public decimal TransactionAmount { get; set; }
         public System.DateTime TransactionDate { get; set; }
         public System.TimeSpan TransationTime { get; set; }
         public string Description { get; set; }
         public int CardTypeId { get; set; }
         public string KeyedEntry { get; set; }
-        public int AuthorizationNumber { get; set; }
+        public Nullable<int> AuthorizationNumber { get; set; }
         public string AccountNumber { get; set; }
         public string FirstTwelveAccountNumber { get; set; }
         public string CountryCode { get; set; }
+        public string FileSource { get; set; }
+        public Nullable<System.DateTime> ExpirationDate { get; set; }
+        public int TransactionTypeId { get; set; }
+        public string ProductName { get; set; }
+        public int ProductAmount { get; set; }
+    
+        public virtual CardType CardType { get; set; }
+        public virtual Merchant Merchant { get; set; }
+        public virtual TransactionType TransactionType { get; set; }
     }
 }
