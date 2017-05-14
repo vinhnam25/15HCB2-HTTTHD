@@ -1,4 +1,6 @@
 ﻿using System.Threading.Tasks;
+using System.Web.Mvc;
+using CardProcessing.Business.BusinessLogic.Account;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
@@ -11,17 +13,23 @@ namespace CardProcessingApi.Web
 
     public class ApplicationUserManager : UserManager<ApplicationUser>
     {
-        public ApplicationUserManager(IUserStore<ApplicationUser> store, IdentityFactoryOptions<ApplicationUserManager> options)
+        public ApplicationUserManager(IUserStore<ApplicationUser> store)
             : base(store)
         {
+        }
+
+        public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context)
+        {
+            var userLogic = DependencyResolver.Current.GetService<IUserLogic>();
+            var manager = new ApplicationUserManager(new CustomUserStore(userLogic));
             // Configure validation logic for usernames
-            this.UserValidator = new UserValidator<ApplicationUser>(this)
+            manager.UserValidator = new UserValidator<ApplicationUser>(manager)
             {
                 AllowOnlyAlphanumericUserNames = false,
                 RequireUniqueEmail = true
             };
             // Configure validation logic for passwords
-            this.PasswordValidator = new PasswordValidator
+            manager.PasswordValidator = new PasswordValidator
             {
                 RequiredLength = 6,
                 RequireNonLetterOrDigit = true,
@@ -32,8 +40,9 @@ namespace CardProcessingApi.Web
             var dataProtectionProvider = options.DataProtectionProvider;
             if (dataProtectionProvider != null)
             {
-                this.UserTokenProvider = new DataProtectorTokenProvider<ApplicationUser>(dataProtectionProvider.Create("ASP.NET Identity"));
+                manager.UserTokenProvider = new DataProtectorTokenProvider<ApplicationUser>(dataProtectionProvider.Create("ASP.NET Identity"));
             }
+            return manager;
         }
     }
 }

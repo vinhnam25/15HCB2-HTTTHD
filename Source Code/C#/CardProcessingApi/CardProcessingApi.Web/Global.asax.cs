@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using Autofac;
+using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
 using CardProcessing.Business.Services;
 using CardProcessingApi.Data;
@@ -35,6 +36,7 @@ namespace CardProcessingApi.Web
 
             var container = builder.Build();
             config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
         }
     }
 }

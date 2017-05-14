@@ -1,8 +1,8 @@
 ﻿using CardProcessingApi.Data;
 
-namespace CardProcessing.Business.Services.Location
+namespace CardProcessing.Business.BusinessLogic.Location
 {
-    public interface ILocationService
+    public interface ILocationLogic
     {
         District GetDistrictById(int districtId);
     }
