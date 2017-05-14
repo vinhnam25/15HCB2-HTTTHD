@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F8DED4E6-A9A9-4755-8EBB-FE054953F376}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WC_MCAG</RootNamespace>
+    <AssemblyName>WC-MCAG</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.0.0\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.0.0\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.0.0\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.0.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.0.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Asset\angular\angular.min.js" />
+    <Content Include="Asset\css\bootstrap-responsive.min.css" />
+    <Content Include="Asset\css\bootstrap-wysihtml5.css" />
+    <Content Include="Asset\css\bootstrap.min.css" />
+    <Content Include="Asset\css\colorpicker.css" />
+    <Content Include="Asset\css\datepicker.css" />
+    <Content Include="Asset\css\font-awesome.css" />
+    <Content Include="Asset\css\fullcalendar.css" />
+    <Content Include="Asset\css\jquery.easy-pie-chart.css" />
+    <Content Include="Asset\css\jquery.gritter.css" />
+    <Content Include="Asset\css\matrix-login.css" />
+    <Content Include="Asset\css\matrix-media.css" />
+    <Content Include="Asset\css\matrix-style.css" />
+    <Content Include="Asset\css\select2.css" />
+    <Content Include="Asset\css\uniform.css" />
+    <Content Include="Asset\font-awesome\css\font-awesome.css" />
+    <Content Include="Asset\img\breadcrumb.png" />
+    <Content Include="Asset\img\demo\av1.jpg" />
+    <Content Include="Asset\img\demo\av2.jpg" />
+    <Content Include="Asset\img\demo\av3.jpg" />
+    <Content Include="Asset\img\demo\av4.jpg" />
+    <Content Include="Asset\img\demo\av5.jpg" />
+    <Content Include="Asset\img\demo\demo-image1.jpg" />
+    <Content Include="Asset\img\demo\demo-image2.jpg" />
+    <Content Include="Asset\img\demo\demo-image3.jpg" />
+    <Content Include="Asset\img\demo\envelope.png" />
+    <Content Include="Asset\img\gallery\imgbox1.jpg" />
+    <Content Include="Asset\img\gallery\imgbox2.jpg" />
+    <Content Include="Asset\img\gallery\imgbox3.jpg" />
+    <Content Include="Asset\img\gallery\imgbox4.jpg" />
+    <Content Include="Asset\img\gallery\imgbox5.jpg" />
+    <Content Include="Asset\img\glyphicons-halflings-white.png" />
+    <Content Include="Asset\img\gritter.png" />
+    <Content Include="Asset\img\hue.png" />
+    <Content Include="Asset\img\icons\16\book.png" />
+    <Content Include="Asset\img\icons\16\cabinet.png" />
+    <Content Include="Asset\img\icons\16\calendar.png" />
+    <Content Include="Asset\img\icons\16\client.png" />
+    <Content Include="Asset\img\icons\16\database.png" />
+    <Content Include="Asset\img\icons\16\download.png" />
+    <Content Include="Asset\img\icons\16\graph.png" />
+    <Content Include="Asset\img\icons\16\home.png" />
+    <Content Include="Asset\img\icons\16\lock.png" />
+    <Content Include="Asset\img\icons\16\mail.png" />
+    <Content Include="Asset\img\icons\16\pdf.png" />
+    <Content Include="Asset\img\icons\16\people.png" />
+    <Content Include="Asset\img\icons\16\piechart.png" />
+    <Content Include="Asset\img\icons\16\search.png" />
+    <Content Include="Asset\img\icons\16\shopping-bag.png" />
+    <Content Include="Asset\img\icons\16\survey.png" />
+    <Content Include="Asset\img\icons\16\tag.png" />
+    <Content Include="Asset\img\icons\16\user.png" />
+    <Content Include="Asset\img\icons\16\wallet.png" />
+    <Content Include="Asset\img\icons\16\web.png" />
+    <Content Include="Asset\img\icons\32\book.png" />
+    <Content Include="Asset\img\icons\32\cabinet.png" />
+    <Content Include="Asset\img\icons\32\calendar.png" />
+    <Content Include="Asset\img\icons\32\client.png" />
+    <Content Include="Asset\img\icons\32\dashboard.png" />
+    <Content Include="Asset\img\icons\32\database.png" />
+    <Content Include="Asset\img\icons\32\download.png" />
+    <Content Include="Asset\img\icons\32\graph.png" />
+    <Content Include="Asset\img\icons\32\home.png" />
+    <Content Include="Asset\img\icons\32\lock.png" />
+    <Content Include="Asset\img\icons\32\mail.png" />
+    <Content Include="Asset\img\icons\32\pdf.png" />
+    <Content Include="Asset\img\icons\32\people.png" />
+    <Content Include="Asset\img\icons\32\piechart.png" />
+    <Content Include="Asset\img\icons\32\search.png" />
+    <Content Include="Asset\img\icons\32\shopping-bag.png" />
+    <Content Include="Asset\img\icons\32\survey.png" />
+    <Content Include="Asset\img\icons\32\tag.png" />
+    <Content Include="Asset\img\icons\32\user.png" />
+    <Content Include="Asset\img\icons\32\wallet.png" />
+    <Content Include="Asset\img\icons\32\web.png" />
+    <Content Include="Asset\img\larrow.png" />
+    <Content Include="Asset\img\line.png" />
+    <Content Include="Asset\img\logo.png" />
+    <Content Include="Asset\img\menu-active.png" />
+    <Content Include="Asset\img\rarrow.png" />
+    <Content Include="Asset\img\saturation.png" />
+    <Content Include="Asset\img\select2.png" />
+    <Content Include="Asset\img\spinner.gif" />
+    <Content Include="Asset\img\sprite.png" />
+    <Content Include="Asset\js\bootstrap-colorpicker.js" />
+    <Content Include="Asset\js\bootstrap-datepicker.js" />
+    <Content Include="Asset\js\bootstrap-wysihtml5.js" />
+    <Content Include="Asset\js\bootstrap.js" />
+    <Content Include="Asset\js\bootstrap.min.js" />
+    <Content Include="Asset\js\custom.js" />
+    <Content Include="Asset\js\excanvas.min.js" />
+    <Content Include="Asset\js\fullcalendar.min.js" />
+    <Content Include="Asset\js\jquery.dataTables.min.js" />
+    <Content Include="Asset\js\jquery.easy-pie-chart.js" />
+    <Content Include="Asset\js\jquery.flot.crosshair.js" />
+    <Content Include="Asset\js\jquery.flot.min.js" />
+    <Content Include="Asset\js\jquery.flot.pie.js" />
+    <Content Include="Asset\js\jquery.flot.pie.min.js" />
+    <Content Include="Asset\js\jquery.flot.resize.min.js" />
+    <Content Include="Asset\js\jquery.flot.stack.js" />
+    <Content Include="Asset\js\jquery.gritter.min.js" />
+    <Content Include="Asset\js\jquery.min.js" />
+    <Content Include="Asset\js\jquery.peity.min.js" />
+    <Content Include="Asset\js\jquery.ui.custom.js" />
+    <Content Include="Asset\js\jquery.uniform.js" />
+    <Content Include="Asset\js\jquery.validate.js" />
+    <Content Include="Asset\js\jquery.wizard.js" />
+    <Content Include="Asset\js\masked.js" />
+    <Content Include="Asset\js\matrix.calendar.js" />
+    <Content Include="Asset\js\matrix.charts.js" />
+    <Content Include="Asset\js\matrix.chat.js" />
+    <Content Include="Asset\js\matrix.dashboard.js" />
+    <Content Include="Asset\js\matrix.form_common.js" />
+    <Content Include="Asset\js\matrix.form_validation.js" />
+    <Content Include="Asset\js\matrix.interface.js" />
+    <Content Include="Asset\js\matrix.js" />
+    <Content Include="Asset\js\matrix.login.js" />
+    <Content Include="Asset\js\matrix.popover.js" />
+    <Content Include="Asset\js\matrix.tables.js" />
+    <Content Include="Asset\js\matrix.wizard.js" />
+    <Content Include="Asset\js\select2.min.js" />
+    <Content Include="Asset\js\wysihtml5-0.3.0.js" />
+    <Content Include="Global.asax" />
+    <Content Include="Asset\font-awesome\fontawesome-webfont.eot" />
+    <Content Include="Asset\font-awesome\fontawesome-webfont.svg" />
+    <Content Include="Asset\font-awesome\fontawesome-webfont.ttf" />
+    <Content Include="Asset\font-awesome\fontawesome-webfont.woff" />
+    <Content Include="Asset\font-awesome\FontAwesome.otf" />
+    <Content Include="Asset\font-awesome\font\fontawesome-webfont.eot" />
+    <Content Include="Asset\font-awesome\font\fontawesome-webfont.svg" />
+    <Content Include="Asset\font-awesome\font\fontawesome-webfont.ttf" />
+    <Content Include="Asset\font-awesome\font\fontawesome-webfont.woff" />
+    <Content Include="Asset\font-awesome\font\FontAwesome.otf" />
+    <Content Include="Asset\img\demo\Thumbs.db" />
+    <Content Include="Asset\img\icons\32\Thumbs.db" />
+    <Content Include="Asset\img\Thumbs.db" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Home.cshtml" />
+    <Content Include="Views\User\ViewListUser.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="Views\User\Login.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1563</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:1563/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
