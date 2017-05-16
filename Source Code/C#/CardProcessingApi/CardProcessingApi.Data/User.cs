@@ -28,6 +28,7 @@ namespace CardProcessingApi.Data
         public string Phone { get; set; }
         public int RoleId { get; set; }
         public bool IsActive { get; set; }
+        public string TokenStr { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Agent> Agents { get; set; }

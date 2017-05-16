@@ -80,6 +80,9 @@
     <Compile Include="District.cs">
       <DependentUpon>CardProcessing.tt</DependentUpon>
     </Compile>
+    <Compile Include="LogRecord.cs">
+      <DependentUpon>CardProcessing.tt</DependentUpon>
+    </Compile>
     <Compile Include="Merchant.cs">
       <DependentUpon>CardProcessing.tt</DependentUpon>
     </Compile>

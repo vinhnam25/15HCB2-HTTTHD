@@ -1,25 +1,29 @@
 ﻿using System;
+using CardProcessingApi.Data;
 using CardProcessingApi.DataAccess;
 
 namespace CardProcessing.Business.BusinessLogic.AgentLogic
 {
     public class AgentLogic:IAgentLogic
     {
-        private readonly IGenericRepository<CardProcessingApi.Data.Agent> _agentRepository;
+        private readonly IGenericRepository<Agent> _agentRepository;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public AgentLogic(IGenericRepository<CardProcessingApi.Data.Agent> agentRepository)
+        public AgentLogic(IGenericRepository<Agent> agentRepository, IUnitOfWork unitOfWork)
         {
             this._agentRepository = agentRepository;
+            _unitOfWork = unitOfWork;
         }
 
-        public CardProcessingApi.Data.Agent GetAgentById(int agentId)
+        public Agent GetAgentById(int agentId)
         {
             throw new NotImplementedException();
         }
 
-        public void Add(CardProcessingApi.Data.Agent agent)
+        public void Add(Agent agent)
         {
-            throw new NotImplementedException();
+            _agentRepository.Add(agent);
+            _unitOfWork.Commit();
         }
     }
 }

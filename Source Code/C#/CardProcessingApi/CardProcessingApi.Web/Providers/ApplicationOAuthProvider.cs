@@ -94,5 +94,13 @@ namespace CardProcessingApi.Web.Providers
             };
             return new AuthenticationProperties(data);
         }
+
+        internal static void SetCustomDataForClaimIdentity(ClaimsIdentity identity, ApplicationUser user)
+        {
+            identity.AddClaim(new Claim(ClaimTypes.Role, user.ToString()));
+            identity.AddClaim(new Claim("FullName", user.FullName));
+            identity.AddClaim(new Claim("Phone", user.Phone));
+            identity.AddClaim(new Claim("IsActive", user.IsActive.ToString()));
+        }
     }
 }

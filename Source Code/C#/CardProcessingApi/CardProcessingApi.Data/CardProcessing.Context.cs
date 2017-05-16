@@ -29,6 +29,7 @@ namespace CardProcessingApi.Data
         public virtual DbSet<CardType> CardTypes { get; set; }
         public virtual DbSet<Configuration> Configurations { get; set; }
         public virtual DbSet<District> Districts { get; set; }
+        public virtual DbSet<LogRecord> LogRecords { get; set; }
         public virtual DbSet<Merchant> Merchants { get; set; }
         public virtual DbSet<MerchantInvitation> MerchantInvitations { get; set; }
         public virtual DbSet<MerchantType> MerchantTypes { get; set; }

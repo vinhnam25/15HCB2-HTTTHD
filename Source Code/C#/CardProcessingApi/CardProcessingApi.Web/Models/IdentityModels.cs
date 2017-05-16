@@ -35,6 +35,14 @@ namespace CardProcessingApi.Web.Models
         }
 
         public string PasswordHash => _user.Password;
+
+        public int RoleId => _user.RoleId;
+
+        public string FullName => _user.FullName;
+
+        public bool IsActive => _user.IsActive;
+
+        public string Phone => _user.Phone;
     }
 
     public class CustomUserStore: IUserStore<ApplicationUser>, IUserPasswordStore<ApplicationUser>

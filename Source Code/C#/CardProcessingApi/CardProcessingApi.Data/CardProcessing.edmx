@@ -42,6 +42,15 @@
           <Property Name="DistrictId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DistrictName" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <EntityType Name="LogRecord">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StoreName" Type="varchar" MaxLength="100" />
+          <Property Name="DateError" Type="datetime" />
+          <Property Name="MsgError" Type="nvarchar" MaxLength="200" />
+        </EntityType>
         <EntityType Name="Merchant">
           <Key>
             <PropertyRef Name="MerchantId" />
@@ -168,6 +177,7 @@
           <Property Name="Phone" Type="varchar" MaxLength="20" />
           <Property Name="RoleId" Type="int" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="TokenStr" Type="varchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="UserRole">
           <Key>
@@ -361,6 +371,7 @@
           <EntitySet Name="CardType" EntityType="Self.CardType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Configuration" EntityType="Self.Configuration" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="District" EntityType="Self.District" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LogRecord" EntityType="Self.LogRecord" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Merchant" EntityType="Self.Merchant" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MerchantInvitation" EntityType="Self.MerchantInvitation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MerchantType" EntityType="Self.MerchantType" Schema="dbo" store:Type="Tables" />
@@ -442,6 +453,7 @@
           <EntitySet Name="CardTypes" EntityType="CardProcessingModel.CardType" />
           <EntitySet Name="Configurations" EntityType="CardProcessingModel.Configuration" />
           <EntitySet Name="Districts" EntityType="CardProcessingModel.District" />
+          <EntitySet Name="LogRecords" EntityType="CardProcessingModel.LogRecord" />
           <EntitySet Name="Merchants" EntityType="CardProcessingModel.Merchant" />
           <EntitySet Name="MerchantInvitations" EntityType="CardProcessingModel.MerchantInvitation" />
           <EntitySet Name="MerchantTypes" EntityType="CardProcessingModel.MerchantType" />
@@ -558,6 +570,15 @@
           <NavigationProperty Name="Agents" Relationship="CardProcessingModel.FK_Agent_District" FromRole="District" ToRole="Agent" />
           <NavigationProperty Name="Merchants" Relationship="CardProcessingModel.FK_Merchant_District" FromRole="District" ToRole="Merchant" />
           <NavigationProperty Name="RegionMappings" Relationship="CardProcessingModel.FK_RegionMapping_District" FromRole="District" ToRole="RegionMapping" />
+        </EntityType>
+        <EntityType Name="LogRecord">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StoreName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DateError" Type="DateTime" Precision="3" />
+          <Property Name="MsgError" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Merchant">
           <Key>
@@ -703,6 +724,7 @@
           <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="RoleId" Type="Int32" Nullable="false" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="TokenStr" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Agents" Relationship="CardProcessingModel.FK_Agent_User" FromRole="User" ToRole="Agent" />
           <NavigationProperty Name="Merchants" Relationship="CardProcessingModel.FK_Merchant_User" FromRole="User" ToRole="Merchant" />
           <NavigationProperty Name="UserRole" Relationship="CardProcessingModel.FK_User_UserRole" FromRole="User" ToRole="UserRole" />
@@ -942,6 +964,16 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="LogRecords">
+            <EntityTypeMapping TypeName="CardProcessingModel.LogRecord">
+              <MappingFragment StoreEntitySet="LogRecord">
+                <ScalarProperty Name="MsgError" ColumnName="MsgError" />
+                <ScalarProperty Name="DateError" ColumnName="DateError" />
+                <ScalarProperty Name="StoreName" ColumnName="StoreName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Merchants">
             <EntityTypeMapping TypeName="CardProcessingModel.Merchant">
               <MappingFragment StoreEntitySet="Merchant">
@@ -1066,6 +1098,7 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="CardProcessingModel.User">
               <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="TokenStr" ColumnName="TokenStr" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="RoleId" ColumnName="RoleId" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
