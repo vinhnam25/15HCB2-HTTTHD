@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using CardProcessingApi.Web.Models;
+using Microsoft.Practices.ServiceLocation;
 
 namespace CardProcessingApi.Web
 {
@@ -22,7 +23,7 @@ namespace CardProcessingApi.Web
 
         public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context)
         {
-            var userLogic = DependencyResolver.Current.GetService<IUserLogic>();
+            var userLogic = ServiceLocator.Current.GetInstance<IUserLogic>();
             var manager = new ApplicationUserManager(new CustomUserStore(userLogic));
 
             var dataProtectionProvider = options.DataProtectionProvider;

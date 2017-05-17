@@ -4,14 +4,32 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardProcessingApi.Web", "CardProcessingApi.Web\CardProcessingApi.Web.csproj", "{B5BB9B6C-D38A-4B0A-B3F6-3B224976401A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FFBB2D07-382F-4DBC-9885-75CCC59146EC} = {FFBB2D07-382F-4DBC-9885-75CCC59146EC}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardProcessingApi.Web.Tests", "CardProcessingApi.Web.Tests\CardProcessingApi.Web.Tests.csproj", "{875E78B5-8DA6-47F7-9372-CD2EC30F757B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FFBB2D07-382F-4DBC-9885-75CCC59146EC} = {FFBB2D07-382F-4DBC-9885-75CCC59146EC}
+		{7431EDA9-728F-4492-8635-3EB5FDC87BD8} = {7431EDA9-728F-4492-8635-3EB5FDC87BD8}
+		{A3BF36B2-D393-4F8B-A791-B16F959D0197} = {A3BF36B2-D393-4F8B-A791-B16F959D0197}
+		{CD566EC3-19DD-4694-8E6F-2CB8CA462F06} = {CD566EC3-19DD-4694-8E6F-2CB8CA462F06}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardProcessing.Business", "CardProcessing.Business\CardProcessing.Business.csproj", "{7431EDA9-728F-4492-8635-3EB5FDC87BD8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FFBB2D07-382F-4DBC-9885-75CCC59146EC} = {FFBB2D07-382F-4DBC-9885-75CCC59146EC}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardProcessingApi.Data", "CardProcessingApi.Data\CardProcessingApi.Data.csproj", "{A3BF36B2-D393-4F8B-A791-B16F959D0197}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FFBB2D07-382F-4DBC-9885-75CCC59146EC} = {FFBB2D07-382F-4DBC-9885-75CCC59146EC}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardProcessingApi.DataAccess", "CardProcessingApi.DataAccess\CardProcessingApi.DataAccess.csproj", "{CD566EC3-19DD-4694-8E6F-2CB8CA462F06}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FFBB2D07-382F-4DBC-9885-75CCC59146EC} = {FFBB2D07-382F-4DBC-9885-75CCC59146EC}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardProcessingApi.Core", "CardProcessingApi.Core\CardProcessingApi.Core.csproj", "{FFBB2D07-382F-4DBC-9885-75CCC59146EC}"
 EndProject
