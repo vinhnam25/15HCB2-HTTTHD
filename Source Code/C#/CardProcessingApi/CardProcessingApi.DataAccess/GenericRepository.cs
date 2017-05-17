@@ -6,6 +6,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using CardProcessingApi.Data;
+using EntityFramework.Extensions;
 
 namespace CardProcessingApi.DataAccess
 {
@@ -75,6 +76,27 @@ namespace CardProcessingApi.DataAccess
             {
                 this.Save();
             }
+        }
+
+        /// <summary>
+        /// Bulk delete entities
+        /// </summary>
+        /// <param name="filterExpression"></param>
+        /// <returns></returns>
+        public virtual int BulkDelete(Expression<Func<T, bool>> filterExpression)
+        {
+            return _context.Set<T>().Where(filterExpression).Delete();
+        }
+
+        /// <summary>
+        /// Bulk update entities
+        /// </summary>
+        /// <param name="filterExpression"></param>
+        /// <param name="updateExpression"></param>
+        public virtual int BulkUpdate(Expression<Func<T, bool>> filterExpression,
+            Expression<Func<T, T>> updateExpression)
+        {
+            return _context.Set<T>().Where(filterExpression).Update(updateExpression);
         }
 
         public void Save()
