@@ -6,62 +6,64 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CPClient.Core;
+using CPClient.Core.Models;
 using Newtonsoft.Json;
 
 namespace FC_MST
 {
     public class WebServiceUtils
     {
-        public delegate void CallBack();
+        public delegate void CallBack(SessionState sessionState);
 
-        public event CallBack Success;
+        public static event CallBack Success;
+        public static event CallBack Failed;
 
-        public static async Task<SessionState> Login()
+        public static async Task<bool> Login(string userName, string password)
         {
-            var nvc = new List<KeyValuePair<string, string>>();
-            nvc.Add(new KeyValuePair<string, string>("grant_type", "password"));
-            nvc.Add(new KeyValuePair<string, string>("username", "demo01"));
-            nvc.Add(new KeyValuePair<string, string>("password", "123456"));
-            var req = new HttpRequestMessage(HttpMethod.Post, "http://localhost:49231/token") { Content = new FormUrlEncodedContent(nvc) };
-            WebEngine.ClientInstance.Timeout = TimeSpan.FromSeconds(10);
-            var res = await WebEngine.ClientInstance.SendAsync(req);
-            
-            if (res.IsSuccessStatusCode)
+            try
             {
-                var content = await res.Content.ReadAsStringAsync();
-                return JsonConvert.DeserializeObject<SessionState>(content);
+                var nvc = new List<KeyValuePair<string, string>>
+                {
+                    new KeyValuePair<string, string>("grant_type", "password"),
+                    new KeyValuePair<string, string>("username", userName),
+                    new KeyValuePair<string, string>("password", password)
+                };
+                var req = new HttpRequestMessage(HttpMethod.Post,
+                    AppConfigHelper.Instance.GetString("WebServiceUrl") + "/token")
+                {
+                    Content = new FormUrlEncodedContent(nvc)
+                };
+                var res = await WebEngine.ClientInstance.SendAsync(req);
+
+                if (res.IsSuccessStatusCode)
+                {
+                    var content = await res.Content.ReadAsStringAsync();
+                    SessionState sessionState = JsonConvert.DeserializeObject<SessionState>(content);
+                    AppContext.CurrentSessionState = sessionState;
+                    OnSuccess(sessionState);
+
+                    return true;
+                }
+
+                OnFailed(null);
+                return false;
             }
-
-            return null;
+            catch (Exception ex)
+            {
+                // ignored
+                return false;
+            }
         }
 
-        protected virtual void OnSuccess()
+        protected static void OnSuccess(SessionState sessionState)
         {
-            Success?.Invoke();
+            Success?.Invoke(sessionState);
         }
 
-    }
-
-    public class SessionState
-    {
-        [JsonProperty(propertyName:"access_token")]
-        public string AccessToken { get; set; }
-        [JsonProperty(propertyName: "token_type")]
-        public string TokenType { get; set; }
-        [JsonProperty(propertyName: "expires_in")]
-        public string ExpiresIn { get; set; }
-        public string UserName { get; set; }
-        [JsonProperty(propertyName: ".issued")]
-        public DateTime Issued { get; set; }
-        [JsonProperty(propertyName: ".expires")]
-        public DateTime Expires { get; set; }
-
-        public SessionState()
+        private static void OnFailed(SessionState sessionstate)
         {
-            var session = WebServiceUtils.Login().Result;
-            AccessToken = session.AccessToken;
+            Failed?.Invoke(sessionstate);
         }
     }
-
-
 }

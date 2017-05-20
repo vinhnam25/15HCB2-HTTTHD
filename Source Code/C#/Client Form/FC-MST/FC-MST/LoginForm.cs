@@ -9,6 +9,8 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CPClient.Core;
+using CPClient.Core.Models;
 
 namespace FC_MST
 {
@@ -18,15 +20,52 @@ namespace FC_MST
         public LoginForm()
         {
             InitializeComponent();
+            WebServiceUtils.Success += OnLoginSuccess;
+            WebServiceUtils.Failed += OnLoginFailed;
+        }
+
+        private void OnLoginFailed(SessionState sessionstate)
+        {
+            MessageBox.Show("Đăng nhập thất bại");
+            EnableFields();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            var session = AppContext.Current;
 
-            // should be run into here
-            Debug.WriteLine("Run first");
-            var a = 1;
+            var success = WebServiceUtils.Login(txtUserName.Text, txtPassword.Text);
+            DisableFields();
+        }
+
+        private void DisableFields()
+        {
+            btnLogin.Enabled = false;
+            txtPassword.Enabled = false;
+            txtUserName.Enabled = false;
+        }
+
+        private void EnableFields()
+        {
+            btnLogin.Enabled = true;
+            txtPassword.Enabled = true;
+            txtUserName.Enabled = true;
+        }
+
+        private void OnLoginSuccess(SessionState sessionstate)
+        {
+            MessageBox.Show("Đăng nhập thành công với tài khoản: " + sessionstate.UserName);
+            MainForm frm = new MainForm();
+            frm.Show();
+            this.Hide();
+        }
+
+        private void LoginForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                var success = WebServiceUtils.Login(txtUserName.Text, txtPassword.Text);
+                DisableFields();
+            }
         }
     }
 }

@@ -64,6 +64,7 @@
             // 
             this.txtPassword.Location = new System.Drawing.Point(99, 66);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(180, 20);
             this.txtPassword.TabIndex = 3;
             // 
@@ -89,6 +90,7 @@
             this.Controls.Add(this.txtUserName);
             this.Name = "LoginForm";
             this.Text = "Đăng nhập";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.LoginForm_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
