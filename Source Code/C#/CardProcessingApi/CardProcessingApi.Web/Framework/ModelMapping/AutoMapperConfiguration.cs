@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.ComponentModel;
+using AutoMapper;
 using AutoMapper.Configuration;
 using CardProcessingApi.Data;
 using CardProcessingApi.Web.Models;
@@ -11,6 +12,7 @@ namespace CardProcessingApi.Web.Framework.ModelMapping
         {
             var cfg = new MapperConfigurationExpression();
             cfg.CreateMap<CreateAgentBindingModel, Agent>();
+            cfg.CreateMap<CommonViewModels.DistrictListItemModel, District>().ReverseMap();
 
             Mapper.Initialize(cfg);
         }

@@ -54,6 +54,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddNewAgent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddNewAgent.Designer.cs">
+      <DependentUpon>AddNewAgent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DistrictComboBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DistrictComboBox.Designer.cs">
+      <DependentUpon>DistrictComboBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,8 +80,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WebEngine.cs" />
-    <Compile Include="WebServiceUtils.cs" />
+    <Compile Include="ProvinceComboBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ProvinceComboBox.Designer.cs">
+      <DependentUpon>ProvinceComboBox.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddNewAgent.resx">
+      <DependentUpon>AddNewAgent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DistrictComboBox.resx">
+      <DependentUpon>DistrictComboBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -85,6 +107,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ProvinceComboBox.resx">
+      <DependentUpon>ProvinceComboBox.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -97,7 +122,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CPClient.Core\CPClient.Core.csproj">

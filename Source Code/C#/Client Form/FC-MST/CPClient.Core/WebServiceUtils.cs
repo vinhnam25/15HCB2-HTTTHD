@@ -1,16 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
-using CPClient.Core;
 using CPClient.Core.Models;
 using Newtonsoft.Json;
 
-namespace FC_MST
+namespace CPClient.Core
 {
     public class WebServiceUtils
     {
@@ -30,7 +25,7 @@ namespace FC_MST
                     new KeyValuePair<string, string>("password", password)
                 };
                 var req = new HttpRequestMessage(HttpMethod.Post,
-                    AppConfigHelper.Instance.GetString("WebServiceUrl") + "/token")
+                    AppConfigHelper.GetString("WebServiceUrl") + "/token")
                 {
                     Content = new FormUrlEncodedContent(nvc)
                 };
@@ -52,6 +47,7 @@ namespace FC_MST
             catch (Exception ex)
             {
                 // ignored
+                OnFailed(null);
                 return false;
             }
         }
@@ -64,6 +60,19 @@ namespace FC_MST
         private static void OnFailed(SessionState sessionstate)
         {
             Failed?.Invoke(sessionstate);
+        }
+
+        public static async Task<T> Get<T>(string apiUrl)
+        {
+            T result = default(T);
+            var response = await WebEngine.ClientInstance.GetAsync(AppConfigHelper.GetString("WebServiceUrl") + apiUrl);
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                result = JsonConvert.DeserializeObject<T>(content);
+            }
+
+            return result;
         }
     }
 }

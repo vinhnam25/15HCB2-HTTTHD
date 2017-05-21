@@ -33,7 +33,7 @@ namespace FC_MST
         private void btnLogin_Click(object sender, EventArgs e)
         {
 
-            var success = WebServiceUtils.Login(txtUserName.Text, txtPassword.Text);
+            var response = WebServiceUtils.Login(txtUserName.Text, txtPassword.Text);
             DisableFields();
         }
 
@@ -54,9 +54,8 @@ namespace FC_MST
         private void OnLoginSuccess(SessionState sessionstate)
         {
             MessageBox.Show("Đăng nhập thành công với tài khoản: " + sessionstate.UserName);
-            MainForm frm = new MainForm();
-            frm.Show();
-            this.Hide();
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
 
         private void LoginForm_KeyDown(object sender, KeyEventArgs e)

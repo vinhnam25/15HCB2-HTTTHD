@@ -44,7 +44,7 @@ namespace CardProcessingApi.Web.Providers
             ClaimsIdentity cookiesIdentity = await user.GenerateUserIdentityAsync(userManager,
                 CookieAuthenticationDefaults.AuthenticationType);
 
-            AuthenticationProperties properties = CreateProperties(user.UserName);
+            AuthenticationProperties properties = CreateProperties(user);
             AuthenticationTicket ticket = new AuthenticationTicket(oAuthIdentity, properties);
             context.Validated(ticket);
             context.Request.Context.Authentication.SignIn(cookiesIdentity);
@@ -86,18 +86,19 @@ namespace CardProcessingApi.Web.Providers
             return Task.FromResult<object>(null);
         }
 
-        public static AuthenticationProperties CreateProperties(string userName)
+        public static AuthenticationProperties CreateProperties(ApplicationUser user)
         {
             IDictionary<string, string> data = new Dictionary<string, string>
             {
-                { "userName", userName }
+                { "userName", user.UserName },
+                { "roleId", user.RoleId.ToString() }
             };
             return new AuthenticationProperties(data);
         }
 
         internal static void SetCustomDataForClaimIdentity(ClaimsIdentity identity, ApplicationUser user)
         {
-            identity.AddClaim(new Claim(ClaimTypes.Role, user.ToString()));
+            identity.AddClaim(new Claim(ClaimTypes.Role, user.RoleId.ToString()));
             identity.AddClaim(new Claim("FullName", user.FullName));
             identity.AddClaim(new Claim("Phone", user.Phone));
             identity.AddClaim(new Claim("IsActive", user.IsActive.ToString()));

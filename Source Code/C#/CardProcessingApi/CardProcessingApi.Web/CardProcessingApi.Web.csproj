@@ -242,18 +242,22 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AgentController.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
+    <Compile Include="Controllers\CommonController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Framework\DependencyRegister.cs" />
     <Compile Include="Framework\Extension\ModelStateDictionaryExtensions.cs" />
     <Compile Include="Framework\Filters\RoleAuthorizeAttribute.cs" />
     <Compile Include="Framework\Integration\CommonServiceLocatorIntegration.cs" />
+    <Compile Include="Framework\IWorkContext.cs" />
     <Compile Include="Framework\ModelMapping\AutoMapperConfiguration.cs" />
+    <Compile Include="Framework\WorkContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AgentBindingModels.cs" />
+    <Compile Include="Models\CommonViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />

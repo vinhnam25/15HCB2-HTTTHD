@@ -19,7 +19,7 @@ namespace CPClient.Core
             
         }
 
-        public string GetString(string key)
+        public static string GetString(string key)
         {
             string value = ConfigurationManager.AppSettings[key];
 

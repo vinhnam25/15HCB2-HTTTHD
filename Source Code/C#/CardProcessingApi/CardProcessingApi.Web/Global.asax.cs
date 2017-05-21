@@ -7,6 +7,7 @@ using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
 using CardProcessingApi.Web.Framework;
 using CardProcessingApi.Web.Framework.Integration;
+using CardProcessingApi.Web.Framework.ModelMapping;
 
 namespace CardProcessingApi.Web
 {
@@ -32,6 +33,9 @@ namespace CardProcessingApi.Web
             config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
             CommonServiceLocatorIntegration.IntegrateWithAutoFac(container);
+
+            // Config Mapping
+            AutoMapperConfiguration.ConfigMapping();
         }
     }
 }
