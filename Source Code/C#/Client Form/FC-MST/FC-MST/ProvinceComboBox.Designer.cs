@@ -28,24 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbxProvinces = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // cbxProvinces
             // 
-            this.comboBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(0, 0);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(203, 21);
-            this.comboBox1.TabIndex = 0;
+            this.cbxProvinces.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbxProvinces.FormattingEnabled = true;
+            this.cbxProvinces.Location = new System.Drawing.Point(0, 0);
+            this.cbxProvinces.Name = "cbxProvinces";
+            this.cbxProvinces.Size = new System.Drawing.Size(203, 21);
+            this.cbxProvinces.TabIndex = 0;
             // 
             // ProvinceComboBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbxProvinces);
             this.Name = "ProvinceComboBox";
             this.Size = new System.Drawing.Size(203, 21);
             this.ResumeLayout(false);
@@ -54,6 +54,6 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbxProvinces;
     }
 }

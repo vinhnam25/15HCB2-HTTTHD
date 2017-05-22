@@ -41,8 +41,10 @@ namespace CardProcessingApi.Web.Providers
 
             ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(userManager,
                OAuthDefaults.AuthenticationType);
+            SetCustomDataForClaimIdentity(oAuthIdentity, user);
             ClaimsIdentity cookiesIdentity = await user.GenerateUserIdentityAsync(userManager,
                 CookieAuthenticationDefaults.AuthenticationType);
+            SetCustomDataForClaimIdentity(cookiesIdentity, user);
 
             AuthenticationProperties properties = CreateProperties(user);
             AuthenticationTicket ticket = new AuthenticationTicket(oAuthIdentity, properties);

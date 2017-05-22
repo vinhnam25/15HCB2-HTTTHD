@@ -18,13 +18,11 @@ namespace FC_MST
             Application.SetCompatibleTextRenderingDefault(false);
             // Only used to test login func and be used in product phrase
 
-            //LoginForm frm = new LoginForm();
-            //if (frm.ShowDialog() == DialogResult.OK)
-            //{
-            //    Application.Run(new MainForm());
-            //}
-
-            Application.Run(new MainForm());
+            LoginForm frm = new LoginForm();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                Application.Run(new MainAppForm());
+            }
         }
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CPClient.Business;
 using CPClient.Core;
 using CPClient.Core.Models;
 
@@ -22,10 +23,15 @@ namespace FC_MST
 
         private async void GetAllDistricts()
         {
-            var districts = await WebServiceUtils.Get<List<DistrictModels.DistrictListItemModel>>("/api/common/all/districts");
+            var districts = await LocationLogic.FetchAllDistrictsAsync();
             foreach (var district in districts)
             {
                 cbxDistricts.Items.Add(district);
+            }
+
+            if (districts.Count > 0)
+            {
+                cbxDistricts.SelectedIndex = 0;
             }
         }
 

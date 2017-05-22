@@ -29,19 +29,22 @@
         private void InitializeComponent()
         {
             this.lbAgentName = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtAgentName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtAddress = new System.Windows.Forms.TextBox();
+            this.txtPhone = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtFax = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtZip = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.districtComboBox1 = new FC_MST.DistrictComboBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.provinceComboBox = new FC_MST.ProvinceComboBox();
+            this.districtComboBox = new FC_MST.DistrictComboBox();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbAgentName
@@ -53,12 +56,12 @@
             this.lbAgentName.TabIndex = 0;
             this.lbAgentName.Text = "Tên Agent (*)";
             // 
-            // textBox1
+            // txtAgentName
             // 
-            this.textBox1.Location = new System.Drawing.Point(112, 10);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(190, 20);
-            this.textBox1.TabIndex = 1;
+            this.txtAgentName.Location = new System.Drawing.Point(112, 10);
+            this.txtAgentName.Name = "txtAgentName";
+            this.txtAgentName.Size = new System.Drawing.Size(190, 20);
+            this.txtAgentName.TabIndex = 1;
             // 
             // label1
             // 
@@ -69,19 +72,19 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Địa chỉ";
             // 
-            // textBox2
+            // txtAddress
             // 
-            this.textBox2.Location = new System.Drawing.Point(112, 46);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(190, 20);
-            this.textBox2.TabIndex = 3;
+            this.txtAddress.Location = new System.Drawing.Point(112, 46);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(190, 20);
+            this.txtAddress.TabIndex = 3;
             // 
-            // textBox3
+            // txtPhone
             // 
-            this.textBox3.Location = new System.Drawing.Point(112, 82);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(190, 20);
-            this.textBox3.TabIndex = 4;
+            this.txtPhone.Location = new System.Drawing.Point(112, 82);
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Size = new System.Drawing.Size(190, 20);
+            this.txtPhone.TabIndex = 4;
             // 
             // label2
             // 
@@ -101,12 +104,12 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Fax";
             // 
-            // textBox4
+            // txtFax
             // 
-            this.textBox4.Location = new System.Drawing.Point(112, 118);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(190, 20);
-            this.textBox4.TabIndex = 7;
+            this.txtFax.Location = new System.Drawing.Point(112, 118);
+            this.txtFax.Name = "txtFax";
+            this.txtFax.Size = new System.Drawing.Size(190, 20);
+            this.txtFax.TabIndex = 7;
             // 
             // label4
             // 
@@ -117,12 +120,12 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Zip";
             // 
-            // textBox5
+            // txtZip
             // 
-            this.textBox5.Location = new System.Drawing.Point(112, 155);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(190, 20);
-            this.textBox5.TabIndex = 9;
+            this.txtZip.Location = new System.Drawing.Point(112, 155);
+            this.txtZip.Name = "txtZip";
+            this.txtZip.Size = new System.Drawing.Size(190, 20);
+            this.txtZip.TabIndex = 9;
             // 
             // label5
             // 
@@ -133,50 +136,81 @@
             this.label5.TabIndex = 10;
             this.label5.Text = "Email";
             // 
-            // textBox6
+            // txtEmail
             // 
-            this.textBox6.Location = new System.Drawing.Point(112, 195);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(190, 20);
-            this.textBox6.TabIndex = 11;
-            // 
-            // districtComboBox1
-            // 
-            this.districtComboBox1.Location = new System.Drawing.Point(112, 221);
-            this.districtComboBox1.Name = "districtComboBox1";
-            this.districtComboBox1.Size = new System.Drawing.Size(190, 28);
-            this.districtComboBox1.TabIndex = 12;
+            this.txtEmail.Location = new System.Drawing.Point(112, 195);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(190, 20);
+            this.txtEmail.TabIndex = 11;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(15, 235);
+            this.label6.Location = new System.Drawing.Point(12, 235);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(33, 13);
             this.label6.TabIndex = 13;
             this.label6.Text = "Quận";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(9, 272);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(28, 13);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Tỉnh";
+            // 
+            // provinceComboBox
+            // 
+            this.provinceComboBox.AutoSize = true;
+            this.provinceComboBox.Location = new System.Drawing.Point(112, 264);
+            this.provinceComboBox.Name = "provinceComboBox";
+            this.provinceComboBox.Size = new System.Drawing.Size(190, 21);
+            this.provinceComboBox.TabIndex = 15;
+            // 
+            // districtComboBox
+            // 
+            this.districtComboBox.AutoSize = true;
+            this.districtComboBox.Location = new System.Drawing.Point(112, 227);
+            this.districtComboBox.Name = "districtComboBox";
+            this.districtComboBox.Size = new System.Drawing.Size(190, 21);
+            this.districtComboBox.TabIndex = 14;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(112, 303);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.TabIndex = 17;
+            this.btnAdd.Text = "Thêm";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
             // AddNewAgent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(346, 493);
+            this.ClientSize = new System.Drawing.Size(346, 370);
+            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.provinceComboBox);
+            this.Controls.Add(this.districtComboBox);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.districtComboBox1);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.txtZip);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txtFax);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtPhone);
+            this.Controls.Add(this.txtAddress);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtAgentName);
             this.Controls.Add(this.lbAgentName);
             this.Name = "AddNewAgent";
-            this.Text = "AddNewAgent";
+            this.Text = "Thêm Agent";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,18 +219,21 @@
         #endregion
 
         private System.Windows.Forms.Label lbAgentName;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtAgentName;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtAddress;
+        private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtFax;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtZip;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox6;
-        private DistrictComboBox districtComboBox1;
+        private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label6;
+        private DistrictComboBox districtComboBox;
+        private ProvinceComboBox provinceComboBox;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnAdd;
     }
 }

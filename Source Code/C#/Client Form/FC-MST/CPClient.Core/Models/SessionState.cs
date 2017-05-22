@@ -27,6 +27,6 @@ namespace CPClient.Core.Models
         public DateTime Expires { get; set; }
 
         [JsonProperty("roleId")]
-        public int RoleId { get; set; }
+        public  Constants.UserRole UserRole { get; set; }
     }
 }

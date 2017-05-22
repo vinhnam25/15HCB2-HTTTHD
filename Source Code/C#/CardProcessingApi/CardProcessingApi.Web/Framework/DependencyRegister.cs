@@ -22,6 +22,7 @@ namespace CardProcessingApi.Web.Framework
             builder.RegisterType<LocationLogic>().As<ILocationLogic>().InstancePerLifetimeScope();
             builder.RegisterType<CardProcessingEntities>().As<DbContext>().InstancePerLifetimeScope();
             builder.RegisterType<WorkContext>().As<IWorkContext>().InstancePerLifetimeScope();
+            builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerLifetimeScope();
         }
     }
 }

@@ -27,5 +27,14 @@ namespace CardProcessingApi.Web.Controllers
             var result = AutoMapper.Mapper.Map<List<CommonViewModels.DistrictListItemModel>>(query);
             return result;
         }
+
+        [HttpGet]
+        [Route("all/provinces")]
+        public IEnumerable<CommonViewModels.ProvinceListItemModel> GetAllProvinces()
+        {
+            var query = _locationLogic.GetAllProvinces();
+            var result = AutoMapper.Mapper.Map<List<CommonViewModels.ProvinceListItemModel>>(query);
+            return result;
+        }
     }
 }

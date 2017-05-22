@@ -12,6 +12,11 @@ namespace CPClient.Core.Models
         {
             public int ProvinceId { get; set; }
             public string ProvinceName { get; set; }
+
+            public override string ToString()
+            {
+                return ProvinceName;
+            }
         }
     }
 }

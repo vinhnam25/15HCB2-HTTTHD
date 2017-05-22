@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CPClient.Business;
+using CPClient.Core.Models;
 
 namespace FC_MST
 {
@@ -15,6 +17,28 @@ namespace FC_MST
         public ProvinceComboBox()
         {
             InitializeComponent();
+            LoadAllProvinces();
+        }
+
+        private async void LoadAllProvinces()
+        {
+            var provinces = await LocationLogic.FetchAllProvincesAsync();
+            foreach (var province in provinces)
+            {
+                cbxProvinces.Items.Add(province);
+            }
+
+            if (provinces.Count > 0)
+            {
+                cbxProvinces.SelectedIndex = 0;
+            }
+        }
+
+        public ComboBox ComboBox => cbxProvinces;
+
+        public ProvinceModels.ProvinceListItemModel GetSelectedItem()
+        {
+            return ComboBox.SelectedItem as ProvinceModels.ProvinceListItemModel;
         }
     }
 }

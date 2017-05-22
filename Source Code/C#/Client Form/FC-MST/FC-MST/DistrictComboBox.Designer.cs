@@ -33,20 +33,21 @@
             // 
             // cbxDistricts
             // 
-            this.cbxDistricts.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.cbxDistricts.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbxDistricts.FormattingEnabled = true;
-            this.cbxDistricts.Location = new System.Drawing.Point(0, 7);
+            this.cbxDistricts.Location = new System.Drawing.Point(0, 0);
             this.cbxDistricts.Name = "cbxDistricts";
-            this.cbxDistricts.Size = new System.Drawing.Size(150, 21);
+            this.cbxDistricts.Size = new System.Drawing.Size(225, 21);
             this.cbxDistricts.TabIndex = 0;
             // 
             // DistrictComboBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.Controls.Add(this.cbxDistricts);
             this.Name = "DistrictComboBox";
-            this.Size = new System.Drawing.Size(150, 28);
+            this.Size = new System.Drawing.Size(225, 21);
             this.ResumeLayout(false);
 
         }

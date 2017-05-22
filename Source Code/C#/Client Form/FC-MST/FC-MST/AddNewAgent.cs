@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CPClient.Core;
+using CPClient.Core.Models;
 
 namespace FC_MST
 {
@@ -17,9 +19,26 @@ namespace FC_MST
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
+            var model = new AgentModels.CreateAgentBindingModel
+            {
+                AgentName = txtAgentName.Text,
+                Address = txtAddress.Text,
+                Email = txtEmail.Text,
+                Fax = txtFax.Text,
+                Phone = txtPhone.Text,
+                Zip = txtZip.Text,
+                DistrictId = districtComboBox.GetSelectedItem().DistrictId,
+                ProvinceId = provinceComboBox.GetSelectedItem().ProvinceId
+            };
 
+            WebServiceUtils.Post("/api/agent/create", model, _onSuccess);
         }
+
+        private readonly Action<string> _onSuccess = delegate(string result)
+        {
+            MessageBox.Show(result);
+        };
     }
 }

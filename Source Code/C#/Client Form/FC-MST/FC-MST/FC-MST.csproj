@@ -66,11 +66,11 @@
     <Compile Include="DistrictComboBox.Designer.cs">
       <DependentUpon>DistrictComboBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.cs">
+    <Compile Include="MainAppForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <Compile Include="MainAppForm.Designer.cs">
+      <DependentUpon>MainAppForm.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -92,8 +92,8 @@
     <EmbeddedResource Include="DistrictComboBox.resx">
       <DependentUpon>DistrictComboBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <EmbeddedResource Include="MainAppForm.resx">
+      <DependentUpon>MainAppForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -127,6 +127,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CPClient.Business\CPClient.Business.csproj">
+      <Project>{3246d7f2-cf48-44bc-a28b-65f8852b5e47}</Project>
+      <Name>CPClient.Business</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CPClient.Core\CPClient.Core.csproj">
       <Project>{2fecab01-1107-477f-9740-1a85816cda83}</Project>
       <Name>CPClient.Core</Name>
