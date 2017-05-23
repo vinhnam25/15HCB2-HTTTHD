@@ -73,13 +73,14 @@
                 data: JSON.stringify(data),
                 url: "http://localhost:8080/RFJVService/rest/user/checklogin"
             }).done(function (response) {
-               
+
                 if (response.token === "") {
                     alert("Sai tên mật khẩu hoặc password ! Vui lòng kiểm tra lại.");
                 }
-                else
-                {
+                else {
                     sessionStorage.token_value = response.token;
+                    sessionStorage.userid = response.userid;
+                    sessionStorage.roleid = response.roleid;
                     window.location.href = "/Home/Home";
                 }
 

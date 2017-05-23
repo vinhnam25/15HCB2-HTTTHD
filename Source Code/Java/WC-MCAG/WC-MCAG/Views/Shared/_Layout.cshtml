@@ -59,9 +59,10 @@
     <!--sidebar-menu-->
     <div id="sidebar">
         <a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
-        <ul>
+        <ul id="menu">
             <li><a href="/Home/Home"><i class="icon icon-home"></i> <span>Trang chủ</span></a> </li>
             <li class="active"><a href="/User/ViewListUser"><i class="icon icon-signal"></i> <span>Xem danh sách Merchant</span></a> </li>
+            <li class="active"><a href="/Agent/Agent"><i class="icon icon-inbox"></i> <span>Xem thông tin Agent</span></a> </li>
             <li> <a href="charts.html"><i class="icon icon-signal"></i> <span>Charts &amp; graphs</span></a> </li>
             <li> <a href="widgets.html"><i class="icon icon-inbox"></i> <span>Widgets</span></a> </li>
             <li><a href="tables.html"><i class="icon icon-th"></i> <span>Tables</span></a></li>
@@ -164,6 +165,12 @@
             window.location.href = "/User/Login";
         }
         else {
+            //check role id -- Bao 22.5.2017
+            if (sessionStorage.roleid != 2)
+            {
+                document.getElementById("menu").children[2].style.display = "none" //[2] Xem thong tin Agent
+            }
+            //
             $.ajax({
                 type: "POST",
                 data: JSON.stringify({ token: sessionStorage.token_value }),
