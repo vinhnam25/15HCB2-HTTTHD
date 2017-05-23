@@ -4,6 +4,7 @@ import java.util.Set;
 
 import javax.ws.rs.core.Application;
 
+import service.export.AgentRestful;
 import service.export.UserRestful;
 
 
@@ -20,6 +21,7 @@ public class ApplicationConfig extends Application {
 	
 	private void addRestResourceClass(Set<Class<?>> resources)
 	{
-		resources.add(UserRestful.class);		
+		resources.add(UserRestful.class);	
+		resources.add(AgentRestful.class);	
 	}
 }
