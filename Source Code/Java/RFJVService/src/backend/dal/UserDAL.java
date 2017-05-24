@@ -71,7 +71,7 @@ public class UserDAL {
 	            td.setFullname(rs.getString("FullName"));
 	            td.setRoleid(rs.getInt("RoleId"));
 	            td.setToken(rs.getString("TokenStr"));
-	            
+	            td.setUserid(rs.getInt("UserId"));
 	        }
 	     
 	        return td;
