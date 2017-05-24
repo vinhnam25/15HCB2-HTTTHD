@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static CardProcessingApi.Core.Enums;
 
 namespace CardProcessingApi.Core
 {
@@ -11,7 +10,7 @@ namespace CardProcessingApi.Core
     {
         public WorkingUser()
         {
-            Roles = new UserRole[] { };
+            Roles = new Enums.UserRole[] { };
         }
 
         public int Id { get; set; }
@@ -21,7 +20,7 @@ namespace CardProcessingApi.Core
         //public string LocationName { get; set; }
         public int? DistrictId { get; set; }
 
-        public IList<UserRole> Roles { get; set; }
+        public IList<Enums.UserRole> Roles { get; set; }
 
         /// <summary>
         /// Gets string used for logging purpose (including user id and username).
@@ -29,15 +28,15 @@ namespace CardProcessingApi.Core
         /// <returns></returns>
         public string GetLogString()
         {
-            return $"{Id} - {UserName}";
+            return string.Format("{0} - {1}", Id, UserName);
         }
 
-        public bool IsInRole(UserRole role)
+        public bool IsInRole(Enums.UserRole role)
         {
             return Roles.Contains(role);
         }
 
-        public bool IsInRole(params UserRole[] roles)
+        public bool IsInRole(params Enums.UserRole[] roles)
         {
             return roles.Any(userRole => Roles.Contains(userRole));
         }
