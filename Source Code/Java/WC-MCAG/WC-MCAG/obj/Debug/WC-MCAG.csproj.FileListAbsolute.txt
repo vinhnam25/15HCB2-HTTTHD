@@ -16,3 +16,29 @@ D:\Lien Thong_ 2017\15HCB2-HTTTHD-master\Source Code\Java\WC-MCAG\WC-MCAG\bin\Sy
 D:\Lien Thong_ 2017\15HCB2-HTTTHD-master\Source Code\Java\WC-MCAG\WC-MCAG\obj\Debug\WC-MCAG.dll
 D:\Lien Thong_ 2017\15HCB2-HTTTHD-master\Source Code\Java\WC-MCAG\WC-MCAG\obj\Debug\WC-MCAG.pdb
 D:\Lien Thong_ 2017\15HCB2-HTTTHD-master\Source Code\Java\WC-MCAG\WC-MCAG\obj\Debug\WC-MCAG.csprojResolveAssemblyReference.cache
+C:\Users\TNam\Desktop\choi\WC-MCAG\WC-MCAG\bin\WC-MCAG.dll.config
+C:\Users\TNam\Desktop\choi\WC-MCAG\WC-MCAG\bin\WC-MCAG.dll
+C:\Users\TNam\Desktop\choi\WC-MCAG\WC-MCAG\bin\WC-MCAG.pdb
+C:\Users\TNam\Desktop\choi\WC-MCAG\WC-MCAG\bin\System.Web.Helpers.dll
+C:\Users\TNam\Desktop\choi\WC-MCAG\WC-MCAG\bin\System.Web.Mvc.dll
+C:\Users\TNam\Desktop\choi\WC-MCAG\WC-MCAG\bin\System.Web.Razor.dll
+C:\Users\TNam\Desktop\choi\WC-MCAG\WC-MCAG\bin\System.Web.Webpages.Deployment.dll
+C:\Users\TNam\Desktop\choi\WC-MCAG\WC-MCAG\bin\System.Web.Webpages.dll
+C:\Users\TNam\Desktop\choi\WC-MCAG\WC-MCAG\bin\System.Web.Webpages.Razor.dll
+C:\Users\TNam\Desktop\choi\WC-MCAG\WC-MCAG\bin\System.Web.Razor.xml
+C:\Users\TNam\Desktop\choi\WC-MCAG\WC-MCAG\bin\System.Web.Webpages.xml
+C:\Users\TNam\Desktop\choi\WC-MCAG\WC-MCAG\bin\System.Web.Webpages.Deployment.xml
+C:\Users\TNam\Desktop\choi\WC-MCAG\WC-MCAG\bin\System.Web.Webpages.Razor.xml
+C:\Users\TNam\Desktop\choi\WC-MCAG\WC-MCAG\bin\System.Web.Helpers.xml
+C:\Users\TNam\Desktop\choi\WC-MCAG\WC-MCAG\bin\System.Web.Mvc.xml
+C:\Users\TNam\Desktop\choi\WC-MCAG\WC-MCAG\obj\Debug\WC-MCAG.csprojResolveAssemblyReference.cache
+C:\Users\TNam\Desktop\choi\WC-MCAG\WC-MCAG\obj\Debug\WC-MCAG.dll
+C:\Users\TNam\Desktop\choi\WC-MCAG\WC-MCAG\obj\Debug\WC-MCAG.pdb
+C:\Users\TNam\Desktop\choi\WC-MCAG\WC-MCAG\bin\Newtonsoft.Json.dll
+C:\Users\TNam\Desktop\choi\WC-MCAG\WC-MCAG\bin\System.Net.Http.Formatting.dll
+C:\Users\TNam\Desktop\choi\WC-MCAG\WC-MCAG\bin\System.Web.Http.dll
+C:\Users\TNam\Desktop\choi\WC-MCAG\WC-MCAG\bin\System.Web.Http.WebHost.dll
+C:\Users\TNam\Desktop\choi\WC-MCAG\WC-MCAG\bin\Newtonsoft.Json.xml
+C:\Users\TNam\Desktop\choi\WC-MCAG\WC-MCAG\bin\System.Net.Http.Formatting.xml
+C:\Users\TNam\Desktop\choi\WC-MCAG\WC-MCAG\bin\System.Web.Http.xml
+C:\Users\TNam\Desktop\choi\WC-MCAG\WC-MCAG\bin\System.Web.Http.WebHost.xml
