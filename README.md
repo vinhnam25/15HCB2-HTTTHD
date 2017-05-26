@@ -12,3 +12,9 @@
 + 1542247	Trần Vĩnh Nam
 + 1542277	Nguyễn Trung Tín
 
+## Note: -- Bao (26/05/2017)
+- định dạng dự liệu hiển thị (vd : sdt : 090 xxx xxxx)
+- hiển thị dữ liệu có tìm kiếm , sort
+- chức năng xem Log (auto Impport dữ liệu)
+- hightline các dòng dữ liệu khác trạng thái
+- báo cáo thiết kế đồ án (3đ)
