@@ -136,4 +136,35 @@ public class UserDAL {
 		}
 
 	}
+	//
+	public static Boolean checkChangePassword(String token, String password_old,String password_new)
+	{
+		try
+		{
+			String sql = "{call sp_CheckChangePassword(?,?,?)}";
+			CallableStatement pre = conn.prepareCall(sql);         
+            pre.setString(1, token);
+            
+            pre.setString(2,JavaHelpers.getMD5(password_old));
+            pre.setString(3,JavaHelpers.getMD5(password_new));
+	        ResultSet rs = pre.executeQuery();      
+	        if(rs.next()){
+	        	//System.out.println(rs.getInt("RES"));
+	        	if(rs.getInt("RES") > 0)	        	
+	 	         return true;
+	        	else 
+	        		return false;
+	        }else
+	        {
+	        	return false;
+	        }
+	       
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+			return false;
+		}
+
+	}
 }

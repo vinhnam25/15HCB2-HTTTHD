@@ -84,5 +84,16 @@ public class UserService implements IUserService<User> {
 		boolean rs = UserDAL.checkLogout(token);
 		return rs;
 	}
+	
+	@Override
+	public Boolean checkChangePaswword(String jsondata) throws Exception {
+		// TODO Auto-generated method stub
+		JSONObject jo = new JSONObject(jsondata);
+		String token = jo.getString("token");
+		String password_old = jo.getString("password_old");
+		String password_new = jo.getString("password_new");
+		Boolean rs = UserDAL.checkChangePassword(token, password_old, password_new);
+		return rs;
+	}
 
 }

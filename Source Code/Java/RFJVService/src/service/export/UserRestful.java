@@ -82,9 +82,37 @@ public class UserRestful {
 			boolean kq = UserService.getInstance().checkLogout(jsondata);
 					
 			if(kq)
-				return ResponseConfig.OK("1");
+				return ResponseConfig.OK();
 			else
 				return ResponseConfig.OK("0");
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+			return ResponseConfig.SERVER_ERROR();
+		}
+	} 
+	
+	//
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/checkchangepassword")
+	public Response checkChangePassword(String jsondata)
+	{
+		try
+		{
+			System.out.println(jsondata);
+			Boolean check = UserService.getInstance().checkChangePaswword(jsondata);
+			
+			if(check){
+		
+				System.out.println(1);
+				return ResponseConfig.OK("1");
+			}
+				
+			else
+				System.out.println(2);
+				return ResponseConfig.NOT_FOUND();
 		}
 		catch(Exception ex)
 		{
