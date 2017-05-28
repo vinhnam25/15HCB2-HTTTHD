@@ -264,6 +264,7 @@
     <Content Include="Views\Agent\Agent.cshtml" />
     <Content Include="Views\Agent\ViewMerchantManaged.cshtml" />
     <Content Include="Views\Merchant\ViewDetail.cshtml" />
+    <Content Include="Views\User\ChangePassword.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
