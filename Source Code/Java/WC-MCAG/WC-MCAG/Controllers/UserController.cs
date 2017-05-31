@@ -20,6 +20,10 @@ namespace WC_MCAG.Controllers
             return View();
         }
 
+        public ActionResult ChangePassword()
+        {
+            return View();
+        }
        
 	}
 }

@@ -14,5 +14,10 @@ namespace WC_MCAG.Controllers
         {
             return View();
         }
+
+        public ActionResult ViewMerchantManaged()
+        {
+            return View();
+        }
 	}
 }
