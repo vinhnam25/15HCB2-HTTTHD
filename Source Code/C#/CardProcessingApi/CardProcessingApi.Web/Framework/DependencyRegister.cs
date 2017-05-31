@@ -2,6 +2,7 @@
 using System.Reflection;
 using Autofac;
 using Autofac.Integration.WebApi;
+using CardProcessing.Business.BusinessLogic;
 using CardProcessing.Business.BusinessLogic.Account;
 using CardProcessing.Business.BusinessLogic.AgentLogic;
 using CardProcessing.Business.BusinessLogic.Location;
@@ -23,6 +24,7 @@ namespace CardProcessingApi.Web.Framework
             builder.RegisterType<CardProcessingEntities>().As<DbContext>().InstancePerLifetimeScope();
             builder.RegisterType<WorkContext>().As<IWorkContext>().InstancePerLifetimeScope();
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerLifetimeScope();
+            builder.RegisterType<ConfigurationLogic>().As<IConfigurationLogic>().InstancePerLifetimeScope();
         }
     }
 }

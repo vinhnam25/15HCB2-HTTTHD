@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CPClient.Business;
 using CPClient.Core;
 using CPClient.Core.Models;
 
@@ -20,13 +21,11 @@ namespace FC_MST
         public LoginForm()
         {
             InitializeComponent();
-            WebServiceUtils.Success += OnLoginSuccess;
-            WebServiceUtils.Failed += OnLoginFailed;
         }
 
-        private void OnLoginFailed(SessionState sessionstate)
+        private void OnLoginFailed(string message)
         {
-            MessageBox.Show("Đăng nhập thất bại");
+            MessageBox.Show("Đăng nhập thất bại: " + message);
             EnableFields();
         }
 
@@ -34,7 +33,7 @@ namespace FC_MST
         {
             txtUserName.Text = "demo01";
             txtPassword.Text = "123456";
-            var response = WebServiceUtils.Login(txtUserName.Text, txtPassword.Text);
+            var response = AuthenticationLogic.Login(txtUserName.Text, txtPassword.Text, OnLoginSuccess, OnLoginFailed);
             DisableFields();
         }
 
@@ -52,7 +51,7 @@ namespace FC_MST
             txtUserName.Enabled = true;
         }
 
-        private void OnLoginSuccess(SessionState sessionstate)
+        private void OnLoginSuccess(string s)
         {
             // MessageBox.Show("Đăng nhập thành công với tài khoản: " + sessionstate.UserName);
             this.DialogResult = DialogResult.OK;
@@ -63,7 +62,7 @@ namespace FC_MST
         {
             if (e.KeyCode == Keys.Enter)
             {
-                var success = WebServiceUtils.Login(txtUserName.Text, txtPassword.Text);
+                var success = AuthenticationLogic.Login(txtUserName.Text, txtPassword.Text);
                 DisableFields();
             }
         }

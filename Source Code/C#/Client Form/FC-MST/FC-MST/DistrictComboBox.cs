@@ -18,6 +18,12 @@ namespace FC_MST
         public DistrictComboBox()
         {
             InitializeComponent();
+            
+        }
+
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
             GetAllDistricts();
         }
 
@@ -37,9 +43,9 @@ namespace FC_MST
 
         public ComboBox ComboBox => cbxDistricts;
 
-        public DistrictModels.DistrictListItemModel GetSelectedItem()
+        public DistrictListItemModel GetSelectedItem()
         {
-            return ComboBox.SelectedItem as DistrictModels.DistrictListItemModel;
+            return ComboBox.SelectedItem as DistrictListItemModel;
         }
     }
 }

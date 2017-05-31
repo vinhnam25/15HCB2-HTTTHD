@@ -86,6 +86,12 @@
     <Compile Include="ProvinceComboBox.Designer.cs">
       <DependentUpon>ProvinceComboBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCAgentManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCAgentManagement.Designer.cs">
+      <DependentUpon>UCAgentManagement.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddNewAgent.resx">
       <DependentUpon>AddNewAgent.cs</DependentUpon>
     </EmbeddedResource>
@@ -109,6 +115,9 @@
     </Compile>
     <EmbeddedResource Include="ProvinceComboBox.resx">
       <DependentUpon>ProvinceComboBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCAgentManagement.resx">
+      <DependentUpon>UCAgentManagement.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

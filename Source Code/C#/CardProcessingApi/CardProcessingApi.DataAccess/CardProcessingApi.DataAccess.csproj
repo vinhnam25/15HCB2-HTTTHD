@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="DataExtensions.cs" />
     <Compile Include="GenericRepository.cs" />
     <Compile Include="IGenericRepository.cs" />
     <Compile Include="IUnitOfWork.cs" />

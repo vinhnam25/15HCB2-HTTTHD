@@ -265,6 +265,7 @@
     <Compile Include="Controllers\AgentController.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
     <Compile Include="Controllers\CommonController.cs" />
+    <Compile Include="Controllers\ConfigurationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Framework\DependencyRegister.cs" />
     <Compile Include="Framework\Extension\ModelStateDictionaryExtensions.cs" />
@@ -280,6 +281,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AgentBindingModels.cs" />
     <Compile Include="Models\CommonViewModels.cs" />
+    <Compile Include="Models\ConfigurationModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />

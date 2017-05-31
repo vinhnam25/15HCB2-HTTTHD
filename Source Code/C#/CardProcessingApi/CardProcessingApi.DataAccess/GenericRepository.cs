@@ -31,15 +31,18 @@ namespace CardProcessingApi.DataAccess
             return _dbset.AsEnumerable<T>();
         }
 
-        public IQueryable<T> GetTableNoTracking()
+        IQueryable<T> IGenericRepository<T>.TableTracking
         {
-            return _dbset.AsNoTracking();
+            get
+            {
+                return _dbset;
+            }
         }
 
-        public IQueryable<T> GetTable()
+        IQueryable<T> IGenericRepository<T>.TableNoTracking
         {
-            return _dbset;
-        }
+            get { return _dbset.AsNoTracking(); }
+        } 
 
         public IEnumerable<T> FindBy(Expression<Func<T, bool>> predicate)
         {

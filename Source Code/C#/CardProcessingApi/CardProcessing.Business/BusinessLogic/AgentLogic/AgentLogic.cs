@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
 using CardProcessingApi.Data;
 using CardProcessingApi.DataAccess;
 
@@ -8,6 +11,7 @@ namespace CardProcessing.Business.BusinessLogic.AgentLogic
     {
         private readonly IGenericRepository<Agent> _agentRepository;
         private readonly IUnitOfWork _unitOfWork;
+        
 
         public AgentLogic(IGenericRepository<Agent> agentRepository, IUnitOfWork unitOfWork)
         {
@@ -17,13 +21,27 @@ namespace CardProcessing.Business.BusinessLogic.AgentLogic
 
         public Agent GetAgentById(int agentId)
         {
-            throw new NotImplementedException();
+            return _agentRepository.TableTracking.FirstOrDefault(c => c.AgentId == agentId);
         }
 
         public void Add(Agent agent)
         {
             _agentRepository.Add(agent);
             _unitOfWork.Commit();
+        }
+
+        public void Update(Agent agent)
+        {
+            if (_agentRepository.GetById(agent.AgentId) != null)
+            {
+                _agentRepository.Update(agent);
+                _unitOfWork.Commit();
+            }
+        }
+
+        public List<Agent> GetAll()
+        {
+            return _agentRepository.TableNoTracking.IncludeTable(c => c.District).IncludeTable(c => c.Province).ToList();
         }
     }
 }

@@ -49,6 +49,7 @@
     <Compile Include="AppConfigHelper.cs" />
     <Compile Include="AppContext.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="DataExtensions.cs" />
     <Compile Include="Models\AgentModels.cs" />
     <Compile Include="Models\DistrictModels.cs" />
     <Compile Include="Models\ProvinceModels.cs" />

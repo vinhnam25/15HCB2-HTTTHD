@@ -17,6 +17,11 @@ namespace FC_MST
         public ProvinceComboBox()
         {
             InitializeComponent();
+        }
+
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
             LoadAllProvinces();
         }
 
@@ -36,9 +41,9 @@ namespace FC_MST
 
         public ComboBox ComboBox => cbxProvinces;
 
-        public ProvinceModels.ProvinceListItemModel GetSelectedItem()
+        public ProvinceListItemModel GetSelectedItem()
         {
-            return ComboBox.SelectedItem as ProvinceModels.ProvinceListItemModel;
+            return ComboBox.SelectedItem as ProvinceListItemModel;
         }
     }
 }

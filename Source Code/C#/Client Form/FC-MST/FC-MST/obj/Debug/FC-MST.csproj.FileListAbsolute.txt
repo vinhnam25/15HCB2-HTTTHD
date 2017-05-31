@@ -21,3 +21,4 @@ H:\class-projects\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\obj\Deb
 H:\class-projects\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\bin\Debug\CPClient.Business.dll
 H:\class-projects\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\bin\Debug\CPClient.Business.pdb
 H:\class-projects\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC_MST.MainAppForm.resources
+H:\class-projects\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC_MST.UCAgentManagement.resources

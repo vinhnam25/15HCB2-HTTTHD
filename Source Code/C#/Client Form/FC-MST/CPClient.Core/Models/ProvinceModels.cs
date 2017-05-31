@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 
 namespace CPClient.Core.Models
 {
-    public class ProvinceModels
-    {
         public class ProvinceListItemModel 
         {
             public int ProvinceId { get; set; }
@@ -18,5 +16,4 @@ namespace CPClient.Core.Models
                 return ProvinceName;
             }
         }
-    }
 }

@@ -12,8 +12,8 @@ namespace CardProcessingApi.DataAccess
     {
         T GetById(object id);
         IEnumerable<T> GetAll();
-        IQueryable<T> GetTableNoTracking();
-        IQueryable<T> GetTable();
+        IQueryable<T> TableNoTracking { get; }
+        IQueryable<T> TableTracking { get; }
         IEnumerable<T> FindBy(Expression<Func<T, bool>> predicate);
         int BulkDelete(Expression<Func<T, bool>> filterExpression);
         int BulkUpdate(Expression<Func<T, bool>> filterExpression, Expression<Func<T, T>> updateExpression);

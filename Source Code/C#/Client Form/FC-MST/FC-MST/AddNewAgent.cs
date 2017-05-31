@@ -21,7 +21,7 @@ namespace FC_MST
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            var model = new AgentModels.CreateAgentBindingModel
+            var model = new CreateAgentBindingModel
             {
                 AgentName = txtAgentName.Text,
                 Address = txtAddress.Text,

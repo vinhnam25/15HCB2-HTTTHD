@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web;
 using System.Web.Http;
+using AutoMapper;
 using CardProcessing.Business.BusinessLogic.AgentLogic;
 using CardProcessingApi.Core;
 using CardProcessingApi.Data;
@@ -39,6 +40,16 @@ namespace CardProcessingApi.Web.Controllers
             _agentLogic.Add(entity);
 
             return Ok();
+        }
+
+        [HttpGet]
+        [Route("all")]
+        public List<AgentListItemModel> GetAll()
+        {
+            var agents = _agentLogic.GetAll();
+            var entities = Mapper.Map<List<AgentListItemModel>>(agents);
+
+            return entities;
         }
     }
 }
