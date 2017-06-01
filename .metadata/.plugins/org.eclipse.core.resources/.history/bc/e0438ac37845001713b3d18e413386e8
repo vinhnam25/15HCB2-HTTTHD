@@ -1,0 +1,6 @@
+package service.interfaces;
+import backend.entities.Notification;;
+
+public interface INotificationService<T> extends IGenericService<T> {
+	 public Notification getinboxbytoken(String jsondata) throws Exception;
+}
