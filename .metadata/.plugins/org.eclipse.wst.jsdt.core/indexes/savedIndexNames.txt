@@ -1,7 +1,0 @@
-INDEX VERSION 1.3+D:\Lien Thong_ 2017\15HCB2-HTTTHD\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-2191601717.index
-1660684072.index
-2038378707.index
-1775450935.index
-3423316759.index
-2590756104.index
