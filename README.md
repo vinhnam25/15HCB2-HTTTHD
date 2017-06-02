@@ -1,4 +1,5 @@
-
+## Note: -- Bao (02/06/2017)
+-- cap nhat database (Thêm cột CpnId bảng User + store)
 ## Note: -- Bao (26/05/2017)
 - định dạng dự liệu hiển thị (vd : sdt : 090 xxx xxxx)
 - hiển thị dữ liệu có tìm kiếm , sort
