@@ -1,4 +1,4 @@
-##Note: -- Nam (03/06/2017)
+## Note: -- Nam (03/06/2017)
 Link chức năng và cập nhat trạng thái 
 https://docs.google.com/spreadsheets/d/1rW8E3cVN8-M0YFyeNaUj3IXzbgfFFoZ6zcjD77qI2eo/edit#gid=0
 
