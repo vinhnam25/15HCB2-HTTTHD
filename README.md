@@ -1,3 +1,7 @@
+##Note: -- Nam (03/06/2017)
+Link chức năng và cập nhat trạng thái 
+https://docs.google.com/spreadsheets/d/1rW8E3cVN8-M0YFyeNaUj3IXzbgfFFoZ6zcjD77qI2eo/edit#gid=0
+
 ## Note: -- Bao (02/06/2017)
 -- cap nhat database (Thêm cột CpnId bảng User + store)
 ## Note: -- Bao (26/05/2017)
