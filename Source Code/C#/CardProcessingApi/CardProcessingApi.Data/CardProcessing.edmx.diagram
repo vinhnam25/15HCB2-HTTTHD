@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6702c194abe444a882e8dfbfbdd6c25b" Name="Diagram1" ZoomLevel="61">
+        <EntityTypeShape EntityType="CardProcessingModel.Agent" Width="1.5" PointX="3" PointY="4.75" />
+        <EntityTypeShape EntityType="CardProcessingModel.CardType" Width="1.5" PointX="8.25" PointY="11.125" />
+        <EntityTypeShape EntityType="CardProcessingModel.Configuration" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CardProcessingModel.District" Width="1.5" PointX="0.75" PointY="2.75" />
+        <EntityTypeShape EntityType="CardProcessingModel.LogRecord" Width="1.5" PointX="2.75" PointY="9.75" />
+        <EntityTypeShape EntityType="CardProcessingModel.Merchant" Width="1.5" PointX="8.25" PointY="3.375" />
+        <EntityTypeShape EntityType="CardProcessingModel.MerchantInvitation" Width="1.5" PointX="10.5" PointY="11.25" />
+        <EntityTypeShape EntityType="CardProcessingModel.MerchantType" Width="1.5" PointX="6" PointY="2.875" />
+        <EntityTypeShape EntityType="CardProcessingModel.Notification" Width="1.5" PointX="4.75" PointY="9.75" />
+        <EntityTypeShape EntityType="CardProcessingModel.Province" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="CardProcessingModel.Region" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CardProcessingModel.RegionMapping" Width="1.5" PointX="6" PointY="5.625" />
+        <EntityTypeShape EntityType="CardProcessingModel.TransactionDetail" Width="1.5" PointX="10.5" PointY="4.25" />
+        <EntityTypeShape EntityType="CardProcessingModel.TransactionType" Width="1.5" PointX="8.25" PointY="0.75" />
+        <EntityTypeShape EntityType="CardProcessingModel.User" Width="1.5" PointX="0.75" PointY="8.5" />
+        <EntityTypeShape EntityType="CardProcessingModel.UserRole" Width="1.5" PointX="1.5" PointY="13.25" />
+        <AssociationConnector Association="CardProcessingModel.FK_Agent_District" />
+        <AssociationConnector Association="CardProcessingModel.FK_Agent_Province" />
+        <AssociationConnector Association="CardProcessingModel.FK_Agent_User" />
+        <AssociationConnector Association="CardProcessingModel.FK_Merchant_Agent" />
+        <AssociationConnector Association="CardProcessingModel.FK_TransactionDetail_CardType" />
+        <AssociationConnector Association="CardProcessingModel.FK_Merchant_District" />
+        <AssociationConnector Association="CardProcessingModel.FK_RegionMapping_District" />
+        <AssociationConnector Association="CardProcessingModel.FK_Merchant_MerchantType" />
+        <AssociationConnector Association="CardProcessingModel.FK_Merchant_Province" />
+        <AssociationConnector Association="CardProcessingModel.FK_Merchant_User" />
+        <AssociationConnector Association="CardProcessingModel.FK_MerchantInvitation_Merchant" />
+        <AssociationConnector Association="CardProcessingModel.FK_TransactionDetail_Merchant" />
+        <AssociationConnector Association="CardProcessingModel.FK_RegionMapping_Province" />
+        <AssociationConnector Association="CardProcessingModel.FK_TransactionDetail_TransactionType" />
+        <AssociationConnector Association="CardProcessingModel.FK_User_UserRole" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

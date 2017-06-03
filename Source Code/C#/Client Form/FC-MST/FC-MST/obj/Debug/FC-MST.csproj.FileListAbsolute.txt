@@ -1,0 +1,24 @@
+D:\Project VS\VC\FC-MST\FC-MST\bin\Debug\FC-MST.exe.config
+H:\class-projects\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\bin\Debug\FC-MST.exe.config
+H:\class-projects\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\bin\Debug\App.config
+H:\class-projects\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\bin\Debug\FC-MST.exe
+H:\class-projects\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\bin\Debug\FC-MST.pdb
+H:\class-projects\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\bin\Debug\CPClient.Core.dll
+H:\class-projects\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\bin\Debug\Newtonsoft.Json.dll
+H:\class-projects\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\bin\Debug\System.Net.Http.Formatting.dll
+H:\class-projects\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\bin\Debug\CPClient.Core.pdb
+H:\class-projects\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\bin\Debug\Newtonsoft.Json.xml
+H:\class-projects\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\bin\Debug\System.Net.Http.Formatting.xml
+H:\class-projects\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC-MST.csprojResolveAssemblyReference.cache
+H:\class-projects\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC_MST.AddNewAgent.resources
+H:\class-projects\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC_MST.DistrictComboBox.resources
+H:\class-projects\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC_MST.LoginForm.resources
+H:\class-projects\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC_MST.Properties.Resources.resources
+H:\class-projects\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC_MST.ProvinceComboBox.resources
+H:\class-projects\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC-MST.csproj.GenerateResource.Cache
+H:\class-projects\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC-MST.exe
+H:\class-projects\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC-MST.pdb
+H:\class-projects\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\bin\Debug\CPClient.Business.dll
+H:\class-projects\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\bin\Debug\CPClient.Business.pdb
+H:\class-projects\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC_MST.MainAppForm.resources
+H:\class-projects\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC_MST.UCAgentManagement.resources
