@@ -23,15 +23,18 @@ namespace FC_MST
 
         private List<AgentListItemModel> Agents { get; set; } 
 
-        private void ConfigureGrid()
+        private void ConfigureForm()
         {
             gridAgent.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+            btnActivateAgent.Visible = false;
+            btnDeactivateAgent.Visible = false;
         }
 
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            ConfigureGrid();
+            ConfigureForm();
             LoadAllAgents();
 
         }
@@ -50,8 +53,59 @@ namespace FC_MST
             if (row != null)
             {
                 var agentId = row.Cells[0].Value.ToString();
-                var agent = Agents.Where(c => c.AgentId == agentId);
+                var agent = Agents.FirstOrDefault(c => c.AgentId == agentId);
+
+                btnActivateAgent.Visible = false;
+                btnDeactivateAgent.Visible = false;
+
+                txtAgentId.Text = agent.AgentId;
+                txtAgentName.Text = agent.AgentName;
+                districtComboBox1.ComboBox.SelectedItem = districtComboBox1.DataSource.FirstOrDefault(c=> c.DistrictId == agent.District.DistrictId);
+                provinceComboBox1.ComboBox.SelectedValue = provinceComboBox1.DataSource.FirstOrDefault(c=>c.ProvinceId == agent.Province.ProvinceId);
+
+                if (agent.IsActive)
+                {
+                    btnDeactivateAgent.Visible = true;
+                }
+                else
+                {
+                    btnActivateAgent.Visible = true;
+                }
             }
+        }
+
+        private void btnActivateAgent_Click(object sender, EventArgs e)
+        {
+            var agentId = txtAgentId.Text;
+            AgentLogic.ActivateAgent(agentId, delegate(string s)
+            {
+                MessageBox.Show("Kích hoạt Agent thành công");
+            }, delegate(string s)
+            {
+                MessageBox.Show(s);
+            });
+        }
+
+        private void OnFailed(string s)
+        {
+            MessageBox.Show(s);
+        }
+
+        private void OnSuccess(string s)
+        {
+            MessageBox.Show(s);
+        }
+
+        private void btnDeactivateAgent_Click(object sender, EventArgs e)
+        {
+            var agentId = txtAgentId.Text;
+            AgentLogic.DeactivateAgent(agentId, delegate (string s)
+            {
+                MessageBox.Show("Chuyển agent sang không kích hoạt thành công");
+            }, delegate (string s)
+            {
+                MessageBox.Show(s);
+            });
         }
     }
 }

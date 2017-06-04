@@ -21,5 +21,15 @@ namespace CPClient.Business
             var agent = await WebServiceUtils.Get<AgentListItemModel>("/api/agent/" + id);
             return agent;
         }
+
+        public static void ActivateAgent(string agentId, Action<string> onSuccess, Action<string> onFailed)
+        {
+            WebServiceUtils.Post("/api/agent/active/" + agentId, null, onSuccess, onFailed);
+        }
+
+        public static void DeactivateAgent(string agentId, Action<string> onSuccess, Action<string> onFailed)
+        {
+            WebServiceUtils.Post("/api/agent/unactive/" + agentId, null, onSuccess, onFailed);
+        }
     }
 }
