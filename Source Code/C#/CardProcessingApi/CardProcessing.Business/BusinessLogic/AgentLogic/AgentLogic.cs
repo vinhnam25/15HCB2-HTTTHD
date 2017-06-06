@@ -24,6 +24,15 @@ namespace CardProcessing.Business.BusinessLogic.AgentLogic
             return _agentRepository.TableTracking.FirstOrDefault(c => c.AgentId == agentId);
         }
 
+        public List<Agent> GetAgentByProvince(int provinceId)
+        {
+            return _agentRepository.TableTracking.IncludeTable(c => c.Province).IncludeTable(c => c.District).Where(c => c.ProvinceId == provinceId).ToList();
+        }
+
+        public List<Agent> GetAgentByDictrict(int dictrictId)
+        {
+            return _agentRepository.TableTracking.IncludeTable(c => c.Province).IncludeTable(c => c.District).Where(c => c.DistrictId == dictrictId).ToList();
+        }
         public void Add(Agent agent)
         {
             _agentRepository.Add(agent);
