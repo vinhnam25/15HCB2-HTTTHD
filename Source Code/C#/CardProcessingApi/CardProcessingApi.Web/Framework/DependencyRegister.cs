@@ -21,6 +21,7 @@ namespace CardProcessingApi.Web.Framework
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
             builder.RegisterType<UserLogic>().As<IUserLogic>().InstancePerLifetimeScope();
             builder.RegisterType<AgentLogic>().As<IAgentLogic>().InstancePerLifetimeScope();
+            builder.RegisterType<MerchantLogic>().As<IMerchantLogic>().InstancePerLifetimeScope();
             builder.RegisterType<LocationLogic>().As<ILocationLogic>().InstancePerLifetimeScope();
             builder.RegisterType<CardProcessingEntities>().As<DbContext>().InstancePerLifetimeScope();
             builder.RegisterType<WorkContext>().As<IWorkContext>().InstancePerLifetimeScope();
