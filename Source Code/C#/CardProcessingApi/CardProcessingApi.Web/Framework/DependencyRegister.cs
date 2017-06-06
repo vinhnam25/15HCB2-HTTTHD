@@ -1,13 +1,14 @@
-﻿using System.Data.Entity;
-using System.Reflection;
-using Autofac;
+﻿using Autofac;
 using Autofac.Integration.WebApi;
 using CardProcessing.Business.BusinessLogic;
 using CardProcessing.Business.BusinessLogic.Account;
 using CardProcessing.Business.BusinessLogic.AgentLogic;
 using CardProcessing.Business.BusinessLogic.Location;
+using CardProcessing.Business.BusinessLogic.MerchantLogic;
 using CardProcessingApi.Data;
 using CardProcessingApi.DataAccess;
+using System.Data.Entity;
+using System.Reflection;
 
 namespace CardProcessingApi.Web.Framework
 {

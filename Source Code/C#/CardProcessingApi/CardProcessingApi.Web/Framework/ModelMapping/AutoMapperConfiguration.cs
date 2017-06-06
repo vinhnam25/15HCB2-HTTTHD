@@ -13,6 +13,7 @@ namespace CardProcessingApi.Web.Framework.ModelMapping
         {
             var cfg = new MapperConfigurationExpression();
             cfg.CreateMap<CreateAgentBindingModel, Agent>();
+            //cfg.CreateMap<CreateMerchantBindingModel, Merchant>();
             cfg.CreateMap<CommonViewModels.DistrictListItemModel, District>().ReverseMap();
             cfg.CreateMap<CommonViewModels.ProvinceListItemModel, Province>().ReverseMap();
             cfg.CreateMap<ConfigurationModels.ListViewConfigurationModel, Configuration>().ReverseMap();
