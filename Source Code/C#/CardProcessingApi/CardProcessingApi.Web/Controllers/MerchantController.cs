@@ -24,16 +24,16 @@ namespace CardProcessingApi.Web.Controllers
 
         [HttpPost]
         [RoleAuthorize(Enums.UserRole.Master)]
-        [Route("active/{merchantID}")]
-        public IHttpActionResult ActivateMerchant(int merchantID)
+        [Route("active/{merchantId}")]
+        public IHttpActionResult ActivateMerchant(int merchantId)
         {
             return Ok();
         }
 
         [HttpPost]
         [RoleAuthorize(Enums.UserRole.Master)]
-        [Route("inactive/{merchantID}")]
-        public IHttpActionResult InactivateMerchant(int merchantID)
+        [Route("inactive/{merchantId}")]
+        public IHttpActionResult InactivateMerchant(int merchantId)
         {
             return Ok();
         }
