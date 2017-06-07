@@ -69,5 +69,29 @@ namespace CardProcessingApi.Web.Controllers
 
             return entities;
         }
+
+        [HttpGet]
+        [AllowAnonymous]
+        [Route("getByProvince/{provinceId}")]
+        public List<AgentListItemModel> GetByProvince(int provinceId)
+        {
+
+            var agents = _agentLogic.GetAgentByProvince(provinceId);
+            var entities = Mapper.Map<List<AgentListItemModel>>(agents);
+
+            return entities;
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        [Route("getByDictrict/{dictrictId}")]
+        public List<AgentListItemModel> GetByDictrict(int dictrictId)
+        {
+
+            var agents = _agentLogic.GetAgentByDictrict(dictrictId);
+            var entities = Mapper.Map<List<AgentListItemModel>>(agents);
+
+            return entities;
+        }
     }
 }
