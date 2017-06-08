@@ -13,24 +13,11 @@ namespace CardProcessingApi.Web.Framework.ModelMapping
         {
             var cfg = new MapperConfigurationExpression();
             cfg.CreateMap<CreateAgentBindingModel, Agent>();
-            cfg.CreateMap<CreateMerchantBindingModel, Merchant>();
+            //cfg.CreateMap<CreateMerchantBindingModel, Merchant>();
             cfg.CreateMap<CommonViewModels.DistrictListItemModel, District>().ReverseMap();
             cfg.CreateMap<CommonViewModels.ProvinceListItemModel, Province>().ReverseMap();
             cfg.CreateMap<ConfigurationModels.ListViewConfigurationModel, Configuration>().ReverseMap();
             cfg.CreateMap<Agent, AgentListItemModel>()
-                .ForMember(dst => dst.Province,
-                    src => src.ResolveUsing(c => new CommonViewModels.ProvinceListItemModel()
-                    {
-                        ProvinceName = c.Province.ProvinceName,
-                        ProvinceId = c.ProvinceId
-                    }))
-                 .ForMember(dst => dst.District,
-                 src => src.ResolveUsing(c => new CommonViewModels.DistrictListItemModel()
-                 {
-                     DistrictId = c.DistrictId,
-                     DistrictName = c.District.DistrictName
-                 }));
-            cfg.CreateMap<Merchant, MerchantListItemModel>()
                 .ForMember(dst => dst.Province,
                     src => src.ResolveUsing(c => new CommonViewModels.ProvinceListItemModel()
                     {

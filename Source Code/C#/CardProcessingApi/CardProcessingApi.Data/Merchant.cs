@@ -24,7 +24,7 @@ namespace CardProcessingApi.Data
         public int MerchantId { get; set; }
         public int MerchantType { get; set; }
         public int ProvinceId { get; set; }
-        public int DistrictId { get; set; }
+        public Nullable<int> DistrictId { get; set; }
         public bool IsActive { get; set; }
         public string Phone { get; set; }
         public string Fax { get; set; }

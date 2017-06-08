@@ -1,18 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web;
-using System.Web.Http;
-using AutoMapper;
-using CardProcessing.Business.BusinessLogic.MerchantLogic;
+﻿using System.Web.Http;
 using CardProcessingApi.Core;
-using CardProcessingApi.Data;
-using CardProcessingApi.Web.Framework;
-using CardProcessingApi.Web.Framework.Extension;
 using CardProcessingApi.Web.Framework.Filters;
-using CardProcessingApi.Web.Models;
+using CardProcessing.Business.BusinessLogic.MerchantLogic;
 
 namespace CardProcessingApi.Web.Controllers
 {
@@ -44,14 +33,14 @@ namespace CardProcessingApi.Web.Controllers
             return Ok();
         }
 
-        [HttpGet]
-        [Route("all")]
-        public List<MerchantListItemModel> GetAll()
-        {
-            var merchants = _merchantLogic.GetAll();
-            var entities = Mapper.Map<List<MerchantListItemModel>>(merchants);
+        //[HttpGet]
+        //[Route("all")]
+        //public List<MerchantBindingModels> GetAll()
+        //{
+        //    var merchants = _merchantLogic.GetAll();
+        //    var entities = Mapper.Map<List<MerchantListItemModel>>(merchants);
 
-            return entities;
-        }
+        //    return entities;
+        //}
     }
 }
