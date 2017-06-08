@@ -18,6 +18,11 @@ namespace CardProcessing.Business.BusinessLogic.MerchantLogic
             _unitOfWork = unitOfWork;
         }
 
+        public Merchant GetMerchantById(int merchanttId)
+        {
+            return _merchantRepository.TableTracking.FirstOrDefault(c => c.MerchantId == merchanttId);
+        }
+
         public List<Merchant> GetAll()
         {
             return _merchantRepository.TableNoTracking.IncludeTable(c => c.District).IncludeTable(c => c.Province).ToList();
@@ -37,6 +42,16 @@ namespace CardProcessing.Business.BusinessLogic.MerchantLogic
             merchant.IsActive = true;
             _merchantRepository.Update(merchant);
             _unitOfWork.Commit();
+        }
+
+        public List<Merchant> GetMerchantByProvince(int provinceId)
+        {
+            return _merchantRepository.TableTracking.IncludeTable(c => c.Province).IncludeTable(c => c.District).Where(c => c.ProvinceId == provinceId).ToList();
+        }
+
+        public List<Merchant> GetMerchantByDictrict(int dictrictId)
+        {
+            return _merchantRepository.TableTracking.IncludeTable(c => c.Province).IncludeTable(c => c.District).Where(c => c.DistrictId == dictrictId).ToList();
         }
     }
 }
