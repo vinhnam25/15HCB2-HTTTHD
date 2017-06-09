@@ -8,6 +8,8 @@ using CardProcessing.Business.BusinessLogic.MerchantLogic;
 using CardProcessingApi.Web.Models;
 using AutoMapper;
 using CardProcessingApi.Data;
+using CardProcessingApi.Web.Framework.Filters;
+using CardProcessingApi.Core;
 
 namespace CardProcessingApi.Web.Controllers
 {
@@ -53,8 +55,6 @@ namespace CardProcessingApi.Web.Controllers
             {
                 return null;
             }
-
-
         }
 
         [HttpPost]
@@ -107,6 +107,37 @@ namespace CardProcessingApi.Web.Controllers
             var entities = Mapper.Map<List<MerchantListItemModel>>(merchants);
 
             return entities;
+        }
+
+        [HttpGet]
+        [Route("managed/{type}")]
+        public List<MerchantModel> GetManaged(int type)
+        {
+            try
+            {
+                var merchants = _merchantLogic.GetStatusManaged(type);
+                var entities = Mapper.Map<List<MerchantModel>>(merchants);
+                return entities;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+        [HttpPost]
+        [Route("addmanaged")]
+        public IHttpActionResult AddManaged(UpdateManagedMerchant obj)
+        {
+            try
+            {
+                var rs = _merchantLogic.AddManaged(obj.MerchantId, obj.AgentId);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError();
+            }
         }
     }
 

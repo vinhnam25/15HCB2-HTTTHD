@@ -10,6 +10,12 @@ namespace CardProcessingApi.Web.Models
     {
     }
 
+    public class ConditionFilterAgent
+    {
+        public int id { get; set; }
+        public string name { get; set; }
+    }
+
     public class CreateAgentBindingModel
     {
         [Required]

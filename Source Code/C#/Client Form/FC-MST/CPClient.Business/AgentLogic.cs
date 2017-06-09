@@ -15,5 +15,11 @@ namespace CPClient.Business
             var agents = await WebServiceUtils.Get<List<AgentListItemModel>>("/api/agent/all");
             return agents;
         }
+
+        public static async Task<List<AgentListItemModel>> FetchSearchAgent(object a)
+        {
+            var agents = await WebServiceUtils.Post<List<AgentListItemModel>>("/api/agent/search", a);
+            return agents;
+        }
     }
 }

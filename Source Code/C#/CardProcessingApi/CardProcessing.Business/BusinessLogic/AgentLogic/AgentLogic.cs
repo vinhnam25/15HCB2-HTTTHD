@@ -43,5 +43,10 @@ namespace CardProcessing.Business.BusinessLogic.AgentLogic
         {
             return _agentRepository.TableNoTracking.IncludeTable(c => c.District).IncludeTable(c => c.Province).ToList();
         }
+
+        public List<Agent> SearchAgent(int id, string name)
+        {
+            return _agentRepository.GetAll().Where( n => (n.AgentId == id || id == 0) && (n.AgentName.Contains(name) || name == "")).ToList();
+        }
     }
 }

@@ -29,6 +29,18 @@ namespace CPClient.Business
             return data;
         }
 
+        public static async Task<List<MerchantModel>> FetchManaged(int type)
+        {
+            var data = await WebServiceUtils.Get<List<MerchantModel>>("/api/merchant/managed/" + type);
+            return data;
+        }
+        public static async Task<Int32> AddManaged(object type)
+        {
+            var data = await WebServiceUtils.Post<Int32>("/api/merchant/addmanaged", type);
+            return data;
+        }
+
+
         /*
          public static async Task<List<MerchantListItemModel>> FetchAllMerchant()
         {

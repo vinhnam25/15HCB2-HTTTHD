@@ -51,5 +51,15 @@ namespace CardProcessingApi.Web.Controllers
 
             return entities;
         }
+
+        [HttpPost]
+        [Route("search")]
+        public List<AgentListItemModel> SearchById_Name(ConditionFilterAgent obj)
+        {
+            var model = _agentLogic.SearchAgent(obj.id, obj.name);
+            var entity = Mapper.Map<List<AgentListItemModel>>(model);
+
+            return entity;
+        }
     }
 }

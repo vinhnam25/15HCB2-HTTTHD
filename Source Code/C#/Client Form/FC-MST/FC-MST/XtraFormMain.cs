@@ -88,5 +88,11 @@ namespace FC_MST
             NhungForm(form);
         }
 
+        private void gánQuyềnQuảnLýMerchantChoAgentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDanhSachMerchant frm = new frmDanhSachMerchant();
+            NhungForm(frm);
+        }
+
     }
 }

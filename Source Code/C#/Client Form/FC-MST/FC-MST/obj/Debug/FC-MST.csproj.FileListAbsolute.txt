@@ -74,3 +74,5 @@ C:\Users\TNam\Desktop\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC_MST.ProvinceComb
 C:\Users\TNam\Desktop\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC_MST.UCAgentManagement.resources
 C:\Users\TNam\Desktop\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC_MST.XtraFormMain.resources
 C:\Users\TNam\Desktop\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC-MST.csproj.GenerateResource.Cache
+C:\Users\TNam\Desktop\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC_MST.frmDanhSachMerchant.resources
+C:\Users\TNam\Desktop\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC_MST.frmChonAgent.resources

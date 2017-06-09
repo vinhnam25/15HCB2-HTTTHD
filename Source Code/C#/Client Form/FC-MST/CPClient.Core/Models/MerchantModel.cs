@@ -14,6 +14,7 @@ namespace CPClient.Core.Models
         public string Phone { get; set; }
         public string Email { get; set; }
         public string Status { get; set; }
+        public Nullable<int> AgentId { get; set; }
     }
 
     public class MerchantDetailModel

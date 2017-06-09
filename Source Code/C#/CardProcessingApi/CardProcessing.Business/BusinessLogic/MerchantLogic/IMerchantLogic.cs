@@ -14,9 +14,11 @@ namespace CardProcessing.Business.BusinessLogic.MerchantLogic
         void Update(Merchant agent);
         List<Merchant> GetAll();
         List<Merchant> GetBy(int a, int b);
+        List<Merchant> GetStatusManaged(int type);
         void UnactivateMerchant(int merchantId);
         void ActivateMerchant(int merchantId);
         List<Merchant> GetMerchantByProvince(int provinceId);
         List<Merchant> GetMerchantByDictrict(int dictrictId);
+        int AddManaged(int MerchantId, int AgentId);
     }
 }

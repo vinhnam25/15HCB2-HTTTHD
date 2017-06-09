@@ -91,5 +91,38 @@ namespace CardProcessing.Business.BusinessLogic.MerchantLogic
         {
             return _merchantRepository.TableTracking.IncludeTable(c => c.Province).IncludeTable(c => c.District).Where(c => c.DistrictId == dictrictId).ToList();
         }
+
+        public List<Merchant> GetStatusManaged(int type)
+        {
+            if(type == 0)
+            {
+                return GetAll();
+            }
+
+            if(type == 1)
+            {
+                return _merchantRepository.GetAll().Where(n => n.AgentId.HasValue == false).ToList();
+            }
+
+           return _merchantRepository.GetAll().Where(n => n.AgentId.HasValue == true).ToList();
+
+        }
+
+        public int AddManaged(int MerchantId, int AgentId)
+        {
+            try
+            {
+                Merchant merchant = _merchantRepository.GetById(MerchantId);
+                merchant.AgentId = AgentId;
+                _merchantRepository.Update(merchant);
+                _unitOfWork.Commit();
+
+                return 1;
+            }
+            catch(Exception ex)
+            {
+                return 0;
+            }
+        }
     }
 }

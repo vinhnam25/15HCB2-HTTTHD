@@ -33,16 +33,13 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.tcManager = new System.Windows.Forms.TabControl();
             this.quảnLýAgentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gánQuyềnQuảnLýMerchantChoAgentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.chuyểnQuyềnQuảnLýMerchantToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tạoTàiKhoảnAgentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cậpNhậtTrạngTháiAgentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tìmKiếmAgentTheoNhiềuTiêuChíToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xemThôngTinAgentTheoCácViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tạoAgentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quảnLýMerchantToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cậpNhậtTrạngTháiMerchantToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cậpNhậtThôngTinMerchantToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,7 +48,9 @@
             this.tìmKiếmMerchantTheoCácViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hỆTHỐNGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gửiThôngBáoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tạoAgentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.tcManager = new System.Windows.Forms.TabControl();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -97,39 +96,10 @@
             this.toolStripMenuItem3.Size = new System.Drawing.Size(177, 22);
             this.toolStripMenuItem3.Text = "Thoát chương trình";
             // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 561);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1218, 22);
-            this.statusStrip1.TabIndex = 3;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.tcManager);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 24);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1218, 537);
-            this.panel1.TabIndex = 4;
-            // 
-            // tcManager
-            // 
-            this.tcManager.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tcManager.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tcManager.Location = new System.Drawing.Point(0, 0);
-            this.tcManager.Name = "tcManager";
-            this.tcManager.SelectedIndex = 0;
-            this.tcManager.Size = new System.Drawing.Size(1218, 537);
-            this.tcManager.TabIndex = 0;
-            this.tcManager.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tcManager_MouseClick);
-            // 
             // quảnLýAgentToolStripMenuItem
             // 
             this.quảnLýAgentToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.gánQuyềnQuảnLýMerchantChoAgentToolStripMenuItem,
-            this.chuyểnQuyềnQuảnLýMerchantToolStripMenuItem,
             this.tạoTàiKhoảnAgentToolStripMenuItem,
             this.cậpNhậtTrạngTháiAgentToolStripMenuItem,
             this.tìmKiếmAgentTheoNhiềuTiêuChíToolStripMenuItem,
@@ -143,13 +113,8 @@
             // 
             this.gánQuyềnQuảnLýMerchantChoAgentToolStripMenuItem.Name = "gánQuyềnQuảnLýMerchantChoAgentToolStripMenuItem";
             this.gánQuyềnQuảnLýMerchantChoAgentToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
-            this.gánQuyềnQuảnLýMerchantChoAgentToolStripMenuItem.Text = "Gán quyền quản lý merchant";
-            // 
-            // chuyểnQuyềnQuảnLýMerchantToolStripMenuItem
-            // 
-            this.chuyểnQuyềnQuảnLýMerchantToolStripMenuItem.Name = "chuyểnQuyềnQuảnLýMerchantToolStripMenuItem";
-            this.chuyểnQuyềnQuảnLýMerchantToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
-            this.chuyểnQuyềnQuảnLýMerchantToolStripMenuItem.Text = "Chuyển quyền quản lý merchant";
+            this.gánQuyềnQuảnLýMerchantChoAgentToolStripMenuItem.Text = "Cập nhật quyền quản lý ";
+            this.gánQuyềnQuảnLýMerchantChoAgentToolStripMenuItem.Click += new System.EventHandler(this.gánQuyềnQuảnLýMerchantChoAgentToolStripMenuItem_Click);
             // 
             // tạoTàiKhoảnAgentToolStripMenuItem
             // 
@@ -174,6 +139,12 @@
             this.xemThôngTinAgentTheoCácViewToolStripMenuItem.Name = "xemThôngTinAgentTheoCácViewToolStripMenuItem";
             this.xemThôngTinAgentTheoCácViewToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
             this.xemThôngTinAgentTheoCácViewToolStripMenuItem.Text = "Xem thông tin Agent theo các view";
+            // 
+            // tạoAgentToolStripMenuItem
+            // 
+            this.tạoAgentToolStripMenuItem.Name = "tạoAgentToolStripMenuItem";
+            this.tạoAgentToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
+            this.tạoAgentToolStripMenuItem.Text = "Tạo Agent";
             // 
             // quảnLýMerchantToolStripMenuItem
             // 
@@ -229,14 +200,36 @@
             // gửiThôngBáoToolStripMenuItem
             // 
             this.gửiThôngBáoToolStripMenuItem.Name = "gửiThôngBáoToolStripMenuItem";
-            this.gửiThôngBáoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.gửiThôngBáoToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.gửiThôngBáoToolStripMenuItem.Text = "Gửi thông báo";
             // 
-            // tạoAgentToolStripMenuItem
+            // statusStrip1
             // 
-            this.tạoAgentToolStripMenuItem.Name = "tạoAgentToolStripMenuItem";
-            this.tạoAgentToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
-            this.tạoAgentToolStripMenuItem.Text = "Tạo Agent";
+            this.statusStrip1.Location = new System.Drawing.Point(0, 561);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1218, 22);
+            this.statusStrip1.TabIndex = 3;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.tcManager);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 24);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1218, 537);
+            this.panel1.TabIndex = 4;
+            // 
+            // tcManager
+            // 
+            this.tcManager.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tcManager.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tcManager.Location = new System.Drawing.Point(0, 0);
+            this.tcManager.Name = "tcManager";
+            this.tcManager.SelectedIndex = 0;
+            this.tcManager.Size = new System.Drawing.Size(1218, 537);
+            this.tcManager.TabIndex = 0;
+            this.tcManager.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tcManager_MouseClick);
             // 
             // XtraFormMain
             // 
@@ -271,7 +264,6 @@
         private System.Windows.Forms.TabControl tcManager;
         private System.Windows.Forms.ToolStripMenuItem quảnLýAgentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gánQuyềnQuảnLýMerchantChoAgentToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem chuyểnQuyềnQuảnLýMerchantToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tạoTàiKhoảnAgentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cậpNhậtTrạngTháiAgentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tìmKiếmAgentTheoNhiềuTiêuChíToolStripMenuItem;

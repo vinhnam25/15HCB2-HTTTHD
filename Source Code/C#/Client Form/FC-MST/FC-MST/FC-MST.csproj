@@ -74,6 +74,18 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmChonAgent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChonAgent.Designer.cs">
+      <DependentUpon>frmChonAgent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDanhSachMerchant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDanhSachMerchant.Designer.cs">
+      <DependentUpon>frmDanhSachMerchant.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmViewDetailMerchant.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +135,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DistrictComboBox.resx">
       <DependentUpon>DistrictComboBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChonAgent.resx">
+      <DependentUpon>frmChonAgent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDanhSachMerchant.resx">
+      <DependentUpon>frmDanhSachMerchant.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmViewDetailMerchant.resx">
       <DependentUpon>frmViewDetailMerchant.cs</DependentUpon>

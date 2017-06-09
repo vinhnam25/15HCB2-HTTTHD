@@ -10,6 +10,12 @@ namespace CardProcessingApi.Web.Models
     {
         public int Id { get; set; }
     }
+
+    public class UpdateManagedMerchant
+    {
+        public int MerchantId { get; set; }
+        public int AgentId { get; set; }
+    }
     public class MerchantBindingModel
     {
         public string action { get; set; }
@@ -24,6 +30,7 @@ namespace CardProcessingApi.Web.Models
         public string Phone { get; set; }
         public string Email { get; set; }
         public string Status { get; set; }
+        public Nullable<int> AgentId { get; set; }
     }
 
     public class MerchantDetailModel

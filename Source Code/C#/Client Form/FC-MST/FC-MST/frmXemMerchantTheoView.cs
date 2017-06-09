@@ -37,6 +37,9 @@ namespace FC_MST
             LoadAllTypeMC();
 
             gvKetQua.AutoGenerateColumns = false;
+
+            gvKetQua.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            gvKetQua.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
         }
 
         private void cboViews_SelectedIndexChanged(object sender, EventArgs e)
@@ -70,8 +73,8 @@ namespace FC_MST
         {
             try
             {
-                string _action = cboViews.SelectedValue.ToString();
-                string _value = cboDataView.SelectedValue.ToString();
+                int _action = Convert.ToInt32(cboViews.SelectedValue.ToString());
+                int _value = Convert.ToInt32(cboDataView.SelectedValue.ToString());
 
                 var obj = new
                 {
