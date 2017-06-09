@@ -63,6 +63,10 @@
     <Compile Include="BusinessLogic\Location\LocationLogic.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CardProcessingApi.Core\CardProcessingApi.Core.csproj">
+      <Project>{FFBB2D07-382F-4DBC-9885-75CCC59146EC}</Project>
+      <Name>CardProcessingApi.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CardProcessingApi.DataAccess\CardProcessingApi.DataAccess.csproj">
       <Project>{cd566ec3-19dd-4694-8e6f-2cb8ca462f06}</Project>
       <Name>CardProcessingApi.DataAccess</Name>

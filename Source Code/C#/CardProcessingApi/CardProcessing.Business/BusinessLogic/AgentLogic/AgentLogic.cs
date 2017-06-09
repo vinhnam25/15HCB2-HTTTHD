@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using CardProcessingApi.Core.Paging;
+using CardProcessingApi.Core.Search;
 using CardProcessingApi.Data;
 using CardProcessingApi.DataAccess;
 
@@ -47,6 +49,54 @@ namespace CardProcessing.Business.BusinessLogic.AgentLogic
         public List<Agent> SearchAgent(int id, string name)
         {
             return _agentRepository.GetAll().Where( n => (n.AgentId == id || id == 0) && (n.AgentName.Contains(name) || name == "")).ToList();
+        }
+
+        public IList<Agent> SearchAgent(AgentSearchCriteria searchCriteria)
+        {
+            var query = _agentRepository.TableNoTracking.IncludeTable(c=>c.District).IncludeTable(c=>c.Province);
+
+            if (!string.IsNullOrEmpty(searchCriteria.Id))
+            {
+                query = query.Where(c => c.AgentId.ToString() == searchCriteria.Id);
+            }
+
+            if (!string.IsNullOrEmpty(searchCriteria.Name))
+            {
+                query = query.Where(c => c.AgentName == searchCriteria.Name);
+            }
+
+            if (!string.IsNullOrEmpty(searchCriteria.District))
+            {
+                query =
+                    query.Where(
+                            c =>
+                                c.District.DistrictName.Contains(searchCriteria.District) ||
+                                c.District.DistrictId.ToString() == searchCriteria.District);
+            }
+
+            if (!string.IsNullOrEmpty(searchCriteria.Province))
+            {
+                query =
+                    query.Where(
+                        c =>
+                            c.Province.ProvinceName.Contains(searchCriteria.Province) ||
+                            c.Province.ProvinceId.ToString() == searchCriteria.Province);
+            }
+
+            if (searchCriteria.IsActive.HasValue)
+            {
+                query = query.Where(c => c.IsActive == searchCriteria.IsActive.Value);
+            }
+
+            return query.ToList();
+        }
+
+        public IPagedList<Agent> SearchAgent(AgentSearchCriteria searchCriteria, PagingFilter pagingFilter)
+        {
+            var query = this.SearchAgent(searchCriteria);
+            var result = new PagedList<Agent>(query, pagingFilter.PageIndex, pagingFilter.PageSize);
+
+            return result;
         }
     }
 }

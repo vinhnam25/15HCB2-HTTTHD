@@ -8,6 +8,8 @@ using System.Web.Http;
 using AutoMapper;
 using CardProcessing.Business.BusinessLogic.AgentLogic;
 using CardProcessingApi.Core;
+using CardProcessingApi.Core.Paging;
+using CardProcessingApi.Core.Search;
 using CardProcessingApi.Data;
 using CardProcessingApi.Web.Framework;
 using CardProcessingApi.Web.Framework.Extension;
@@ -60,6 +62,25 @@ namespace CardProcessingApi.Web.Controllers
             var entity = Mapper.Map<List<AgentListItemModel>>(model);
 
             return entity;
+        }
+
+        [Route("search-with-filter")]
+        public List<AgentListItemModel> SearchWithFilter([FromBody] AgentSearchCriteria searchCriteria)
+        {
+            var queryResult = _agentLogic.SearchAgent(searchCriteria);
+            var mappedResult = Mapper.Map<List<AgentListItemModel>>(queryResult);
+
+            return mappedResult;
+        }
+
+        public PagedList<AgentListItemModel> SearchWithFilter([FromBody] AgentSearchCriteria searchCriteria,
+            PagingFilter pagingFilter)
+        {
+            var queryResult = _agentLogic.SearchAgent(searchCriteria, pagingFilter);
+
+            var mappedResult = Mapper.Map<PagedList<AgentListItemModel>>(queryResult);
+
+            return mappedResult;
         }
     }
 }
