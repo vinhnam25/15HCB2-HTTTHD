@@ -27,13 +27,13 @@ namespace FC_MST
 
         private async void LoadAllProvinces()
         {
-            DataSource = await LocationLogic.FetchAllProvincesAsync();
-            foreach (var province in DataSource)
+            var provinces = await LocationLogic.FetchAllProvincesAsync();
+            foreach (var province in provinces)
             {
                 cbxProvinces.Items.Add(province);
             }
 
-            if (DataSource.Count > 0)
+            if (provinces.Count > 0)
             {
                 cbxProvinces.SelectedIndex = 0;
             }
@@ -46,8 +46,6 @@ namespace FC_MST
                 return cbxProvinces;
             }
         }
-
-        public List<ProvinceListItemModel> DataSource { get; private set; }
 
         public ProvinceListItemModel GetSelectedItem()
         {

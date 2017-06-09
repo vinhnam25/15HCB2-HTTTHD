@@ -22,3 +22,55 @@ H:\class-projects\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\bin\Deb
 H:\class-projects\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\bin\Debug\CPClient.Business.pdb
 H:\class-projects\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC_MST.MainAppForm.resources
 H:\class-projects\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC_MST.UCAgentManagement.resources
+D:\Learn\HCDH\HK VI\HTHD\CardProcessing\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\bin\Debug\FC-MST.exe.config
+D:\Learn\HCDH\HK VI\HTHD\CardProcessing\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC-MST.csprojResolveAssemblyReference.cache
+D:\Learn\HCDH\HK VI\HTHD\CardProcessing\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC_MST.AddNewAgent.resources
+D:\Learn\HCDH\HK VI\HTHD\CardProcessing\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC_MST.DistrictComboBox.resources
+D:\Learn\HCDH\HK VI\HTHD\CardProcessing\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC_MST.MainAppForm.resources
+D:\Learn\HCDH\HK VI\HTHD\CardProcessing\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC_MST.LoginForm.resources
+D:\Learn\HCDH\HK VI\HTHD\CardProcessing\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC_MST.Properties.Resources.resources
+D:\Learn\HCDH\HK VI\HTHD\CardProcessing\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC_MST.ProvinceComboBox.resources
+D:\Learn\HCDH\HK VI\HTHD\CardProcessing\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC_MST.UCAgentManagement.resources
+D:\Learn\HCDH\HK VI\HTHD\CardProcessing\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC-MST.csproj.GenerateResource.Cache
+D:\Learn\HCDH\HK VI\HTHD\CardProcessing\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\bin\Debug\App.config
+D:\Learn\HCDH\HK VI\HTHD\CardProcessing\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\bin\Debug\FC-MST.exe
+D:\Learn\HCDH\HK VI\HTHD\CardProcessing\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\bin\Debug\FC-MST.pdb
+D:\Learn\HCDH\HK VI\HTHD\CardProcessing\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\bin\Debug\CPClient.Business.dll
+D:\Learn\HCDH\HK VI\HTHD\CardProcessing\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\bin\Debug\CPClient.Core.dll
+D:\Learn\HCDH\HK VI\HTHD\CardProcessing\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\bin\Debug\Newtonsoft.Json.dll
+D:\Learn\HCDH\HK VI\HTHD\CardProcessing\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\bin\Debug\System.Net.Http.Formatting.dll
+D:\Learn\HCDH\HK VI\HTHD\CardProcessing\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\bin\Debug\CPClient.Business.pdb
+D:\Learn\HCDH\HK VI\HTHD\CardProcessing\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\bin\Debug\CPClient.Core.pdb
+D:\Learn\HCDH\HK VI\HTHD\CardProcessing\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\bin\Debug\Newtonsoft.Json.xml
+D:\Learn\HCDH\HK VI\HTHD\CardProcessing\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\bin\Debug\System.Net.Http.Formatting.xml
+D:\Learn\HCDH\HK VI\HTHD\CardProcessing\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC-MST.exe
+D:\Learn\HCDH\HK VI\HTHD\CardProcessing\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC-MST.pdb
+D:\Learn\HCDH\HK VI\HTHD\CardProcessing\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC_MST.XtraFormMain.resources
+D:\Learn\HCDH\HK VI\HTHD\CardProcessing\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC_MST.frmXemMerchantTheoView.resources
+D:\Learn\HCDH\HK VI\HTHD\CardProcessing\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC_MST.frmViewDetailMerchant.resources
+C:\Users\TNam\Desktop\C#\Client Form\FC-MST\FC-MST\bin\Debug\FC-MST.exe.config
+C:\Users\TNam\Desktop\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC-MST.exe
+C:\Users\TNam\Desktop\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC-MST.pdb
+C:\Users\TNam\Desktop\C#\Client Form\FC-MST\FC-MST\bin\Debug\App.config
+C:\Users\TNam\Desktop\C#\Client Form\FC-MST\FC-MST\bin\Debug\FC-MST.exe
+C:\Users\TNam\Desktop\C#\Client Form\FC-MST\FC-MST\bin\Debug\FC-MST.pdb
+C:\Users\TNam\Desktop\C#\Client Form\FC-MST\FC-MST\bin\Debug\CPClient.Business.dll
+C:\Users\TNam\Desktop\C#\Client Form\FC-MST\FC-MST\bin\Debug\CPClient.Core.dll
+C:\Users\TNam\Desktop\C#\Client Form\FC-MST\FC-MST\bin\Debug\Newtonsoft.Json.dll
+C:\Users\TNam\Desktop\C#\Client Form\FC-MST\FC-MST\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\TNam\Desktop\C#\Client Form\FC-MST\FC-MST\bin\Debug\CPClient.Business.pdb
+C:\Users\TNam\Desktop\C#\Client Form\FC-MST\FC-MST\bin\Debug\CPClient.Core.pdb
+C:\Users\TNam\Desktop\C#\Client Form\FC-MST\FC-MST\bin\Debug\Newtonsoft.Json.xml
+C:\Users\TNam\Desktop\C#\Client Form\FC-MST\FC-MST\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\TNam\Desktop\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC-MST.csprojResolveAssemblyReference.cache
+C:\Users\TNam\Desktop\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC_MST.AddNewAgent.resources
+C:\Users\TNam\Desktop\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC_MST.DistrictComboBox.resources
+C:\Users\TNam\Desktop\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC_MST.frmViewDetailMerchant.resources
+C:\Users\TNam\Desktop\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC_MST.frmXemMerchantTheoView.resources
+C:\Users\TNam\Desktop\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC_MST.MainAppForm.resources
+C:\Users\TNam\Desktop\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC_MST.LoginForm.resources
+C:\Users\TNam\Desktop\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC_MST.Properties.Resources.resources
+C:\Users\TNam\Desktop\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC_MST.ProvinceComboBox.resources
+C:\Users\TNam\Desktop\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC_MST.UCAgentManagement.resources
+C:\Users\TNam\Desktop\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC_MST.XtraFormMain.resources
+C:\Users\TNam\Desktop\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC-MST.csproj.GenerateResource.Cache

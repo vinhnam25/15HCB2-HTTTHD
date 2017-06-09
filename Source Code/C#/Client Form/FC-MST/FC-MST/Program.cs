@@ -21,7 +21,7 @@ namespace FC_MST
             LoginForm frm = new LoginForm();
             if (frm.ShowDialog() == DialogResult.OK)
             {
-                Application.Run(new MainAppForm());
+                Application.Run(new XtraFormMain());
             }
         }
     }

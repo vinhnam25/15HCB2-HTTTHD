@@ -42,70 +42,11 @@ namespace CardProcessingApi.Web.Controllers
             return Ok();
         }
 
-        [HttpPost]
-        [AllowAnonymous]
-        //[RoleAuthorize(Enums.UserRole.Master)]
-        [Route("update")]
-        public IHttpActionResult UpdateAgent(CreateAgentBindingModel model)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState.FirstError());
-            }
-
-            var entity = AutoMapper.Mapper.Map<Agent>(model);
-            _agentLogic.Update(entity);
-
-            return Ok();
-        }
-
-        [HttpPost]
-        [RoleAuthorize(Enums.UserRole.Master)]
-        [Route("unactive/{agentId}")]
-        public IHttpActionResult UnactivateAgent(int agentId)
-        {
-            _agentLogic.UnactivateAgent(agentId);
-            return Ok();
-        }
-
-        [HttpPost]
-        [RoleAuthorize(Enums.UserRole.Master)]
-        [Route("active/{agentId}")]
-        public IHttpActionResult ActivateAgent(int agentId)
-        {
-            _agentLogic.ActivateAgent(agentId);
-            return Ok();
-        }
-
         [HttpGet]
         [Route("all")]
         public List<AgentListItemModel> GetAll()
         {
             var agents = _agentLogic.GetAll();
-            var entities = Mapper.Map<List<AgentListItemModel>>(agents);
-
-            return entities;
-        }
-
-        [HttpGet]
-        [AllowAnonymous]
-        [Route("getByProvince/{provinceId}")]
-        public List<AgentListItemModel> GetByProvince(int provinceId)
-        {
-
-            var agents = _agentLogic.GetAgentByProvince(provinceId);
-            var entities = Mapper.Map<List<AgentListItemModel>>(agents);
-
-            return entities;
-        }
-
-        [HttpGet]
-        [AllowAnonymous]
-        [Route("getByDictrict/{dictrictId}")]
-        public List<AgentListItemModel> GetByDictrict(int dictrictId)
-        {
-
-            var agents = _agentLogic.GetAgentByDictrict(dictrictId);
             var entities = Mapper.Map<List<AgentListItemModel>>(agents);
 
             return entities;

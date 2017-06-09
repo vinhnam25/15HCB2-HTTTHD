@@ -30,15 +30,15 @@
         {
             this.mainTabControl = new System.Windows.Forms.TabControl();
             this.tabAgentManagement = new System.Windows.Forms.TabPage();
-            this.ucAgentManagement1 = new FC_MST.UCAgentManagement();
             this.btnOpenAddAgentModal = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.districtComboBox1 = new FC_MST.DistrictComboBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ucAgentManagement1 = new FC_MST.UCAgentManagement();
+            this.districtComboBox1 = new FC_MST.DistrictComboBox();
             this.mainTabControl.SuspendLayout();
             this.tabAgentManagement.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -49,11 +49,10 @@
             // 
             this.mainTabControl.Controls.Add(this.tabAgentManagement);
             this.mainTabControl.Controls.Add(this.tabPage2);
-            this.mainTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainTabControl.Location = new System.Drawing.Point(0, 24);
+            this.mainTabControl.Location = new System.Drawing.Point(12, 119);
             this.mainTabControl.Name = "mainTabControl";
             this.mainTabControl.SelectedIndex = 0;
-            this.mainTabControl.Size = new System.Drawing.Size(968, 538);
+            this.mainTabControl.Size = new System.Drawing.Size(944, 431);
             this.mainTabControl.TabIndex = 0;
             // 
             // tabAgentManagement
@@ -63,19 +62,10 @@
             this.tabAgentManagement.Location = new System.Drawing.Point(4, 22);
             this.tabAgentManagement.Name = "tabAgentManagement";
             this.tabAgentManagement.Padding = new System.Windows.Forms.Padding(3);
-            this.tabAgentManagement.Size = new System.Drawing.Size(960, 512);
+            this.tabAgentManagement.Size = new System.Drawing.Size(936, 405);
             this.tabAgentManagement.TabIndex = 0;
             this.tabAgentManagement.Text = "Agent";
             this.tabAgentManagement.UseVisualStyleBackColor = true;
-            // 
-            // ucAgentManagement1
-            // 
-            this.ucAgentManagement1.AutoSize = true;
-            this.ucAgentManagement1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ucAgentManagement1.Location = new System.Drawing.Point(3, 3);
-            this.ucAgentManagement1.Name = "ucAgentManagement1";
-            this.ucAgentManagement1.Size = new System.Drawing.Size(954, 156);
-            this.ucAgentManagement1.TabIndex = 1;
             // 
             // btnOpenAddAgentModal
             // 
@@ -98,14 +88,6 @@
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // districtComboBox1
-            // 
-            this.districtComboBox1.AutoSize = true;
-            this.districtComboBox1.Location = new System.Drawing.Point(110, 33);
-            this.districtComboBox1.Name = "districtComboBox1";
-            this.districtComboBox1.Size = new System.Drawing.Size(225, 21);
-            this.districtComboBox1.TabIndex = 0;
-            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -123,7 +105,7 @@
             this.toolStripMenuItem2,
             this.toolStripMenuItem3});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.fileToolStripMenuItem.Text = "Tài khoản";
             // 
             // toolStripMenuItem1
@@ -144,6 +126,21 @@
             this.toolStripMenuItem3.Size = new System.Drawing.Size(177, 22);
             this.toolStripMenuItem3.Text = "Thoát chương trình";
             // 
+            // ucAgentManagement1
+            // 
+            this.ucAgentManagement1.Location = new System.Drawing.Point(6, 6);
+            this.ucAgentManagement1.Name = "ucAgentManagement1";
+            this.ucAgentManagement1.Size = new System.Drawing.Size(924, 414);
+            this.ucAgentManagement1.TabIndex = 1;
+            // 
+            // districtComboBox1
+            // 
+            this.districtComboBox1.AutoSize = true;
+            this.districtComboBox1.Location = new System.Drawing.Point(110, 33);
+            this.districtComboBox1.Name = "districtComboBox1";
+            this.districtComboBox1.Size = new System.Drawing.Size(225, 21);
+            this.districtComboBox1.TabIndex = 0;
+            // 
             // MainAppForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -156,7 +153,6 @@
             this.Text = "Ứng dụng";
             this.mainTabControl.ResumeLayout(false);
             this.tabAgentManagement.ResumeLayout(false);
-            this.tabAgentManagement.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.menuStrip1.ResumeLayout(false);

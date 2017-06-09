@@ -11,10 +11,5 @@ namespace CardProcessing.Business.BusinessLogic.AgentLogic
         void Update(Agent agent);
 
         List<Agent> GetAll();
-        void UnactivateAgent(int agentId);
-        void ActivateAgent(int agentId);
-
-        List<Agent> GetAgentByProvince(int provinceId);
-        List<Agent> GetAgentByDictrict(int dictrictId);
     }
 }

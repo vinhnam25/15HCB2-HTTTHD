@@ -35,18 +35,25 @@ namespace CPClient.Business
                     
                     SessionState sessionState = JsonConvert.DeserializeObject<SessionState>(content);
                     AppContext.CurrentSessionState = sessionState;
-                    onSuccess?.Invoke(content);
+                    if(onSuccess != null) {
+                        onSuccess.Invoke(content);
+                    }
 
                     return true;
                 }
 
-                onFailed?.Invoke(content);
+                if (onFailed != null)  {
+                    onFailed.Invoke(content);
+                }
+                
                 return false;
             }
             catch (Exception ex)
             {
                 // ignored
-                onFailed?.Invoke(ex.Message);
+                if (onFailed !=  null) {
+                    onFailed.Invoke(ex.Message);
+                }
                 return false;
             }
         }

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FC-MST", "FC-MST\FC-MST.csproj", "{B5650E3B-C5D3-46F5-A205-B0E209AD5CAD}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -14,6 +14,13 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CPClient.Business", "CPClient.Business\CPClient.Business.csproj", "{3246D7F2-CF48-44BC-A28B-65F8852B5E47}"
 	ProjectSection(ProjectDependencies) = postProject
 		{2FECAB01-1107-477F-9740-1A85816CDA83} = {2FECAB01-1107-477F-9740-1A85816CDA83}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{8AC6BED6-19F9-4E08-AD53-A194B4E30288}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
 Global

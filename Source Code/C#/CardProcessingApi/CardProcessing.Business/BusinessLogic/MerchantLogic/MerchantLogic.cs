@@ -1,31 +1,69 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using CardProcessingApi.Data;
+﻿using CardProcessingApi.Data;
 using CardProcessingApi.DataAccess;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace CardProcessing.Business.BusinessLogic.MerchantLogic
 {
     public class MerchantLogic: IMerchantLogic
     {
         private readonly IGenericRepository<Merchant> _merchantRepository;
+        private readonly IGenericRepository<RegionMapping> _regionRepository;
         private readonly IUnitOfWork _unitOfWork;
 
-        public MerchantLogic(IGenericRepository<Merchant> merchantRepository, IUnitOfWork unitOfWork)
+        public MerchantLogic(IGenericRepository<Merchant> merchantRepository, IGenericRepository<RegionMapping> regionRepository, IUnitOfWork unitOfWork)
         {
             this._merchantRepository = merchantRepository;
+            this._regionRepository = regionRepository;
             _unitOfWork = unitOfWork;
         }
-
-        public Merchant GetMerchantById(int merchanttId)
+        public Merchant GetMerchantById(int Id)
         {
-            return _merchantRepository.TableTracking.FirstOrDefault(c => c.MerchantId == merchanttId);
+            return _merchantRepository.TableNoTracking.IncludeTable(c => c.District)
+                                                        .IncludeTable(c => c.Agent)
+                                                        .IncludeTable(c => c.Province)
+                                                        .IncludeTable(c => c.MerchantType1)
+                                                        .FirstOrDefault(c => c.MerchantId == Id);
+        }
+
+        public void Add(Merchant merchant)
+        {
+            _merchantRepository.Add(merchant);
+            _unitOfWork.Commit();
+        }
+
+        public void Update(Merchant merchant)
+        {
+            if (_merchantRepository.GetById(merchant.MerchantId) != null)
+            {
+                _merchantRepository.Update(merchant);
+                _unitOfWork.Commit();
+            }
         }
 
         public List<Merchant> GetAll()
         {
-            return _merchantRepository.TableNoTracking.IncludeTable(c => c.District).IncludeTable(c => c.Province).ToList();
+            return _merchantRepository.GetAll().ToList();
+        }
+
+        public List<Merchant> GetBy(int action, int value)
+        {
+            if (action == 1)
+                return _merchantRepository.GetAll().Where(n => n.MerchantType == value).ToList();
+
+            if (action == 2)
+            {
+                var ls = _regionRepository.GetAll().Where(n => n.ProvinceId == value).ToList();
+                return _merchantRepository.GetAll().Join(ls, a => a.ProvinceId, b => b.ProvinceId, (a, b) => new Merchant { MerchantId = a.MerchantId, 
+                                                                                                                            MerchantName = a.MerchantName,
+                                                                                                                            Phone = a.Phone, Email = a.Email, Status = a.Status, Address1 = a.Address1}).ToList();
+            }
+
+            return null;
+                
         }
 
         public void UnactivateMerchant(int merchantId)

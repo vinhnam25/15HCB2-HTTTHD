@@ -3,27 +3,58 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Web;
 using System.Web.Http;
-using AutoMapper;
 using CardProcessing.Business.BusinessLogic.MerchantLogic;
-using CardProcessingApi.Core;
-using CardProcessingApi.Data;
-using CardProcessingApi.Web.Framework;
-using CardProcessingApi.Web.Framework.Extension;
-using CardProcessingApi.Web.Framework.Filters;
 using CardProcessingApi.Web.Models;
+using AutoMapper;
+using CardProcessingApi.Data;
 
 namespace CardProcessingApi.Web.Controllers
 {
     [RoutePrefix("api/merchant")]
-    public class MerchantController : BaseApiController
+    public class MerchantController : ApiController
     {
         private readonly IMerchantLogic _merchantLogic;
 
         public MerchantController(IMerchantLogic merchantLogic)
         {
             _merchantLogic = merchantLogic;
+        }
+
+        [HttpPost]
+        [Route("listbv")]
+        public List<MerchantModel> GetBy(MerchantBindingModel md)
+        {
+            try
+            {
+                var merchants = _merchantLogic.GetBy(int.Parse(md.action), int.Parse(md.value));
+                var entities = Mapper.Map<List<MerchantModel>>(merchants);
+                return entities;
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
+
+            
+        }
+
+        [HttpPost]
+        [Route("detail")]
+        public MerchantDetailModel GetDetail(IDTransfer obj)
+        {
+            try
+            {
+                var merchants = _merchantLogic.GetMerchantById(obj.Id);
+                var entities = Mapper.Map<MerchantDetailModel>(merchants);
+                return entities;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+
         }
 
         [HttpPost]
@@ -78,4 +109,5 @@ namespace CardProcessingApi.Web.Controllers
             return entities;
         }
     }
+
 }

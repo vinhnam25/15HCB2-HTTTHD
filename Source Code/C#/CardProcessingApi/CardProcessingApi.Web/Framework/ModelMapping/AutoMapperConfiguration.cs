@@ -13,7 +13,7 @@ namespace CardProcessingApi.Web.Framework.ModelMapping
         {
             var cfg = new MapperConfigurationExpression();
             cfg.CreateMap<CreateAgentBindingModel, Agent>();
-            cfg.CreateMap<CreateMerchantBindingModel, Merchant>();
+            cfg.CreateMap<Merchant, MerchantModel>();
             cfg.CreateMap<CommonViewModels.DistrictListItemModel, District>().ReverseMap();
             cfg.CreateMap<CommonViewModels.ProvinceListItemModel, Province>().ReverseMap();
             cfg.CreateMap<ConfigurationModels.ListViewConfigurationModel, Configuration>().ReverseMap();
@@ -30,7 +30,14 @@ namespace CardProcessingApi.Web.Framework.ModelMapping
                      DistrictId = c.DistrictId,
                      DistrictName = c.District.DistrictName
                  }));
-            cfg.CreateMap<Merchant, MerchantListItemModel>()
+
+            cfg.CreateMap<Merchant, MerchantDetailModel>()
+                .ForMember(agn => agn.Agent,
+                    src => src.ResolveUsing(c => new CommonViewModels.AgentDataFilter()
+                    {
+                        AgentId = (int)c.AgentId,
+                        AgentName = c.Agent.AgentName
+                    }))
                 .ForMember(dst => dst.Province,
                     src => src.ResolveUsing(c => new CommonViewModels.ProvinceListItemModel()
                     {
@@ -40,8 +47,14 @@ namespace CardProcessingApi.Web.Framework.ModelMapping
                  .ForMember(dst => dst.District,
                  src => src.ResolveUsing(c => new CommonViewModels.DistrictListItemModel()
                  {
-                     DistrictId = c.DistrictId,
+                     DistrictId = (int)c.DistrictId,
                      DistrictName = c.District.DistrictName
+                 }))
+                 .ForMember(dst => dst.MerchantType,
+                 src => src.ResolveUsing(c => new CommonViewModels.MerchantTypeModel()
+                 {
+                     TypeId = (int)c.MerchantType,
+                     TypeName = c.MerchantType1.TypeName
                  }));
             Mapper.Initialize(cfg);
         }

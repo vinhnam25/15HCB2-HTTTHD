@@ -43,31 +43,5 @@ namespace CardProcessing.Business.BusinessLogic.AgentLogic
         {
             return _agentRepository.TableNoTracking.IncludeTable(c => c.District).IncludeTable(c => c.Province).ToList();
         }
-
-        public void UnactivateAgent(int agentId)
-        {
-            var agent = _agentRepository.GetById(agentId);
-            agent.IsActive = false;
-            _agentRepository.Update(agent);
-            _unitOfWork.Commit();
-        }
-
-        public void ActivateAgent(int agentId)
-        {
-            var agent = _agentRepository.GetById(agentId);
-            agent.IsActive = true;
-            _agentRepository.Update(agent);
-            _unitOfWork.Commit();
-        }
-
-        public List<Agent> GetAgentByProvince(int provinceId)
-        {
-            return _agentRepository.TableTracking.IncludeTable(c => c.Province).IncludeTable(c => c.District).Where(c => c.ProvinceId == provinceId).ToList();
-        }
-
-        public List<Agent> GetAgentByDictrict(int dictrictId)
-        {
-            return _agentRepository.TableTracking.IncludeTable(c => c.Province).IncludeTable(c => c.District).Where(c => c.DistrictId == dictrictId).ToList();
-        }
     }
 }

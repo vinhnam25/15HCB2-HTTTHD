@@ -11,12 +11,12 @@ namespace CPClient.Core
     {
         private AppConfigHelper()
         {
-            
+
         }
 
         static AppConfigHelper()
         {
-            
+
         }
 
         public static string GetString(string key)
@@ -28,6 +28,12 @@ namespace CPClient.Core
 
         private static readonly AppConfigHelper instance = new AppConfigHelper();
 
-        public static AppConfigHelper Instance => instance;
+        public static AppConfigHelper Instance
+        {
+            get
+            {
+                return instance;
+            }
+        }
     }
 }

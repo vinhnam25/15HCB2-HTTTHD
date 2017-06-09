@@ -31,7 +31,7 @@ namespace FC_MST
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            txtUserName.Text = "demo01";
+            txtUserName.Text = "master";
             txtPassword.Text = "123456";
             var response = AuthenticationLogic.Login(txtUserName.Text, txtPassword.Text, OnLoginSuccess, OnLoginFailed);
             DisableFields();
