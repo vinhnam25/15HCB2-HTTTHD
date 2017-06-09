@@ -75,7 +75,7 @@
             this.toolStripMenuItem2,
             this.toolStripMenuItem3});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
             this.fileToolStripMenuItem.Text = "TÀI KHOẢN";
             // 
             // toolStripMenuItem1
@@ -163,6 +163,7 @@
             this.cậpNhậtTrạngTháiMerchantToolStripMenuItem.Name = "cậpNhậtTrạngTháiMerchantToolStripMenuItem";
             this.cậpNhậtTrạngTháiMerchantToolStripMenuItem.Size = new System.Drawing.Size(279, 22);
             this.cậpNhậtTrạngTháiMerchantToolStripMenuItem.Text = "Cập nhật trạng thái Merchant";
+            this.cậpNhậtTrạngTháiMerchantToolStripMenuItem.Click += new System.EventHandler(this.cậpNhậtTrạngTháiMerchantToolStripMenuItem_Click);
             // 
             // cậpNhậtThôngTinMerchantToolStripMenuItem
             // 

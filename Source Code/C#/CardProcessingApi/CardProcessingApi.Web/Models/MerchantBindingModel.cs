@@ -74,12 +74,12 @@ namespace CardProcessingApi.Web.Models
     public class MerchantListItemModel
     {
         public string MerchantId { get; set; }
-        public string MerchentName { get; set; }
+        public string MerchantName { get; set; }
         public string Phone { get; set; }
         public string Fax { get; set; }
         public string Email { get; set; }
         public CommonViewModels.ProvinceListItemModel Province { get; set; }
         public CommonViewModels.DistrictListItemModel District { get; set; }
-        public bool IsActive { get; set; }
+        //public bool IsActive { get; set; }
     }
 }

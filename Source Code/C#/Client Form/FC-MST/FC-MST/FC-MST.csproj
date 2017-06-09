@@ -74,6 +74,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCapNhatTinhTrangMerchant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCapNhatTinhTrangMerchant.Designer.cs">
+      <DependentUpon>frmCapNhatTinhTrangMerchant.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmChonAgent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DistrictComboBox.resx">
       <DependentUpon>DistrictComboBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCapNhatTinhTrangMerchant.resx">
+      <DependentUpon>frmCapNhatTinhTrangMerchant.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmChonAgent.resx">
       <DependentUpon>frmChonAgent.cs</DependentUpon>

@@ -77,10 +77,10 @@ namespace CardProcessingApi.Web.Controllers
 
         [HttpGet]
         [Route("all")]
-        public List<MerchantListItemModel> GetAll()
+        public List<MerchantDetailModel> GetAll()
         {
             var merchants = _merchantLogic.GetAll();
-            var entities = Mapper.Map<List<MerchantListItemModel>>(merchants);
+            var entities = Mapper.Map<List<MerchantDetailModel>>(merchants);
 
             return entities;
         }

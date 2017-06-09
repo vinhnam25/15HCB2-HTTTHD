@@ -94,5 +94,10 @@ namespace FC_MST
             NhungForm(frm);
         }
 
+        private void cậpNhậtTrạngTháiMerchantToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCapNhatTinhTrangMerchant frm = new frmCapNhatTinhTrangMerchant();
+            NhungForm(frm);
+        }
     }
 }

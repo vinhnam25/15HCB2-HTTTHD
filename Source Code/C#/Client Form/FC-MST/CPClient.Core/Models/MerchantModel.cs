@@ -37,4 +37,10 @@ namespace CPClient.Core.Models
         public DistrictListItemModel District { get; set; }
         public TypeMerchantModel1 MerchantType { get; set; }
     }
+
+    public class MerchantItemModel
+    {
+        public string MerchantId { get; set; }
+        public string MerchantName { get; set; }
+    }
 }

@@ -11,6 +11,11 @@ namespace CPClient.Business
 {
     public class MerchantLogic
     {
+        public static async Task<List<MerchantItemModel>> FetchAllMerchant()
+        {
+            var merchants = await WebServiceUtils.Get<List<MerchantItemModel>>("/api/merchant/all");
+            return merchants;
+        }
         public static async Task<List<TypeMerchantModel>> FetchAllTypeByID(string id)
         {
             var data = await WebServiceUtils.Get<List<TypeMerchantModel>>("/rest/other/data/" + id, "WebServiceJava");
