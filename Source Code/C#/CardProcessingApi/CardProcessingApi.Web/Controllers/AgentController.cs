@@ -43,6 +43,23 @@ namespace CardProcessingApi.Web.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
+        //[RoleAuthorize(Enums.UserRole.Master)]
+        [Route("update")]
+        public IHttpActionResult UpdateAgent(CreateAgentBindingModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState.FirstError());
+            }
+
+            var entity = AutoMapper.Mapper.Map<Agent>(model);
+            _agentLogic.Update(entity);
+
+            return Ok();
+        }
+
+        [HttpPost]
         [RoleAuthorize(Enums.UserRole.Master)]
         [Route("unactive/{agentId}")]
         public IHttpActionResult UnactivateAgent(int agentId)
