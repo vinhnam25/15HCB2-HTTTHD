@@ -1,0 +1,9 @@
+D:\HTTT HD\AutoCallPackages\CallPackage\CallPackages\bin\Debug\CallPackages.exe.config
+D:\HTTT HD\AutoCallPackages\CallPackage\CallPackages\obj\Debug\CallPackages.Properties.Resources.resources
+D:\HTTT HD\AutoCallPackages\CallPackage\CallPackages\obj\Debug\CallPackages.csproj.GenerateResource.Cache
+D:\HTTT HD\AutoCallPackages\CallPackage\CallPackages\obj\Debug\CallPackages.callpackage.resources
+D:\HTTT HD\AutoCallPackages\CallPackage\CallPackages\bin\Debug\CallPackages.exe
+D:\HTTT HD\AutoCallPackages\CallPackage\CallPackages\bin\Debug\CallPackages.pdb
+D:\HTTT HD\AutoCallPackages\CallPackage\CallPackages\obj\Debug\CallPackages.exe
+D:\HTTT HD\AutoCallPackages\CallPackage\CallPackages\obj\Debug\CallPackages.pdb
+D:\HTTT HD\AutoCallPackages\CallPackage\CallPackages\obj\Debug\CallPackages.csprojResolveAssemblyReference.cache
