@@ -64,7 +64,7 @@ namespace CardProcessingApi.Web.Controllers
             return entity;
         }
 
-        [Route("search-with-filter")]
+        [Route("search/with-filter")]
         public List<AgentListItemModel> SearchWithFilter([FromBody] AgentSearchCriteria searchCriteria)
         {
             var queryResult = _agentLogic.SearchAgent(searchCriteria);
@@ -73,12 +73,19 @@ namespace CardProcessingApi.Web.Controllers
             return mappedResult;
         }
 
-        public PagedList<AgentListItemModel> SearchWithFilter([FromBody] AgentSearchCriteria searchCriteria,
-            PagingFilter pagingFilter)
+        [Route("search/paging/with-filter")]
+        [HttpGet]
+        public IList<AgentListItemModel> SearchWithFilter([FromUri] AgentSearchCriteria searchCriteria,
+            [FromUri]PagingFilter pagingFilter)
         {
+            if (searchCriteria == null || pagingFilter == null)
+            {
+                return new PagedList<AgentListItemModel>(new List<AgentListItemModel>(), 0, 0);
+            }
+
             var queryResult = _agentLogic.SearchAgent(searchCriteria, pagingFilter);
 
-            var mappedResult = Mapper.Map<PagedList<AgentListItemModel>>(queryResult);
+            var mappedResult = queryResult.ToModelList<Agent, AgentListItemModel>();
 
             return mappedResult;
         }

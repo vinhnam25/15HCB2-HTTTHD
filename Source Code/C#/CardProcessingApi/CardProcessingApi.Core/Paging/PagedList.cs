@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace CardProcessingApi.Core.Paging
 {
+    [Serializable]
     public class PagedList<T> : List<T>, IPagedList<T>
     {
         public PagedList(IList<T> source, int pageIndex, int pageSize)

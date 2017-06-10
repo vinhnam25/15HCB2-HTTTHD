@@ -32,7 +32,7 @@ namespace CardProcessingApi.Web.Models
         public int DistrictId { get; set; }
     }
 
-    public class AgentListItemModel
+    public class AgentListItemModel: BaseModel
     {
         public string AgentId { get; set; }
         public string AgentName { get; set; }
