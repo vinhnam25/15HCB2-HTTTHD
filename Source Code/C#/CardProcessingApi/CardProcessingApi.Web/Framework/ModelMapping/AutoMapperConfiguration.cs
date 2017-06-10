@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using AutoMapper;
 using AutoMapper.Configuration;
+using CardProcessingApi.Core.Paging;
 using CardProcessingApi.Data;
 using CardProcessingApi.Web.Models;
 
@@ -30,6 +31,8 @@ namespace CardProcessingApi.Web.Framework.ModelMapping
                      DistrictId = c.DistrictId,
                      DistrictName = c.District.DistrictName
                  }));
+
+            cfg.CreateMap<IPagedList<Agent>, IPagedList<AgentListItemModel>>().ConvertUsing<PagedListConverter<Agent, AgentListItemModel>>();
 
             cfg.CreateMap<Merchant, MerchantDetailModel>()
                 .ForMember(agn => agn.Agent,
