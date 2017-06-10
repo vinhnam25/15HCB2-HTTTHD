@@ -9,6 +9,7 @@ namespace CardProcessing.Business.BusinessLogic.AgentLogic
     {
         CardProcessingApi.Data.Agent GetAgentById(int agentId);
         void Add(Agent agent);
+        void Delete(Agent agent);
 
         void Update(Agent agent);
         List<Agent> GetAll();

@@ -44,6 +44,39 @@ namespace CardProcessingApi.Web.Controllers
             return Ok();
         }
 
+        [HttpPost]
+        //[RoleAuthorize(Enums.UserRole.Master)]
+        [Route("update")]
+        public IHttpActionResult UpdateAgent(Agent model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState.FirstError());
+            }
+           
+
+            var entity = AutoMapper.Mapper.Map<Agent>(model);
+            _agentLogic.Update(entity);
+
+            return Ok();
+        }
+        [HttpPost]
+        //[RoleAuthorize(Enums.UserRole.Master)]
+        [Route("delete")]
+        public IHttpActionResult DeleteAgent(Agent model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState.FirstError());
+            }
+
+
+            var entity = AutoMapper.Mapper.Map<Agent>(model);
+            _agentLogic.Delete(entity);
+
+            return Ok();
+        }
+
         [HttpGet]
         [Route("all")]
         public List<AgentListItemModel> GetAll()

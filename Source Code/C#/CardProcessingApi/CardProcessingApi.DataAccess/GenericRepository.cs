@@ -42,7 +42,7 @@ namespace CardProcessingApi.DataAccess
         IQueryable<T> IGenericRepository<T>.TableNoTracking
         {
             get { return _dbset.AsNoTracking(); }
-        } 
+        }
 
         public IEnumerable<T> FindBy(Expression<Func<T, bool>> predicate)
         {

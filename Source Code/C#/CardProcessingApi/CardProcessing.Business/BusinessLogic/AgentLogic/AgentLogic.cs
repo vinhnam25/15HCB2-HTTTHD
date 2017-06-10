@@ -9,11 +9,11 @@ using CardProcessingApi.DataAccess;
 
 namespace CardProcessing.Business.BusinessLogic.AgentLogic
 {
-    public class AgentLogic:IAgentLogic
+    public class AgentLogic : IAgentLogic
     {
         private readonly IGenericRepository<Agent> _agentRepository;
         private readonly IUnitOfWork _unitOfWork;
-        
+
 
         public AgentLogic(IGenericRepository<Agent> agentRepository, IUnitOfWork unitOfWork)
         {
@@ -32,12 +32,50 @@ namespace CardProcessing.Business.BusinessLogic.AgentLogic
             _unitOfWork.Commit();
         }
 
+        public void Delete(Agent agent)
+        {
+            Agent result = GetAgentById(agent.AgentId);
+            if (result != null)
+            {
+                _agentRepository.Delete(result);
+                _unitOfWork.Commit();
+            }
+        }
+
         public void Update(Agent agent)
         {
             if (_agentRepository.GetById(agent.AgentId) != null)
             {
-                _agentRepository.Update(agent);
+                Agent result = GetAgentById(agent.AgentId);
+                if (result != null)
+                {
+                    if (agent.AgentName != null)
+                        result.AgentName = agent.AgentName;
+
+                    if (agent.ProvinceId != 0)
+                        result.ProvinceId = agent.ProvinceId;
+                    if (agent.DistrictId != 0)
+                        result.DistrictId = agent.DistrictId;
+
+                    if (agent.Address != null)
+                        result.Address = agent.Address;
+                    if (agent.Phone != null)
+                        result.Phone = agent.Phone;
+                    if (agent.Fax != null)
+                        result.Fax = agent.Fax;
+                    if (agent.Zip != null)
+                        result.Zip = agent.Zip;
+                    if (agent.Email != null)
+                        result.Email = agent.Email;
+
+                    if (agent.OwnerId != null)
+                        result.OwnerId = agent.OwnerId;
+                    result.IsActive = agent.IsActive;
+
+                }
+                _agentRepository.Update(result);
                 _unitOfWork.Commit();
+
             }
         }
 
@@ -48,12 +86,12 @@ namespace CardProcessing.Business.BusinessLogic.AgentLogic
 
         public List<Agent> SearchAgent(int id, string name)
         {
-            return _agentRepository.GetAll().Where( n => (n.AgentId == id || id == 0) && (n.AgentName.Contains(name) || name == "")).ToList();
+            return _agentRepository.GetAll().Where(n => (n.AgentId == id || id == 0) && (n.AgentName.Contains(name) || name == "")).ToList();
         }
 
         public IList<Agent> SearchAgent(AgentSearchCriteria searchCriteria)
         {
-            var query = _agentRepository.TableNoTracking.IncludeTable(c=>c.District).IncludeTable(c=>c.Province);
+            var query = _agentRepository.TableNoTracking.IncludeTable(c => c.District).IncludeTable(c => c.Province);
 
             if (!string.IsNullOrEmpty(searchCriteria.Id))
             {
