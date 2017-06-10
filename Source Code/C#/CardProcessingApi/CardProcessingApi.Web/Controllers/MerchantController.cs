@@ -10,6 +10,7 @@ using AutoMapper;
 using CardProcessingApi.Data;
 using CardProcessingApi.Web.Framework.Filters;
 using CardProcessingApi.Core;
+using UserRole = CardProcessingApi.Core.UserRole;
 
 namespace CardProcessingApi.Web.Controllers
 {
@@ -58,7 +59,7 @@ namespace CardProcessingApi.Web.Controllers
         }
 
         [HttpPost]
-        [RoleAuthorize(Enums.UserRole.Master)]
+        [RoleAuthorize(UserRole.Master)]
         [Route("active/{merchantId}")]
         public IHttpActionResult ActivateMerchant(int merchantId)
         {
@@ -67,7 +68,7 @@ namespace CardProcessingApi.Web.Controllers
         }
 
         [HttpPost]
-        [RoleAuthorize(Enums.UserRole.Master)]
+        [RoleAuthorize(UserRole.Master)]
         [Route("unactive/{merchantId}")]
         public IHttpActionResult InactivateMerchant(int merchantId)
         {

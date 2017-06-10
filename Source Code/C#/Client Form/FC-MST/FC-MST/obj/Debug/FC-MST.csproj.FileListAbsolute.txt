@@ -76,3 +76,11 @@ C:\Users\TNam\Desktop\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC_MST.XtraFormMain
 C:\Users\TNam\Desktop\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC-MST.csproj.GenerateResource.Cache
 C:\Users\TNam\Desktop\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC_MST.frmDanhSachMerchant.resources
 C:\Users\TNam\Desktop\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC_MST.frmChonAgent.resources
+H:\class-projects\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC_MST.frmCapNhatTinhTrangMerchant.resources
+H:\class-projects\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC_MST.frmChonAgent.resources
+H:\class-projects\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC_MST.frmDanhSachMerchant.resources
+H:\class-projects\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC_MST.frmViewDetailMerchant.resources
+H:\class-projects\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC_MST.frmXemMerchantTheoView.resources
+H:\class-projects\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC_MST.XtraFormMain.resources
+H:\class-projects\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\bin\Debug\close.png
+H:\class-projects\15HCB2-HTTTHD\Source Code\C#\Client Form\FC-MST\FC-MST\obj\Debug\FC_MST.SearchAgentForm.resources

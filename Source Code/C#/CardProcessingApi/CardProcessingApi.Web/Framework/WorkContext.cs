@@ -61,7 +61,7 @@ namespace CardProcessingApi.Web.Framework
                 workingUser.Id = GetClaimIntValue(identity, ClaimTypes.NameIdentifier);
                 workingUser.UserName = identity.Name;
                 workingUser.FullName = GetClaimStringValue(identity, "FullName");
-                workingUser.Roles = new List<Enums.UserRole> { (Enums.UserRole)GetClaimIntValue(identity, ClaimTypes.Role) };
+                workingUser.Roles = new List<UserRole> { (UserRole)GetClaimIntValue(identity, ClaimTypes.Role) };
   
             }
 

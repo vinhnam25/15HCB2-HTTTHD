@@ -14,13 +14,13 @@ namespace CardProcessingApi.Core.Search
         public string Province
         {
             get { return _province; }
-            set { _province = value.ToLowerInvariant(); }
+            set { _province = value == null? null: value.ToLowerInvariant(); }
         }
 
         public string District
         {
             get { return _district; }
-            set { _district = value.ToLowerInvariant(); }
+            set { _district = value == null? null: value.ToLowerInvariant(); }
         }
 
         public bool? IsActive { get; set; }

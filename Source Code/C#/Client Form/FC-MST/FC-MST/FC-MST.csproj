@@ -124,6 +124,12 @@
     <Compile Include="ProvinceComboBox.Designer.cs">
       <DependentUpon>ProvinceComboBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="SearchAgentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchAgentForm.Designer.cs">
+      <DependentUpon>SearchAgentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCAgentManagement.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -175,6 +181,9 @@
     <EmbeddedResource Include="ProvinceComboBox.resx">
       <DependentUpon>ProvinceComboBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SearchAgentForm.resx">
+      <DependentUpon>SearchAgentForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UCAgentManagement.resx">
       <DependentUpon>UCAgentManagement.cs</DependentUpon>
     </EmbeddedResource>
@@ -206,6 +215,11 @@
       <Project>{2fecab01-1107-477f-9740-1a85816cda83}</Project>
       <Name>CPClient.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="close.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

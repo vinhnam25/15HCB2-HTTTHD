@@ -15,6 +15,7 @@ using CardProcessingApi.Web.Framework;
 using CardProcessingApi.Web.Framework.Extension;
 using CardProcessingApi.Web.Framework.Filters;
 using CardProcessingApi.Web.Models;
+using UserRole = CardProcessingApi.Core.UserRole;
 
 namespace CardProcessingApi.Web.Controllers
 {
@@ -29,7 +30,7 @@ namespace CardProcessingApi.Web.Controllers
         }
 
         [HttpPost]
-        [RoleAuthorize(Enums.UserRole.Master)]
+        [RoleAuthorize(UserRole.Master)]
         [Route("create")]
         public IHttpActionResult CreateAgent(CreateAgentBindingModel model)
         {
@@ -98,7 +99,9 @@ namespace CardProcessingApi.Web.Controllers
         }
 
         [Route("search/with-filter")]
-        public List<AgentListItemModel> SearchWithFilter([FromBody] AgentSearchCriteria searchCriteria)
+        [RoleAuthorize(UserRole.Master)]
+        [HttpGet]
+        public List<AgentListItemModel> SearchWithFilter([FromUri] AgentSearchCriteria searchCriteria)
         {
             var queryResult = _agentLogic.SearchAgent(searchCriteria);
             var mappedResult = Mapper.Map<List<AgentListItemModel>>(queryResult);
@@ -107,6 +110,7 @@ namespace CardProcessingApi.Web.Controllers
         }
 
         [Route("search/paging/with-filter")]
+        [RoleAuthorize(UserRole.Master)]
         [HttpGet]
         public IList<AgentListItemModel> SearchWithFilter([FromUri] AgentSearchCriteria searchCriteria,
             [FromUri]PagingFilter pagingFilter)

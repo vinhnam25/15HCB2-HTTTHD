@@ -6,13 +6,10 @@ using System.Threading.Tasks;
 
 namespace CardProcessingApi.Core
 {
-    public class Enums
+    public enum UserRole : int
     {
-        public enum UserRole : int
-        {
-            Merchant = 1,
-            Agent = 2, 
-            Master = 3
-        }
+        Merchant = 1,
+        Agent = 2, 
+        Master = 3
     }
 }

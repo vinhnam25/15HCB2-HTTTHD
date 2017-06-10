@@ -11,9 +11,9 @@ namespace CardProcessingApi.Web.Framework.Filters
 {
     public class RoleAuthorizeAttribute: AuthorizeAttribute
     {
-        public Enums.UserRole[] UserRoles { get; set; }
+        public UserRole[] UserRoles { get; set; }
 
-        public RoleAuthorizeAttribute(params Enums.UserRole[] userRoles)
+        public RoleAuthorizeAttribute(params UserRole[] userRoles)
         {
             UserRoles = userRoles;
         }

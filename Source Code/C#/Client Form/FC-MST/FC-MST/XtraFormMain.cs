@@ -99,5 +99,11 @@ namespace FC_MST
             frmCapNhatTinhTrangMerchant frm = new frmCapNhatTinhTrangMerchant();
             NhungForm(frm);
         }
+
+        private void searchAgentWithFilterStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SearchAgentForm form = new SearchAgentForm();
+            NhungForm(form);
+        }
     }
 }

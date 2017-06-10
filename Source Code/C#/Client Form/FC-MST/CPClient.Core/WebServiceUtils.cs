@@ -11,10 +11,16 @@ namespace CPClient.Core
 {
     public class WebServiceUtils
     {
-        public static async Task<T> Get<T>(string apiUrl, string host = "WebServiceUrl")
+        public static async Task<T> Get<T>(string apiUrl, string host = "WebServiceUrl", object prams = null)
         {
             T result = default(T);
             AttachAuthorizationToken();
+
+            if (prams != null)
+            {
+                apiUrl = HttpUtils.ToUrlWithParams(apiUrl, prams);
+            }
+
             var response = await WebEngine.ClientInstance.GetAsync(AppConfigHelper.GetString(host) + apiUrl);
             if (response.IsSuccessStatusCode)
             {

@@ -37,7 +37,7 @@
             this.gánQuyềnQuảnLýMerchantChoAgentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tạoTàiKhoảnAgentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cậpNhậtTrạngTháiAgentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tìmKiếmAgentTheoNhiềuTiêuChíToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.searchAgentWithFilterStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xemThôngTinAgentTheoCácViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tạoAgentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quảnLýMerchantToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -102,7 +102,7 @@
             this.gánQuyềnQuảnLýMerchantChoAgentToolStripMenuItem,
             this.tạoTàiKhoảnAgentToolStripMenuItem,
             this.cậpNhậtTrạngTháiAgentToolStripMenuItem,
-            this.tìmKiếmAgentTheoNhiềuTiêuChíToolStripMenuItem,
+            this.searchAgentWithFilterStripMenuItem,
             this.xemThôngTinAgentTheoCácViewToolStripMenuItem,
             this.tạoAgentToolStripMenuItem});
             this.quảnLýAgentToolStripMenuItem.Name = "quảnLýAgentToolStripMenuItem";
@@ -128,11 +128,12 @@
             this.cậpNhậtTrạngTháiAgentToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
             this.cậpNhậtTrạngTháiAgentToolStripMenuItem.Text = "Cập nhật trạng thái Agent";
             // 
-            // tìmKiếmAgentTheoNhiềuTiêuChíToolStripMenuItem
+            // searchAgentWithFilterStripMenuItem
             // 
-            this.tìmKiếmAgentTheoNhiềuTiêuChíToolStripMenuItem.Name = "tìmKiếmAgentTheoNhiềuTiêuChíToolStripMenuItem";
-            this.tìmKiếmAgentTheoNhiềuTiêuChíToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
-            this.tìmKiếmAgentTheoNhiềuTiêuChíToolStripMenuItem.Text = "Tìm kiếm Agent theo nhiều tiêu chí";
+            this.searchAgentWithFilterStripMenuItem.Name = "searchAgentWithFilterStripMenuItem";
+            this.searchAgentWithFilterStripMenuItem.Size = new System.Drawing.Size(261, 22);
+            this.searchAgentWithFilterStripMenuItem.Text = "Tìm kiếm Agent theo nhiều tiêu chí";
+            this.searchAgentWithFilterStripMenuItem.Click += new System.EventHandler(this.searchAgentWithFilterStripMenuItem_Click);
             // 
             // xemThôngTinAgentTheoCácViewToolStripMenuItem
             // 
@@ -267,7 +268,7 @@
         private System.Windows.Forms.ToolStripMenuItem gánQuyềnQuảnLýMerchantChoAgentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tạoTàiKhoảnAgentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cậpNhậtTrạngTháiAgentToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tìmKiếmAgentTheoNhiềuTiêuChíToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem searchAgentWithFilterStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem xemThôngTinAgentTheoCácViewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quảnLýMerchantToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cậpNhậtTrạngTháiMerchantToolStripMenuItem;

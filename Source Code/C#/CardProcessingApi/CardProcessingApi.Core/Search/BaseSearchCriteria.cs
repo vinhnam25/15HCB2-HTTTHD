@@ -14,13 +14,13 @@ namespace CardProcessingApi.Core.Search
         public string Id
         {
             get { return _id; }
-            set { _id = value.ToLowerInvariant(); }
+            set { _id = value == null? null: value.ToLowerInvariant(); }
         }
 
         public string Name
         {
             get { return _name; }
-            set { _name = value.ToLowerInvariant(); }
+            set { _name = value == null? null: value.ToLowerInvariant(); }
         }
     }
 }
