@@ -34,7 +34,7 @@
                         <div class="article-post">
 
                             <span class="user-info"> Từ: {{row.senttFrom}}  ----  Ngày: {{row.notificationTime}} </span>
-                            <p><a href="#">{{row.message}}</a> </p>
+                            <p><a href="/Notification/Inbox_detail" ng-click="setdetail(row.notificationId,row.message,row.fromAgent,row.fromMerchant,row.toAgent,row.toMerchant)" ></a>{{row.message}} </p>
                         </div>
                     </li>
                     
@@ -179,14 +179,48 @@
 
         });
 
-        app.controller('myController', function ($scope, userService) {
+        app.config(['$qProvider', function ($qProvider) {
+            $qProvider.errorOnUnhandledRejections(false);
+        }]);
+
+        app.controller('myController', function ($scope, userService, $http) {
 
             userService.f_GetData().then(function (a_Result) {
                 var l_Data = a_Result.data;
-                console.log(l_Data.notificationFrom);
+                console.log(l_Data);
                 $scope.list = l_Data.notificationFrom;
             })
 
+            $scope.setdetail = function (notificationid,page, fromagent, frommerchant, toagent, tomerchant) {// ham click
+               // $scope.pageNumber = index;
+                sessionStorage.detail = page;
+                sessionStorage.fromAgent = fromagent;
+                sessionStorage.fromMerchant = frommerchant;
+                sessionStorage.toAgent = toagent;
+                sessionStorage.toMerchant = tomerchant;
+                
+                //sessionStorage.notificationid = tomerchant;
+                //service update is seen
+                //ne goi service o day -- vay thoi ha, ong truyn bien xong chua, r
+                var _data = {
+                    id: notificationid
+                };
+
+                console.log(_data)
+                // vay no k chay cai nay r @@
+
+                      
+                $http({
+                    method: "POST",
+                    data: _data,
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    url: 'http://localhost:8080/RFJVService/rest/notification/seennotiinboxbynotiid'
+                }).then(function (a_Result) {
+                    //ket qua tra ve - k co du lieu tra ve thi bo luon phan nay ak
+                    //ko, ko co thi van gi, nhung de trong
+                    
+                })
+            }
         });
         //
         $(function () {
@@ -197,7 +231,8 @@
                 }
             });
         });
-
+        //
+  
     </script>
 }
 

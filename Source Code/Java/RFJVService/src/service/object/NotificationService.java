@@ -8,6 +8,7 @@ import backend.dal.NotificationDAL;
 import backend.dal.UserDAL;
 import backend.entities.Notification;
 import backend.entities.Notification_From;
+import backend.entities.Notification_list_sent;
 import backend.entities.User;
 import service.interfaces.INotificationService;
 import service.interfaces.IUserService;
@@ -64,7 +65,33 @@ public class NotificationService implements INotificationService<Notification> {
 		List<Notification_From> us = NotificationDAL.getinboxbytoken(token);
 		return us;
 	}
-
+	
+	@Override
+	public void seennotificationbynotiid(String jsondata) throws Exception {		
+		JSONObject jo = new JSONObject(jsondata);
+		String id = jo.getString("id");
+		NotificationDAL.seennotibynotid(id);
+	}
+	
+	@Override
+	public int addnotification(String jsondata) throws Exception {		
+		JSONObject jo = new JSONObject(jsondata);
+		String type = jo.getString("type");
+		String from = jo.getString("phanhoi_from");
+		String to = jo.getString("phanhoi_to");
+		String mess = jo.getString("mess");
+		int us =  NotificationDAL.addnotification(type, from, to, mess);
+		return us;
+	}
+	
+	@Override
+	public List<Notification_list_sent> getlistsentnotification(String jsondata) throws Exception {		
+		JSONObject jo = new JSONObject(jsondata);
+		String roleid = jo.getString("roleid");
+		List<Notification_list_sent> us = NotificationDAL.getlistforsentnotification(roleid);
+		return us;
+	}
+	
 	@Override
 	public List<Notification> getall() throws Exception {
 		// TODO Auto-generated method stub

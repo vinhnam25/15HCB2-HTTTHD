@@ -14,5 +14,13 @@ namespace WC_MCAG.Controllers
         {
             return View();
         }
+        public ActionResult Inbox_detail()
+        {
+            return View();
+        }
+        public ActionResult New_Notification()
+        {
+            return View();
+        }
 	}
 }

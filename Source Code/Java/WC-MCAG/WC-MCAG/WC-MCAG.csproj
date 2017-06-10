@@ -267,6 +267,8 @@
     <Content Include="Views\Merchant\ViewDetail.cshtml" />
     <Content Include="Views\User\ChangePassword.cshtml" />
     <Content Include="Views\Notification\Inbox.cshtml" />
+    <Content Include="Views\Notification\Inbox_detail.cshtml" />
+    <Content Include="Views\Notification\New_Notification.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

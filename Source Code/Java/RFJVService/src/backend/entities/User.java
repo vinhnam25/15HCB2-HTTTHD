@@ -15,14 +15,17 @@ public class User {
 	private int roleid;
 	private int isactive;
 	private String token;
+	private int cpn;
 	
+	
+
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
 	public User(int userid, String username, String password, String fullname,
-			String phone, int roleid, int isactive) {
+			String phone, int roleid, int isactive,int cpn) {
 		super();
 		this.userid = userid;
 		this.username = username;
@@ -32,8 +35,17 @@ public class User {
 		this.roleid = roleid;
 		this.isactive = isactive;
 		token = "";
+		this.cpn = cpn;
+	}
+	
+	@XmlElement
+	public int getCpn() {
+		return cpn;
 	}
 
+	public void setCpn(int cpn) {
+		this.cpn = cpn;
+	}
 	@XmlElement
 	public int getUserid() {
 		return userid;
