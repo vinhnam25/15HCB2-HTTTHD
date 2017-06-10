@@ -37,7 +37,7 @@ public class UserDAL {
 	            td.setPhone(rs.getString("Phone"));
 	            td.setRoleid(rs.getInt("RoleId"));
 	            td.setIsactive(rs.getInt("IsActive"));
-	            
+	            td.setCpn(rs.getInt("CpnId"));
 	            list.add(td);
 	        }
 	     
