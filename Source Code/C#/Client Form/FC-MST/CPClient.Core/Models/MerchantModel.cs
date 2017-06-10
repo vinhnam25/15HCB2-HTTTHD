@@ -38,9 +38,10 @@ namespace CPClient.Core.Models
         public TypeMerchantModel1 MerchantType { get; set; }
     }
 
-    public class MerchantItemModel
+    public class MerchantStatusItemModel
     {
         public string MerchantId { get; set; }
         public string MerchantName { get; set; }
+        public bool IsActive { get; set; }
     }
 }

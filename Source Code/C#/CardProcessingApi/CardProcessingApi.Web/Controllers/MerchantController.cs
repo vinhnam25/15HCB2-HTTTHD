@@ -59,7 +59,7 @@ namespace CardProcessingApi.Web.Controllers
         }
 
         [HttpPost]
-        [RoleAuthorize(UserRole.Master)]
+        //[RoleAuthorize(UserRole.Master)]
         [Route("active/{merchantId}")]
         public IHttpActionResult ActivateMerchant(int merchantId)
         {
@@ -68,12 +68,20 @@ namespace CardProcessingApi.Web.Controllers
         }
 
         [HttpPost]
-        [RoleAuthorize(UserRole.Master)]
+        //[RoleAuthorize(UserRole.Master)]
         [Route("unactive/{merchantId}")]
         public IHttpActionResult InactivateMerchant(int merchantId)
         {
             _merchantLogic.UnactivateMerchant(merchantId);
             return Ok();
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        [Route("getStatusById/{merchantId}")]
+        public bool GetStatusByMerchantId(int merchantId)
+        {
+            return _merchantLogic.GetStatusByMerchantId(merchantId);
         }
 
         [HttpGet]

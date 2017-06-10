@@ -70,6 +70,7 @@ namespace CardProcessing.Business.BusinessLogic.MerchantLogic
         {
             var merchant = _merchantRepository.GetById(merchantId);
             merchant.IsActive = false;
+            merchant.Status = "U";
             _merchantRepository.Update(merchant);
             _unitOfWork.Commit();
         }
@@ -78,8 +79,14 @@ namespace CardProcessing.Business.BusinessLogic.MerchantLogic
         {
             var merchant = _merchantRepository.GetById(merchantId);
             merchant.IsActive = true;
+            merchant.Status = "A";
             _merchantRepository.Update(merchant);
             _unitOfWork.Commit();
+        }
+
+        public bool GetStatusByMerchantId(int merchantId)
+        {
+            return _merchantRepository.GetById(merchantId).IsActive;
         }
 
         public List<Merchant> GetMerchantByProvince(int provinceId)
