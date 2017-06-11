@@ -59,16 +59,25 @@ namespace CardProcessingApi.Web.Models
         [Required]
         public string MerchantName { get; set; }
         [Required]
-        public string Address { get; set; }
+        public string Address1 { get; set; }
+        [Required]
+        public string Address2 { get; set; }
+        public string Address3 { get; set; }
+        public int MerchantType { get; set; }
         [Phone]
         public string Phone { get; set; }
         public string Fax { get; set; }
         public string Zip { get; set; }
         [EmailAddress]
         public string Email { get; set; }
-        //public string AgentId { get; set; }
+        [Required]
+        public bool IsActive { get; set; }
+        public string Status { get; set; }
+        [Required]
         public int ProvinceId { get; set; }
         public int DistrictId { get; set; }
+        public int AgentId { get; set; }
+        public int OwnerId { get; set; }
     }
 
     public class MerchantListItemModel : BaseModel

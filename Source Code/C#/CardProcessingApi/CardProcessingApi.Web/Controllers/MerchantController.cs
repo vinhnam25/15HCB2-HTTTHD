@@ -23,6 +23,57 @@ namespace CardProcessingApi.Web.Controllers
             _merchantLogic = merchantLogic;
         }
 
+
+        [HttpPost]
+        //[RoleAuthorize(UserRole.Master)]
+        [Route("create")]
+        public IHttpActionResult CreateMerchant(CreateMerchantBindingModel model)
+        {
+            //try
+            //{
+                var entity = AutoMapper.Mapper.Map<Merchant>(model);
+                _merchantLogic.Add(entity);
+
+                return Ok();
+            //}
+            //catch (Exception ex)
+            //{
+            //    throw new Exception(ex.ToString());
+            //}
+        }
+        [HttpPost]
+        //[RoleAuthorize(Enums.UserRole.Master)]
+        [Route("update")]
+        public IHttpActionResult UpdateMerchant(Merchant model)
+        {
+           
+            _merchantLogic.Update(model);
+
+            return Ok();
+        }
+        [HttpPost]
+        //[RoleAuthorize(Enums.UserRole.Master)]
+        [Route("delete")]
+        public IHttpActionResult DeleteMerchant(Merchant model)
+        {
+          
+            var entity = AutoMapper.Mapper.Map<Merchant>(model);
+            _merchantLogic.Delete(entity);
+
+            return Ok();
+        }
+
+        [HttpPost]
+        //[RoleAuthorize(Enums.UserRole.Master)]
+        [Route("deleteLastest")]
+        public IHttpActionResult DeleteLastestMerchant()
+        {
+            
+            _merchantLogic.DeleteLastest();
+
+            return Ok();
+        }
+
         [HttpPost]
         [Route("listbv")]
         public List<MerchantModel> GetBy(MerchantBindingModel md)
@@ -91,6 +142,16 @@ namespace CardProcessingApi.Web.Controllers
             var entities = Mapper.Map<List<MerchantDetailModel>>(merchants);
 
             return entities;
+        }
+
+        [HttpGet]
+        [Route("lastest")]
+        public int  GetLastestMerchant()
+        {
+            Merchant merchants = _merchantLogic.GetLastestMerchant();
+            //var entities = Mapper.Map<List<MerchantDetailModel>>(merchants);
+
+            return merchants.MerchantId;
         }
 
         [HttpGet]

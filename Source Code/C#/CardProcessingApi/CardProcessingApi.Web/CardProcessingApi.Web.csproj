@@ -268,14 +268,14 @@
     <Compile Include="Controllers\ConfigurationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MerchantController.cs" />
-    <Compile Include="Framework\DependencyRegister.cs" />
-    <Compile Include="Framework\Extension\MappingExtension.cs" />
-    <Compile Include="Framework\Extension\ModelStateDictionaryExtensions.cs" />
-    <Compile Include="Framework\Filters\RoleAuthorizeAttribute.cs" />
-    <Compile Include="Framework\Integration\CommonServiceLocatorIntegration.cs" />
-    <Compile Include="Framework\IWorkContext.cs" />
-    <Compile Include="Framework\ModelMapping\AutoMapperConfiguration.cs" />
-    <Compile Include="Framework\WorkContext.cs" />
+    <Compile Include="fonts\Framework\DependencyRegister.cs" />
+    <Compile Include="fonts\Framework\Extension\MappingExtension.cs" />
+    <Compile Include="fonts\Framework\Extension\ModelStateDictionaryExtensions.cs" />
+    <Compile Include="fonts\Framework\Filters\RoleAuthorizeAttribute.cs" />
+    <Compile Include="fonts\Framework\Integration\CommonServiceLocatorIntegration.cs" />
+    <Compile Include="fonts\Framework\IWorkContext.cs" />
+    <Compile Include="fonts\Framework\ModelMapping\AutoMapperConfiguration.cs" />
+    <Compile Include="fonts\Framework\WorkContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
