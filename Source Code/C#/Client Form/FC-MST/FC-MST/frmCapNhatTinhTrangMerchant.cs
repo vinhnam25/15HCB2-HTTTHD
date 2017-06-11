@@ -21,7 +21,6 @@ namespace FC_MST
         private void frmCapNhatTinhTrangMerchant_Load(object sender, EventArgs e)
         {
             f_LoadMerchantList();
-            f_LoadStatusWhenIndexChanged();
         }
 
         private async void f_LoadMerchantList()
@@ -33,6 +32,8 @@ namespace FC_MST
                 cbbMerchantList.DataSource = result;
                 cbbMerchantList.DisplayMember = "MerchantName";
                 cbbMerchantList.ValueMember = "MerchantID";
+                cbbMerchantList.SelectedIndex = 0;
+                f_LoadStatusWhenIndexChanged();
             }
             catch (Exception ex)
             {
@@ -52,11 +53,11 @@ namespace FC_MST
                 var result = await MerchantLogic.FetchStatusOfMerchant(cbbMerchantList.SelectedValue.ToString());
                 if (result == true)
                 {
-                    ckbActive.Checked = true;
+                    lbStatus.Text = "Đang hoạt động";
                 }
                 else
                 {
-                    ckbActive.Checked = false;
+                    lbStatus.Text = "Ngưng hoạt động";
                 }
             }
             catch (Exception ex)
@@ -65,21 +66,20 @@ namespace FC_MST
             }                            
         }
 
-        private void ckbActive_CheckedChanged(object sender, EventArgs e)
+        private void btnChange_Click(object sender, EventArgs e)
         {
-            f_UpdateStatusMerchant();
-        }
-
-        private async void f_UpdateStatusMerchant()
-        {
-            if (ckbActive.Checked == true)
+            if (lbStatus.Text == "Đang hoạt động")
             {
-                await MerchantLogic.ActivateMerchant(cbbMerchantList.SelectedValue.ToString());
+
             }
             else
             {
-                await MerchantLogic.InactivateMerchant(cbbMerchantList.SelectedValue.ToString());
+
             }
+        }
+
+        private async void f_UpdateStatusMerchant(string stt)
+        {
         }
     }
 }

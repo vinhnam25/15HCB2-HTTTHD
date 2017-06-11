@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CardProcessingApi.Core.Paging;
+using CardProcessingApi.Core.Search;
 
 namespace CardProcessing.Business.BusinessLogic.MerchantLogic
 {
@@ -131,5 +133,59 @@ namespace CardProcessing.Business.BusinessLogic.MerchantLogic
                 return 0;
             }
         }
+
+        public List<Merchant> SearchMerchant(int id, string name)
+        {
+            return _merchantRepository.GetAll().Where(n => (n.MerchantId == id || id == 0) && (n.MerchantName.Contains(name) || name == "")).ToList();
+        }
+
+        public IList<Merchant> SearchMerchant(MerchantSearchCriteria searchCriteria)
+        {
+            var query = _merchantRepository.TableNoTracking.IncludeTable(c => c.District).IncludeTable(c => c.Province);
+
+            if (!string.IsNullOrEmpty(searchCriteria.Id))
+            {
+                query = query.Where(c => c.MerchantId.ToString() == searchCriteria.Id);
+            }
+
+            if (!string.IsNullOrEmpty(searchCriteria.Name))
+            {
+                query = query.Where(c => c.MerchantName == searchCriteria.Name);
+            }
+
+            if (!string.IsNullOrEmpty(searchCriteria.District))
+            {
+                query =
+                    query.Where(
+                            c =>
+                                c.District.DistrictName.Contains(searchCriteria.District) ||
+                                c.District.DistrictId.ToString() == searchCriteria.District);
+            }
+
+            if (!string.IsNullOrEmpty(searchCriteria.Province))
+            {
+                query =
+                    query.Where(
+                        c =>
+                            c.Province.ProvinceName.Contains(searchCriteria.Province) ||
+                            c.Province.ProvinceId.ToString() == searchCriteria.Province);
+            }
+
+            if (searchCriteria.IsActive.HasValue)
+            {
+                query = query.Where(c => c.IsActive == searchCriteria.IsActive.Value);
+            }
+
+            return query.ToList();
+        }
+
+        public IPagedList<Merchant> SearchMerchant(MerchantSearchCriteria searchCriteria, PagingFilter pagingFilter)
+        {
+            var query = this.SearchMerchant(searchCriteria);
+            var result = new PagedList<Merchant>(query, pagingFilter.PageIndex, pagingFilter.PageSize);
+
+            return result;
+        }
+
     }
 }

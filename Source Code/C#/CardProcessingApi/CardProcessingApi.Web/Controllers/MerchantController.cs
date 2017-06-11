@@ -1,15 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
+﻿using AutoMapper;
 using CardProcessing.Business.BusinessLogic.MerchantLogic;
-using CardProcessingApi.Web.Models;
-using AutoMapper;
+using CardProcessingApi.Core.Paging;
+using CardProcessingApi.Core.Search;
 using CardProcessingApi.Data;
+using CardProcessingApi.Web.Framework.Extension;
 using CardProcessingApi.Web.Framework.Filters;
-using CardProcessingApi.Core;
+using CardProcessingApi.Web.Models;
+using System;
+using System.Collections.Generic;
+using System.Web.Http;
 using UserRole = CardProcessingApi.Core.UserRole;
 
 namespace CardProcessingApi.Web.Controllers
@@ -147,6 +146,35 @@ namespace CardProcessingApi.Web.Controllers
             {
                 return InternalServerError();
             }
+        }
+
+        [Route("search/with-filter")]
+        [RoleAuthorize(UserRole.Master)]
+        [HttpGet]
+        public List<MerchantListItemModel> SearchWithFilter([FromUri] MerchantSearchCriteria searchCriteria)
+        {
+            var queryResult = _merchantLogic.SearchMerchant(searchCriteria);
+            var mappedResult = Mapper.Map<List<MerchantListItemModel>>(queryResult);
+
+            return mappedResult;
+        }
+
+        [Route("search/paging/with-filter")]
+        [RoleAuthorize(UserRole.Master)]
+        [HttpGet]
+        public IList<MerchantListItemModel> SearchWithFilter([FromUri] MerchantSearchCriteria searchCriteria,
+            [FromUri]PagingFilter pagingFilter)
+        {
+            if (searchCriteria == null || pagingFilter == null)
+            {
+                return new PagedList<MerchantListItemModel>(new List<MerchantListItemModel>(), 0, 0);
+            }
+
+            var queryResult = _merchantLogic.SearchMerchant(searchCriteria, pagingFilter);
+
+            var mappedResult = queryResult.ToModelList<Merchant, MerchantListItemModel>();
+
+            return mappedResult;
         }
     }
 

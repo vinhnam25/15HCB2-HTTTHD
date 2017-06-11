@@ -105,5 +105,11 @@ namespace FC_MST
             SearchAgentForm form = new SearchAgentForm();
             NhungForm(form);
         }
+
+        private void tìmKiếmMerchantTheoNhiềuTiêuChíToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmTimKiemMerchant form = new frmTimKiemMerchant();
+            NhungForm(form);
+        }
     }
 }

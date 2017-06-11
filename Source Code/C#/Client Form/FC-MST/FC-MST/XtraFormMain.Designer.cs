@@ -51,6 +51,7 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tcManager = new System.Windows.Forms.TabControl();
+            this.tìmKiếmMerchantTheoNhiềuTiêuChíToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -154,7 +155,8 @@
             this.cậpNhậtThôngTinMerchantToolStripMenuItem,
             this.xemThôngTinMerchantTheoCácViewToolStripMenuItem,
             this.cấpTàiKhoảnChoMerchantToolStripMenuItem,
-            this.tìmKiếmMerchantTheoCácViewToolStripMenuItem});
+            this.tìmKiếmMerchantTheoCácViewToolStripMenuItem,
+            this.tìmKiếmMerchantTheoNhiềuTiêuChíToolStripMenuItem});
             this.quảnLýMerchantToolStripMenuItem.Name = "quảnLýMerchantToolStripMenuItem";
             this.quảnLýMerchantToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
             this.quảnLýMerchantToolStripMenuItem.Text = "MERCHANT";
@@ -162,33 +164,33 @@
             // cậpNhậtTrạngTháiMerchantToolStripMenuItem
             // 
             this.cậpNhậtTrạngTháiMerchantToolStripMenuItem.Name = "cậpNhậtTrạngTháiMerchantToolStripMenuItem";
-            this.cậpNhậtTrạngTháiMerchantToolStripMenuItem.Size = new System.Drawing.Size(279, 22);
+            this.cậpNhậtTrạngTháiMerchantToolStripMenuItem.Size = new System.Drawing.Size(280, 22);
             this.cậpNhậtTrạngTháiMerchantToolStripMenuItem.Text = "Cập nhật trạng thái Merchant";
             this.cậpNhậtTrạngTháiMerchantToolStripMenuItem.Click += new System.EventHandler(this.cậpNhậtTrạngTháiMerchantToolStripMenuItem_Click);
             // 
             // cậpNhậtThôngTinMerchantToolStripMenuItem
             // 
             this.cậpNhậtThôngTinMerchantToolStripMenuItem.Name = "cậpNhậtThôngTinMerchantToolStripMenuItem";
-            this.cậpNhậtThôngTinMerchantToolStripMenuItem.Size = new System.Drawing.Size(279, 22);
+            this.cậpNhậtThôngTinMerchantToolStripMenuItem.Size = new System.Drawing.Size(280, 22);
             this.cậpNhậtThôngTinMerchantToolStripMenuItem.Text = "Cập nhật thông tin Merchant";
             // 
             // xemThôngTinMerchantTheoCácViewToolStripMenuItem
             // 
             this.xemThôngTinMerchantTheoCácViewToolStripMenuItem.Name = "xemThôngTinMerchantTheoCácViewToolStripMenuItem";
-            this.xemThôngTinMerchantTheoCácViewToolStripMenuItem.Size = new System.Drawing.Size(279, 22);
+            this.xemThôngTinMerchantTheoCácViewToolStripMenuItem.Size = new System.Drawing.Size(280, 22);
             this.xemThôngTinMerchantTheoCácViewToolStripMenuItem.Text = "Xem thông tin merchant theo các view";
             this.xemThôngTinMerchantTheoCácViewToolStripMenuItem.Click += new System.EventHandler(this.xemThôngTinMerchantTheoCácViewToolStripMenuItem_Click);
             // 
             // cấpTàiKhoảnChoMerchantToolStripMenuItem
             // 
             this.cấpTàiKhoảnChoMerchantToolStripMenuItem.Name = "cấpTàiKhoảnChoMerchantToolStripMenuItem";
-            this.cấpTàiKhoảnChoMerchantToolStripMenuItem.Size = new System.Drawing.Size(279, 22);
+            this.cấpTàiKhoảnChoMerchantToolStripMenuItem.Size = new System.Drawing.Size(280, 22);
             this.cấpTàiKhoảnChoMerchantToolStripMenuItem.Text = "Cấp tài khoản cho Merchant";
             // 
             // tìmKiếmMerchantTheoCácViewToolStripMenuItem
             // 
             this.tìmKiếmMerchantTheoCácViewToolStripMenuItem.Name = "tìmKiếmMerchantTheoCácViewToolStripMenuItem";
-            this.tìmKiếmMerchantTheoCácViewToolStripMenuItem.Size = new System.Drawing.Size(279, 22);
+            this.tìmKiếmMerchantTheoCácViewToolStripMenuItem.Size = new System.Drawing.Size(280, 22);
             this.tìmKiếmMerchantTheoCácViewToolStripMenuItem.Text = "Tìm kiếm merchant theo các view";
             // 
             // hỆTHỐNGToolStripMenuItem
@@ -232,6 +234,13 @@
             this.tcManager.Size = new System.Drawing.Size(1218, 537);
             this.tcManager.TabIndex = 0;
             this.tcManager.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tcManager_MouseClick);
+            // 
+            // tìmKiếmMerchantTheoNhiềuTiêuChíToolStripMenuItem
+            // 
+            this.tìmKiếmMerchantTheoNhiềuTiêuChíToolStripMenuItem.Name = "tìmKiếmMerchantTheoNhiềuTiêuChíToolStripMenuItem";
+            this.tìmKiếmMerchantTheoNhiềuTiêuChíToolStripMenuItem.Size = new System.Drawing.Size(280, 22);
+            this.tìmKiếmMerchantTheoNhiềuTiêuChíToolStripMenuItem.Text = "Tìm kiếm Merchant theo nhiều tiêu chí";
+            this.tìmKiếmMerchantTheoNhiềuTiêuChíToolStripMenuItem.Click += new System.EventHandler(this.tìmKiếmMerchantTheoNhiềuTiêuChíToolStripMenuItem_Click);
             // 
             // XtraFormMain
             // 
@@ -279,5 +288,6 @@
         private System.Windows.Forms.ToolStripMenuItem hỆTHỐNGToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gửiThôngBáoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tạoAgentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tìmKiếmMerchantTheoNhiềuTiêuChíToolStripMenuItem;
     }
 }

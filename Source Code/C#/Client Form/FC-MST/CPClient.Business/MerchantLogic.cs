@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using CPClient.Core.Models;
 using CPClient.Core;
 using System.Data;
+using CPClient.Core.SearchCriteria;
 
 namespace CPClient.Business
 {
@@ -61,6 +62,13 @@ namespace CPClient.Business
         {
             var data = await WebServiceUtils.Post<Int32>("/api/merchant/addmanaged", type);
             return data;
+        }
+
+        public static async Task<List<MerchantDetailModel>> SearchMerchant(MerchantSearchCriteria searchCriteria)
+        {
+            var merchants =
+                await WebServiceUtils.Get<List<MerchantDetailModel>>("/api/merchant/search/with-filter", prams: searchCriteria);
+            return merchants;
         }
 
 

@@ -1,9 +1,7 @@
-﻿using CardProcessingApi.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using CardProcessingApi.Core.Paging;
+using CardProcessingApi.Core.Search;
+using CardProcessingApi.Data;
 
 namespace CardProcessing.Business.BusinessLogic.MerchantLogic
 {
@@ -21,5 +19,8 @@ namespace CardProcessing.Business.BusinessLogic.MerchantLogic
         List<Merchant> GetMerchantByProvince(int provinceId);
         List<Merchant> GetMerchantByDictrict(int dictrictId);
         int AddManaged(int MerchantId, int AgentId);
+        List<Merchant> SearchMerchant(int id, string name);
+        IList<Merchant> SearchMerchant(MerchantSearchCriteria searchCriteria);
+        IPagedList<Merchant> SearchMerchant(MerchantSearchCriteria searchCriteria, PagingFilter pagingFilter);
     }
 }

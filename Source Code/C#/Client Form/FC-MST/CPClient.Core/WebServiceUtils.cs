@@ -91,6 +91,32 @@ namespace CPClient.Core
             }
         }
 
+        public static async Task<bool> Post(string apiUrl,  Action<string> onSuccess = null, Action<string> onFailed = null, string host = "WebServiceUrl")
+        {
+            AttachAuthorizationToken();
+            var response = await WebEngine.ClientInstance.PostAsync(AppConfigHelper.GetString(host) + apiUrl,
+                new StringContent(JsonConvert.SerializeObject(null), new UnicodeEncoding(), "application/json"));
+            var content = await response.Content.ReadAsStringAsync();
+            if (response.IsSuccessStatusCode)
+            {
+                if (onSuccess != null)
+                {
+                    onSuccess.Invoke(content);
+                }
+
+                return true;
+            }
+            else
+            {
+                if (onFailed != null)
+                {
+                    onFailed.Invoke(content);
+                }
+
+                return false;
+            }
+        }
+
         private static void AttachAuthorizationToken()
         {
             if(AppContext.CurrentSessionState != null && !string.IsNullOrEmpty(AppContext.CurrentSessionState.AccessToken)) 

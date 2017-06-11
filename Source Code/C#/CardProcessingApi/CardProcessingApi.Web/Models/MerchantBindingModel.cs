@@ -71,7 +71,7 @@ namespace CardProcessingApi.Web.Models
         public int DistrictId { get; set; }
     }
 
-    public class MerchantListItemModel
+    public class MerchantListItemModel : BaseModel
     {
         public string MerchantId { get; set; }
         public string MerchantName { get; set; }
@@ -80,6 +80,5 @@ namespace CardProcessingApi.Web.Models
         public string Email { get; set; }
         public CommonViewModels.ProvinceListItemModel Province { get; set; }
         public CommonViewModels.DistrictListItemModel District { get; set; }
-        //public bool IsActive { get; set; }
     }
 }
