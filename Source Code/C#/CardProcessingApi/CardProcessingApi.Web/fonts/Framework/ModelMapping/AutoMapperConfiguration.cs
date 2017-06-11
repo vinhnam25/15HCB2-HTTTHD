@@ -59,7 +59,9 @@ namespace CardProcessingApi.Web.Framework.ModelMapping
                      TypeId = (int)c.MerchantType,
                      TypeName = c.MerchantType1.TypeName
                  }));
+            cfg.CreateMap<CreateMerchantBindingModel, Merchant>();
             Mapper.Initialize(cfg);
+
         }
     }
 }

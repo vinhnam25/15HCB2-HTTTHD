@@ -10,8 +10,12 @@ namespace CardProcessing.Business.BusinessLogic.MerchantLogic
     public interface IMerchantLogic
     {
         Merchant GetMerchantById(int merchantId);
+
+        Merchant GetLastestMerchant();
         void Add(Merchant agent);
         void Update(Merchant agent);
+        void Delete(Merchant agent);
+        void DeleteLastest();
         List<Merchant> GetAll();
         List<Merchant> GetBy(int a, int b);
         List<Merchant> GetStatusManaged(int type);

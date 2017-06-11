@@ -30,7 +30,7 @@ namespace CardProcessingApi.Web.Controllers
         }
 
         [HttpPost]
-        [RoleAuthorize(UserRole.Master)]
+        //[RoleAuthorize(UserRole.Master)]
         [Route("create")]
         public IHttpActionResult CreateAgent(CreateAgentBindingModel model)
         {
@@ -99,7 +99,7 @@ namespace CardProcessingApi.Web.Controllers
         }
 
         [Route("search/with-filter")]
-        [RoleAuthorize(UserRole.Master)]
+        //[RoleAuthorize(UserRole.Master)]
         [HttpGet]
         public List<AgentListItemModel> SearchWithFilter([FromUri] AgentSearchCriteria searchCriteria)
         {
