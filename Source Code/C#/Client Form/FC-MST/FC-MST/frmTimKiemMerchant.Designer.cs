@@ -38,6 +38,7 @@
             this.txtDistrict = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.gridMerchant = new System.Windows.Forms.DataGridView();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.AgentId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AgentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,7 +47,6 @@
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Province = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.District = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.gridMerchant)).BeginInit();
             this.SuspendLayout();
             // 
@@ -141,16 +141,26 @@
             this.gridMerchant.Size = new System.Drawing.Size(938, 281);
             this.gridMerchant.TabIndex = 9;
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(176, 179);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(107, 17);
+            this.checkBox1.TabIndex = 10;
+            this.checkBox1.Text = "Đang  hoạt động";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // AgentId
             // 
-            this.AgentId.DataPropertyName = "AgentId";
+            this.AgentId.DataPropertyName = "MerchantId";
             this.AgentId.HeaderText = "Mã";
             this.AgentId.Name = "AgentId";
             this.AgentId.ReadOnly = true;
             // 
             // AgentName
             // 
-            this.AgentName.DataPropertyName = "AgentName";
+            this.AgentName.DataPropertyName = "MerchantName";
             this.AgentName.HeaderText = "Tên";
             this.AgentName.Name = "AgentName";
             this.AgentName.ReadOnly = true;
@@ -196,16 +206,6 @@
             this.District.HeaderText = "Quận/Huyện";
             this.District.Name = "District";
             this.District.ReadOnly = true;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(176, 179);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(107, 17);
-            this.checkBox1.TabIndex = 10;
-            this.checkBox1.Text = "Đang  hoạt động";
-            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // frmTimKiemMerchant
             // 

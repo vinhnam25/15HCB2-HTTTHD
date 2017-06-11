@@ -86,6 +86,7 @@ namespace CardProcessingApi.Web.Models
         public string MerchantName { get; set; }
         public string Phone { get; set; }
         public string Fax { get; set; }
+        public string Zip { get; set; }
         public string Email { get; set; }
         public CommonViewModels.ProvinceListItemModel Province { get; set; }
         public CommonViewModels.DistrictListItemModel District { get; set; }
