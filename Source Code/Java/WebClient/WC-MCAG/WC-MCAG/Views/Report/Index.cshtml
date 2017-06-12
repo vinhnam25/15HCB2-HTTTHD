@@ -1,0 +1,582 @@
+﻿
+
+@{
+    ViewBag.Title = "Báo cáo";
+}
+
+@section contentHeader {
+    <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#" class="current">Báo cáo thống kê</a> </div>
+    <h1>Báo cáo thống kê</h1>
+}
+
+@section css {
+<style>
+    .highlight {
+        color: red;
+    }
+
+    span#lich:hover {
+        cursor: pointer;
+    }
+
+    .select2-container .select2-choice {
+        height: 28px;
+    }
+</style>
+
+}
+
+<div ng-app="myApp" ng-controller="myController">
+
+    <div class="well carousel-search hidden-sm">
+        <div>
+            <div style="width: 400px; float:left">
+                <label>Chọn</label>
+                <select id="cboView">
+                    <option value="1">Báo cáo theo ngày</option>
+                    <option value="2">Báo cáo theo tháng</option>
+                    <option value="3">Báo cáo theo năm</option>
+                    <option value="4">Báo cáo theo quý</option>
+                    <option value="5">Báo cáo theo điều kiện khác</option>
+                </select>
+            </div>
+            <div ng-show="selectedValue == 5">
+                <div style="width: 200px; float: left">
+                    <label>Từ ngày</label>
+                    <div class="input-append date">
+                        <input type="text" width="150" id="datepicker_tungay"><span class=" add-on" id="lich1"><i class="icon-th"></i></span>
+                    </div>
+                </div>
+                <div style="width: 200px; float: left; margin-left: 80px">
+                    <label>Đến ngày</label>
+                    <div class="input-append date">
+                        <input type="text" width="150" id="datepicker_dengnay"><span class=" add-on" id="lich2"><i class="icon-th"></i></span>
+                    </div>
+                </div>
+                <div style="clear: both"></div>
+            </div>
+            <div ng-show="selectedValue == 3">
+                <div style="width: 200px; float:left">
+                    <label>Chọn năm</label>
+                    <select id="cboYear"></select>
+                </div>
+                <div style="clear: both"></div>
+            </div>
+            <div ng-show="selectedValue == 2">
+                <div style="width: 400px; float:left">
+                    <label>Chọn tháng (tính từ đầu năm hiện tại)</label>
+                    <select id="cboMonth" style="width: 200px;"></select>
+                </div>
+                <div style="clear: both"></div>
+            </div>
+            <div ng-show="selectedValue == 4">
+                <div style="width: 200px; float:left">
+                    <label>Chọn quý</label>
+                    <select id="cboQuatar"></select>
+                </div>
+                <div style="clear: both"></div>
+            </div>
+            <div ng-show="selectedValue == 1">
+                <div style="width: 200px; float: left">
+                    <label>Chọn ngày</label>
+                    <div class="input-append date">
+                        <input type="text" width="150" id="datepicker_ngay"><span class="add-on" id="lich"><i class="icon-th"></i></span>
+                    </div>
+                </div>              
+            </div>
+            <div style="clear: both"></div>
+        </div>
+        <div ng-show="isOther == 1">
+            <div style="width: 400px; float:left" >
+                <select id="cboOther">
+                    <option value="1">Từ đầu tháng đến ngày hiện tại</option>
+                    <option value="2">Từ đầu năm đến ngày hiện tại </option>
+                </select>
+            </div>
+
+            <div style="clear: both"></div>
+        </div>
+        <div style="margin-top: 10px">
+            <button class="btn btn-success" id="btnXem" ng-click="f_XemBaoCao()">Xem báo cáo</button>
+            <button class="btn btn-success" ng-click="exportData()">Xuất báo cáo (.xls)</button>
+            <button class="btn btn-success" onclick="$('#example').tableExport({ type: 'pdf', escape: 'false' });">Xuất báo cáo (.pdf)</button>
+        </div>
+    </div>
+
+    <div class="widget-box widget-plain" style="text-align: center;">
+        <div class="center">
+            <ul class="stat-boxes2">
+                <li>
+                    <div class="left peity_bar_neutral">
+                        <span>
+                            <span style="display: none;">2,4,9,7,12,10,12</span>
+                            <canvas width="50" height="24">Số dòng </canvas>
+                        </span>+10%
+                    </div>
+                    <div class="right"> <strong>{{countRow}}</strong> Số dòng </div>
+                </li>
+                @*<li>
+                    <div class="left peity_line_neutral">
+                        <span>
+                            <span style="display: none;">10,15,8,14,13,10,10,15</span>
+                            <canvas width="50" height="24"></canvas>
+                        </span>10%
+                    </div>
+                    <div class="right"> <strong>{{tienBanHang}}</strong> Bán hàng </div>
+                </li>
+                <li>
+                    <div class="left peity_bar_bad">
+                        <span>
+                            <span style="display: none;">3,5,6,16,8,10,6</span>
+                            <canvas width="50" height="24"></canvas>
+                        </span>-40%
+                    </div>
+                    <div class="right"> <strong>{{tienTraHang}}</strong> Trả hàng</div>
+                </li>*@
+                <li>
+                    <div class="left peity_line_good">
+                        <span>
+                            <span style="display: none;">12,6,9,23,14,10,17</span>
+                            <canvas width="50" height="24"></canvas>
+                        </span>+60%
+                    </div>
+                    <div class="right"> <strong>{{getTongTien()}}</strong> Tổng cộng </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="widget-box">
+        <div class="widget-title">
+            <span class="icon"><i class="icon-th"></i></span>
+            <h5>Dữ liệu thống kê</h5>
+        </div>
+        <div class="controls">
+            <div class="input-prepend" style="margin-top: 10px; margin-left: 10px">
+                <span class="add-on"><span class="icon icon-search"></span></span>
+                <input type="text" placeholder="Tìm kiếm..." class="span11" ng-model="searchFish">
+            </div>
+
+            <div style="float: right; margin-top: 10px; margin-right: 10px">
+                <select id="cboLoaiThe" style="width: 200px">
+                    <option value="0">Tất cả thẻ</option>
+                    <option value="1">Visa Card</option>
+                    <option value="2">Debit Card</option>
+                    <option value="3">Master Card</option>
+                </select>
+            </div>
+            <div style="float: right; margin-top: 10px; margin-right: 10px">
+                <select id="cboLoaiGD" style="width: 200px;">
+                    <option value="0">Tất cả loại giao dịch</option>
+                    <option value="1">Bán hàng</option>
+                    <option value="2">Trả hàng</option>
+                    <option value="3">Thu hồi</option>
+                </select>
+            </div>
+
+        </div>
+        <div class="widget-content nopadding" id="exportable">
+            <table class="table table-bordered table-striped" id="example" ng-show="hasValue==1">
+                <thead>
+                    <tr>
+                        <th>
+                            <a href="" ng-click="sortType = 'transactionId'; sortReverse = !sortReverse">
+                                Transaction ID
+                                <span ng-show="sortType == 'transactionId' && !sortReverse" class="icon icon-caret-down"></span>
+                                <span ng-show="sortType == 'transactionId' && sortReverse" class="icon icon-caret-up"></span>
+                            </a>
+                        </th>
+                        <th>
+                            <a href="" ng-click="sortType = 'merchantName'; sortReverse = !sortReverse">
+                                Merchant Name
+                                <span ng-show="sortType == 'merchantName' && !sortReverse" class="icon icon-caret-down"></span>
+                                <span ng-show="sortType == 'merchantName' && sortReverse" class="icon icon-caret-up"></span>
+                            </a>
+                        </th>
+                        <th>
+                            <a href="" ng-click="sortType = 'transactionDate'; sortReverse = !sortReverse">
+                                Transaction Date
+                                <span ng-show="sortType == 'transactionDate' && !sortReverse" class="icon icon-caret-down"></span>
+                                <span ng-show="sortType == 'transactionDate' && sortReverse" class="icon icon-caret-up"></span>
+                            </a>
+                        </th>
+                        <th>
+                            <a href="" ng-click="sortType = 'transactionAmount'; sortReverse = !sortReverse">
+                                Transaction Amount
+                                <span ng-show="sortType == 'transactionAmount' && !sortReverse" class="icon icon-caret-down"></span>
+                                <span ng-show="sortType == 'transactionAmount' && sortReverse" class="icon icon-caret-up"></span>
+                            </a>
+                        </th>
+                        <th>
+                            <a href="" ng-click="sortType = 'cardType'; sortReverse = !sortReverse">
+                                Card Type
+                                <span ng-show="sortType == 'cardType' && !sortReverse" class="icon icon-caret-down"></span>
+                                <span ng-show="sortType == 'cardType' && sortReverse" class="icon icon-caret-up"></span>
+                            </a>
+                        </th>
+                        <th>
+                            <a href="" ng-click="sortType = 'quantity'; sortReverse = !sortReverse">
+                                Quantity
+                                <span ng-show="sortType == 'quantity' && !sortReverse" class="icon icon-caret-down"></span>
+                                <span ng-show="sortType == 'quantity' && sortReverse" class="icon icon-caret-up"></span>
+                            </a>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in list | limitTo :queueRowLimit| orderBy:sortType:sortReverse | filter:searchFish" ng-class="{'highlight' : item.transactionType == '2' ? true : false}">
+                        <td>{{item.transactionId}}</td>
+                        <td>{{item.merchantName}}</td>
+                        <td>{{item.transactionDate}}</td>
+                        <td class="center">{{item.transactionAmount}}</td>
+                        <td>{{item.cardType}}</td>
+                        <td class="center">{{item.quantity}}</td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+            <table class="table table-bordered table-striped" ng-show="hasValue==0">
+                <thead>
+                    <tr>
+                        <th>
+                            <a href="" ng-click="sortType = 'transactionId'; sortReverse = !sortReverse">
+                                Transaction ID
+                                <span ng-show="sortType == 'transactionId' && !sortReverse" class="icon icon-caret-down"></span>
+                                <span ng-show="sortType == 'transactionId' && sortReverse" class="icon icon-caret-up"></span>
+                            </a>
+                        </th>
+                        <th>
+                            <a href="" ng-click="sortType = 'merchantName'; sortReverse = !sortReverse">
+                                Merchant Name
+                                <span ng-show="sortType == 'merchantName' && !sortReverse" class="icon icon-caret-down"></span>
+                                <span ng-show="sortType == 'merchantName' && sortReverse" class="icon icon-caret-up"></span>
+                            </a>
+                        </th>
+                        <th>
+                            <a href="" ng-click="sortType = 'transactionDate'; sortReverse = !sortReverse">
+                                Transaction Date
+                                <span ng-show="sortType == 'transactionDate' && !sortReverse" class="icon icon-caret-down"></span>
+                                <span ng-show="sortType == 'transactionDate' && sortReverse" class="icon icon-caret-up"></span>
+                            </a>
+                        </th>
+                        <th>
+                            <a href="" ng-click="sortType = 'transactionAmount'; sortReverse = !sortReverse">
+                                Transaction Amount
+                                <span ng-show="sortType == 'transactionAmount' && !sortReverse" class="icon icon-caret-down"></span>
+                                <span ng-show="sortType == 'transactionAmount' && sortReverse" class="icon icon-caret-up"></span>
+                            </a>
+                        </th>
+                        <th>
+                            <a href="" ng-click="sortType = 'cardType'; sortReverse = !sortReverse">
+                                Card Type
+                                <span ng-show="sortType == 'cardType' && !sortReverse" class="icon icon-caret-down"></span>
+                                <span ng-show="sortType == 'cardType' && sortReverse" class="icon icon-caret-up"></span>
+                            </a>
+                        </th>
+                        <th>
+                            <a href="" ng-click="sortType = 'quantity'; sortReverse = !sortReverse">
+                                Quantity
+                                <span ng-show="sortType == 'quantity' && !sortReverse" class="icon icon-caret-down"></span>
+                                <span ng-show="sortType == 'quantity' && sortReverse" class="icon icon-caret-up"></span>
+                            </a>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd gradeX">
+                        <td colspan="6" style="text-align: center;">Không tìm thấy thông tin</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <label id="loadding" class="hide">Loading . . . </label>
+    </div>
+</div>
+
+@section js {
+<script src="~/Asset/angular/angular.min.js"></script>
+<script src="~/Asset/js/bootstrap-datepicker.js"></script>
+<script src="https://rawgithub.com/eligrey/FileSaver.js/master/FileSaver.js" type="text/javascript"></script>
+<script src="~/Asset/export/tableExport.js"></script>
+<script src="~/Asset/export/jquery.base64.js"></script>
+<script src="~/Asset/export/jspdf/libs/sprintf.js"></script>
+<script src="~/Asset/export/jspdf/jspdf.js"></script>
+<script src="~/Asset/export/jspdf/libs/base64.js"></script>
+<script>
+    $(function () {
+        $("#datepicker_tungay").datepicker({
+            format: 'yyyy-mm-dd'
+        }).on('changeDate', function (e) {
+            $(this).datepicker('hide');
+        });;
+        $("#datepicker_dengnay").datepicker({
+            format: 'yyyy-mm-dd',
+        }).on('changeDate', function (e) {
+            $(this).datepicker('hide');
+        });
+        $("#datepicker_ngay").datepicker({
+            format: 'yyyy-mm-dd',
+        }).on('changeDate', function (e) {
+            $(this).datepicker('hide');
+        });
+
+        $("#datepicker_tungay").val('2017-01-01');
+        $("#datepicker_dengnay").val('2017-05-12');
+        $("#datepicker_ngay").val('2017-05-12');
+
+        $("#lich").click(function () {
+            $("#datepicker_ngay").datepicker("show");
+        });
+        $("#lich1").click(function () {
+            $("#datepicker_tungay").datepicker("show");
+        });
+        $("#lich2").click(function () {
+            $("#datepicker_dengnay").datepicker("show");
+        });
+
+        var ht = "";
+      
+        for (var i = 2000; i < new Date().getFullYear() ; i++)
+        {
+            ht += "<option value='" + i + "'>" + i + "</option>";
+        }
+
+        $("#cboYear").html(ht);
+        $("#cboYear").val(2016);
+        $("#s2id_cboYear .select2-choice span").text("2016");
+
+        ht = "";
+
+        for (var i = 1; i <= new Date().getMonth(); i++) {
+            ht += "<option value='" + i + "'>" + i + "</option>";
+        }
+
+        $("#cboMonth").html(ht);
+        $("#cboMonth").val(new Date().getMonth());
+        $("#s2id_cboMonth .select2-choice span").text(new Date().getMonth());
+
+        ht = "";
+        var quy = 0;
+        var dict = [
+                    { key: 1, value: [1, 2, 3]}, 
+                    { key: 2, value: [4, 5, 6]},
+                    { key: 3, value: [7, 8, 9]},
+                    { key: 4, value: [10, 11, 12]}
+                   ];
+ 
+        for (var i = 0; i < 4; i++)
+        {
+            var currMonth = new Date().getMonth()+1;
+            var arrMonth = dict[i].value;
+
+            if (arrMonth.indexOf(currMonth) >= 0)
+            {
+                quy = dict[i].key;    
+                break;
+            }
+        }
+
+        for (var i = 1; i <= 4 ; i++) {
+            ht += "<option value='" + i + "'>" + i + "</option>";
+        }
+        
+
+        $("#cboQuatar").html(ht);
+        $("#cboQuatar").val(quy - 1);
+        $("#s2id_cboQuatar .select2-choice span").text(quy - 1);
+    });
+
+    $("#cboLoaiThe").change(function () {
+
+        var $scope = $('[ng-controller="myController"]').scope();
+        var value = $(this).val();
+
+        if (value == 0)
+        {
+            $scope.searchFish = "";
+        }
+        else {
+            $scope.searchFish = $("#cboLoaiThe option:selected").html();
+        }
+        
+        $scope.$apply();
+    });
+
+    $("#cboLoaiGD").change(function () {
+
+        var $scope = $('[ng-controller="myController"]').scope();
+        var value = $(this).val();
+
+        if (value == 1)
+            $scope.searchFish = "Sale";
+        else if (value == 2)
+            $scope.searchFish = "Return";
+        else if (value == 3)
+            $scope.searchFish = "Retrive";
+        else
+            $scope.searchFish = "";
+
+        $scope.$apply();
+    });
+
+    $("#cboView").change(function () {
+        
+        var value = $(this).val();
+
+        var $scope = $('[ng-controller="myController"]').scope();
+
+        if (value == 5)
+        {
+            $scope.isOther = 1;
+            var fd = Date.today.clearTime().moveToFirstDayOfMonth();
+            var firstday = fd.toString("MM/dd/yyyy");
+            alert(firstday);
+        }
+        else {
+            $scope.isOther = 0;
+        }
+        
+        $scope.selectedValue = $(this).val();
+        $scope.$apply();
+    });
+
+    $(window).scroll(function () {
+
+        var $scope = $('[ng-controller="myController"]').scope();
+
+        if ($scope.countRow <= $scope.queueRowLimit) {
+            setTimeout(function () {
+                $scope.queueRowLimit += 10;
+                $("#loadding").removeClass("show");
+                $scope.$apply();
+            }, 2000);
+             
+            return;
+        }
+
+        if ($(window).scrollTop() + $(window).height() == $(document).height() && $scope.countRow > 0) {
+            $("#loadding").addClass("show");
+            setTimeout(function () {
+                $scope.queueRowLimit += 10;
+                $("#loadding").removeClass("show");
+                $scope.$apply();
+            }, 2000);
+        }
+        
+    });
+
+    var app = angular.module('myApp', []);
+
+    app.controller('myController', function ($scope, $http) {
+
+        $scope.sortType = 'name'; // set the default sort type
+        $scope.sortReverse = false;  // set the default sort order
+        $scope.searchFish = '';     // set the default search/filter term
+        $scope.queueRowLimit = 10;
+        $scope.countRow = 0;
+        $scope.selectedValue = 1;
+        $scope.hasValue = 0;
+        $scope.isOther = 0;
+        $scope.list = null;
+        $scope.tienBanHang = 0.0;
+        $scope.tienTraHang = 0.0;
+
+        $scope.showMoreQueues = function () {
+            $scope.queueRowLimit += 10;
+        }
+
+        $scope.exportData = function () {
+
+            if ($scope.countRow == 0)
+            {
+                alert("Không có thông tin để xuất file !");
+                return;
+            }
+
+            var blob = new Blob([document.getElementById('exportable').innerHTML], {
+                type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=utf-8"
+            });
+            saveAs(blob, "Report.xls");
+        };
+
+        $scope.f_XemBaoCao = function()
+        {
+            var _view = $("#cboView").val();
+            var _fromdate = $("#datepicker_tungay").val(); 
+            var _toDate = $("#datepicker_dengnay").val();
+            var _month = $("#cboMonth").val();
+            var _year = $("#cboYear").val();
+            var _quy = $("#cboQuatar").val();
+
+            if (_view == 1)
+            {
+                _toDate = $("#datepicker_ngay").val();
+                _fromdate = $("#datepicker_ngay").val();
+            }
+
+            var _data = {
+                view: _view,
+                loai: 1,
+                fromdate: _fromdate,
+                todate: _toDate,
+                month: _month,
+                year: _year,
+                quy: _quy
+            };
+
+            console.log(_data);
+
+            $http({
+                method: "POST",
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                data: _data,
+                url: 'http://localhost:8080/RFJVService/rest/report/data'
+            }).then(function (a_Result) {
+                var l_Data = a_Result.data;
+
+                if (l_Data == null)
+                {
+                    $scope.countRow = 0;
+                }
+                else {
+                    $scope.countRow = l_Data.reportData.length;
+                    $scope.list = l_Data.reportData;
+                }
+
+                if ($scope.countRow > 0)
+                {
+                    $scope.hasValue = 1;
+                }
+                else {
+                    $scope.hasValue = 0;
+                    alert("Không tìm thấy thông tin");
+                }
+            });
+        }
+        
+        $scope.getTongTien = function () {
+            var total = 0.0;
+
+            if ($scope.list != null)
+            {
+                for (var i = 0; i < $scope.list.length; i++) {
+                    var product = $scope.list[i];
+                    total += Number(product.transactionAmount);
+
+                    //if (product.transactionType === '1')
+                    //{
+                    //    $scope.tienBanHang += Number(product.transactionAmount);
+                    //}
+
+                }
+            }
+            
+            var fm_total = parseFloat(total, 10).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString() + ' vnd';
+            console.log(fm_total);
+            return fm_total;
+        }
+    });
+</script>
+}

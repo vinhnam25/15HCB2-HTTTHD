@@ -1,0 +1,102 @@
+package service.object;
+
+import java.util.List;
+
+import org.codehaus.jettison.json.JSONObject;
+
+import backend.dal.NotificationDAL;
+import backend.entities.Notification;
+import backend.entities.Notification_From;
+import backend.entities.Notification_list_sent;
+import service.interfaces.INotificationService;
+
+public class NotificationService implements INotificationService<Notification> {
+
+	//use Singleton Patern - Begin
+	private static NotificationService instance = null;
+	
+	public NotificationService()
+	{
+		
+	}
+	
+	public static NotificationService getInstance()
+	{
+		if(instance == null)
+			instance = new NotificationService();
+		
+		return instance;
+	}
+	//use Singleton Patern - End
+	
+	@Override
+	public int create(String jsondata) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int update(String jsondata) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int delete(String jsondata) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Notification get(String jsondata) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+
+	@Override
+	public List<Notification_From> getinboxbytoken(String jsondata) throws Exception {		
+		JSONObject jo = new JSONObject(jsondata);
+		String token = jo.getString("token");
+		List<Notification_From> us = NotificationDAL.getinboxbytoken(token);
+		return us;
+	}
+	
+	@Override
+	public void seennotificationbynotiid(String jsondata) throws Exception {		
+		JSONObject jo = new JSONObject(jsondata);
+		String id = jo.getString("id");
+		NotificationDAL.seennotibynotid(id);
+	}
+	
+	@Override
+	public int addnotification(String jsondata) throws Exception {		
+		JSONObject jo = new JSONObject(jsondata);
+		System.out.println(jsondata);
+		String type = jo.getString("type");
+		String from = jo.getString("phanhoi_from");
+		String to = jo.getString("phanhoi_to");
+		String mess = jo.getString("mess");
+		int us =  NotificationDAL.addnotification(type, from, to, mess);
+		return us;
+	}
+	
+	@Override
+	public List<Notification_list_sent> getlistsentnotification(String jsondata) throws Exception {		
+		JSONObject jo = new JSONObject(jsondata);
+		String roleid = jo.getString("roleid");
+		List<Notification_list_sent> us = NotificationDAL.getlistforsentnotification(roleid);
+		return us;
+	}
+	
+	@Override
+	public List<Notification> getall() throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+
+}
+

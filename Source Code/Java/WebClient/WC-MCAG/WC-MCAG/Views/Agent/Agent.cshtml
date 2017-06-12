@@ -1,0 +1,111 @@
+﻿@{
+    ViewBag.Title = "Xem thông tin Agent";
+}
+@section contentHeader {
+    <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#" class="current">Xem Thông tin Agent</a> </div>
+    <h1>Thông tin Agent</h1>
+}
+<hr>
+<div class="container-fluid" ng-app="myApp" ng-controller="myController">
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="widget-box">
+                <div class="widget-title">
+                    <span class="icon"> <i class="icon-briefcase"></i> </span>
+                    <h5 id="CompanyName">Company Name</h5>
+                </div>
+                <div class="widget-content">
+                    <div class="row-fluid">
+                        <div class="span6">
+                            <table class="">
+                                <tbody>
+                                    <tr>
+                                        <td><h4 id="CompanyName1">Your Company Name</h4></td>
+                                    </tr>
+                                    <tr>
+                                        <td id="Fax">Fax : </td>
+                                    </tr>
+                                    <tr>
+                                        <td id="Phone">Mobile Phone: +4530422244</td>
+                                    </tr>
+                                    <tr>
+                                        <td id="Email">me@company.com</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="span6">
+                            <table class="table table-bordered table-invoice">
+                                <tbody>
+                                    <tr>
+                                    <tr>
+                                        <td class="width50">Công ty:       </td>
+                                        <td class="width50"><strong>Trách nhiệm Hữu hạn Một thành viên (TNHH MTV) Quản lý nợ và khai thác tài sản Agribank (AMC)</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Thành lập:</td>
+                                        <td><strong>05/06/2017</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Đáo hạn:</td>
+                                        <td><strong>--/--/----</strong></td>
+                                    </tr>
+                                <td class="width30">Địa chỉ:</td>
+                                <td class="width70">
+                                    <strong>Agribank (AMC)</strong> <br>
+                                    29 Nguyễn Trường Tộ, 12 ,Quận 4, Hồ Chí Minh<br>
+                                    Liên hệ : 123 456-7890 <br>
+                                    Email: MTVCompany@companyname.com
+                                </td>
+                                </tr>
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section js {
+    <script src="~/Asset/angular/angular.min.js"></script>
+    <script>
+
+        $("div#divLoading").addClass('show');
+
+        var data = {
+            "userid": sessionStorage.userid
+        }
+
+        $.ajax({
+            type: "POST",
+            data: JSON.stringify(data),
+            url: "http://localhost:8080/RFJVService/rest/agent/getagentbyuserid"
+        }).done(function (response) {
+
+            if (response.agentName === "") {
+                alert("Không lấy được thông tin Agent.");
+            }
+            else {
+                //alert(document.getElementById("CompanyName").innerHTML);
+                document.getElementById("CompanyName").innerHTML = response.agentName;
+                document.getElementById("CompanyName1").innerHTML = response.agentName;
+                document.getElementById("Fax").innerHTML ="Fax : " + response.fax;
+                document.getElementById("Phone").innerHTML ="Mobile Phone: +"+response.phone;
+                document.getElementById("Email").innerHTML = "Email : "+response.email;
+            }
+            $("div#divLoading").removeClass('show');
+
+        }).fail(function (xhr, status, error) {
+            console.log(xhr);
+            console.log(status);
+            console.log(error);
+
+            alert("Lỗi lấy thông tin Agent.");
+        });
+    </script>
+}
